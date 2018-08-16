@@ -1,0 +1,2187 @@
+// Compilers view of MMU. Note these values are determined by the origin statements in the BIOS.
+//Segment           Origin     Size
+Root Code           00:0000    00b45f
+Root Data           00:cfff    000cbc
+Xmem Code           0f:e000    006e3c
+
+
+
+// Function mapping and source reference.
+// * The size of labels is indeterminate and so is denoted with an asterisk.
+//  Addr     Size   Function                        File                         Line Num
+    1f91     1091   main                            \FORMAT_FAT.C                      45
+    23d4       84   _fat_config_init                \FAT_CONFIG.LIB                   326
+    2428     1354   _fatwtc_init                    \FATWTC.LIB                       431
+    2972        *   L_add                           \MUTIL.LIB                        745
+    2972        *   G_add                           \MUTIL.LIB                        746
+    297e        *   xgetint                         \XMEM.LIB                        1686
+    298e        *   L_sub                           \MUTIL.LIB                        764
+    298e        *   G_sub                           \MUTIL.LIB                        765
+    299c        *   Hi_Bl                           \UTIL.LIB                        1584
+    29a4        *   _xmem_pl                        \XMEM.LIB                        2000
+    29b0      278   fatrj_hasjournal                \FATWTC.LIB                      2392
+    2ac6      180   fatrj_getchk                    \FATWTC.LIB                      3012
+    2b7a       44   xmem2root                       \XMEM.LIB                         177
+    2ba6        *   xmem_cpyblkfwd                  \XMEM.LIB                         246
+    2c1e        *   xmem_cpyblkbwd                  \XMEM.LIB                         349
+    2ca2      415   xmem2xmem                       \XMEM.LIB                         456
+    2e41        *   swap4_                          \UTIL.LIB                        1462
+    2e4a        *   eq_4                            \UTIL.LIB                        1392
+    2e4a        *   cf_eq                           \UTIL.LIB                        1393
+    2e6a        *   cf_ne                           \UTIL.LIB                        1421
+    2e6a        *   neq_4                           \UTIL.LIB                        1422
+    2e6f        *   cl_lt                           \UTIL.LIB                        1164
+    2e75        *   cl_gt                           \UTIL.LIB                        1167
+    2e78        *   cl_glt                          \UTIL.LIB                        1169
+    2e96        *   long_0                          \UTIL.LIB                        1434
+    2e9b        *   cl_le                           \UTIL.LIB                        1199
+    2ea1        *   cl_ge                           \UTIL.LIB                        1202
+    2ea7        *   sstak                           \UTIL.LIB                        1205
+    2ee3        *   swaps_                          \UTIL.LIB                        1479
+    2ef4        *   cg_le                           \UTIL.LIB                        1104
+    2f0e        *   L_and                           \MUTIL.LIB                        339
+    2f0e        *   G_and                           \MUTIL.LIB                        340
+    2f20        *   sspixff_                        \UTIL.LIB                         592
+    2f30        *   rspixff_                        \UTIL.LIB                         618
+    2f3a      104   paddr                           \XMEM.LIB                        1174
+    2fa2        *   L_mul                           \MUTIL.LIB                        828
+    2fa2        *   G_mul                           \MUTIL.LIB                        829
+    2fd6        *   _xmem_pc                        \XMEM.LIB                        1975
+    2fdb        *   _xmem_mvc                       \XMEM.LIB                        2018
+    2fe2        *   c_asr                           \UTIL.LIB                        1721
+    3009        *   c_usr                           \UTIL.LIB                        1756
+    302c        *   c_com                           \CSUPPORT.LIB                     671
+    3033        *   _xmem_pw                        \XMEM.LIB                        1986
+    303b        *   sspixffn_                       \UTIL.LIB                         178
+    3043        *   rspixffn_                       \UTIL.LIB                         202
+    304b        *   memset                          \STRING.LIB                       478
+    3067        *   _param3                         \UTIL.LIB                         963
+    3076      169   sf_InitDriver                   \SFLASH_FAT.LIB                   492
+    311f      151   sf_init                         \SFLASH.LIB                       678
+    31b6       98   sfspi_init                      \SFLASH.LIB                       257
+    3218      423   sf_initDevice                   \SFLASH.LIB                       793
+    33bf       88   sf_deviceStatus                 \SFLASH.LIB                       885
+    3417       63   sf_disableCS                    \SFLASH.LIB                       874
+    3456        *   WrPortI                         \SYSIO.LIB                        361
+    347a       58   sfspi_write                     \SFLASH.LIB                       342
+    34b4       54   sfspi_bitrev                    \SFLASH.LIB                       547
+    34ea        *   _xmem_xlt                       \SFLASH.LIB                       219
+    34f9       51   sfspi_read                      \SFLASH.LIB                       448
+    352c       68   sf_enableCS                     \SFLASH.LIB                       860
+    3570        *   c_udv                           \MUTIL.LIB                        580
+    357c        *   c_div                           \MUTIL.LIB                        600
+    35d2        *   div0                            \MUTIL.LIB                        539
+    35de        *   exception                       \ERRORS.LIB                       142
+    360b      331   sf_ReadSector                   \SFLASH_FAT.LIB                   215
+    3756      447   sf_readPage                     \SFLASH.LIB                      1419
+    3915        *   c_neg                           \CSUPPORT.LIB                     655
+    391f        *   L_asr                           \MUTIL.LIB                        418
+    394e        *   _ZGLExit                        \MUTIL.LIB                        525
+    3950        *   G_rmax                          \MUTIL.LIB                        528
+    3958        *   L_go                            \MUTIL.LIB                        513
+    395c        *   G_asl                           \MUTIL.LIB                        484
+    395c        *   L_asl                           \MUTIL.LIB                        485
+    397f      252   sf_WriteContinue                \SFLASH_FAT.LIB                   374
+    3a7b      418   sf_writePage                    \SFLASH.LIB                      1279
+    3c1d       17   sf_isWriting                    \SFLASH.LIB                      1363
+    3c2e       87   sf_getDevice                    \SFLASH_FAT.LIB                    90
+    3c85      323   sf_readDeviceRAM                \SFLASH.LIB                      1153
+    3dc8       90   sfspi_xbitrev                   \SFLASH.LIB                       590
+    3e22      148   sfspi_xread                     \SFLASH.LIB                       510
+    3eb6       42   root2xmem                       \XMEM.LIB                         119
+    3ee0      362   sf_WriteSector                  \SFLASH_FAT.LIB                   293
+    404a      302   sf_writeDeviceRAM               \SFLASH.LIB                      1021
+    4178      146   sfspi_xwrite                    \SFLASH.LIB                       409
+    420a      371   sf_EnumDevice                   \SFLASH_FAT.LIB                   133
+    437d        *   L_div                           \MUTIL.LIB                         88
+    441c        *   dloop8                          \MUTIL.LIB                        275
+    4439        *   div0long                        \MUTIL.LIB                        553
+    4445        *   c_divt                          \MUTIL.LIB                        692
+    4475       93   sf_InformStatus                 \SFLASH_FAT.LIB                   448
+    44d2        *   sspixffndbg_                    \UTIL.LIB                         234
+    44dc        *   rspixffndbg_                    \UTIL.LIB                         258
+    44e6        *   _fentry                         \CSUPPORT.LIB                     125
+    4505        *   _fexit                          \CSUPPORT.LIB                     187
+    452e       37   printf                          \STDIO.LIB                        689
+    4553       51   __qe2                           \STDIO.LIB                        582
+    4586      110   _printf                         \STDIO.LIB                        625
+    45f4     1574   doprnt                          \STDIO.LIB                        768
+    4c1a      447   phex                            \STDIO.LIB                       1734
+    4dd9       78   outchrs                         \STDIO.LIB                       2410
+    4e27       83   outstr                          \STDIO.LIB                       2477
+    4e84        *   htoa                            \STDIO.LIB                       2292
+    4ed0        *   hltoa                           \STDIO.LIB                       2350
+    4ef1       81   outpad                          \STDIO.LIB                       1695
+    4f42      508   plhex                           \STDIO.LIB                       1005
+    513e        *   strlen                          \STRING.LIB                      1231
+    514d        *   strtol                          \STRING.LIB                       123
+    5266        *   _mult328                        \STRING.LIB                       322
+    5288        *   islower                         \STRING.LIB                      1722
+    528d        *   isupper                         \STRING.LIB                      1726
+    5292        *   isdigit                         \STRING.LIB                      1730
+    5297        *   isxdigit                        \STRING.LIB                      1734
+    529c        *   ispunct                         \STRING.LIB                      1738
+    52a1        *   isprint                         \STRING.LIB                      1742
+    52a6        *   isspace                         \STRING.LIB                      1746
+    52ab        *   _ctype                          \STRING.LIB                      1981
+    52c4      520   pint                            \STDIO.LIB                       1800
+    54cc        *   utoa                            \STDIO.LIB                       2163
+    550b        *   utoan                           \STDIO.LIB                       2224
+    5529        *   itoan                           \STDIO.LIB                       2247
+    5539        *   abs                             \MATH.LIB                        1742
+    5543        *   itoa                            \STDIO.LIB                       2103
+    5561      598   plint                           \STDIO.LIB                       1469
+    57b7       42   labs                            \MATH.LIB                        2422
+    57e1        *   G_neg                           \CSUPPORT.LIB                     581
+    57e1        *   L_neg                           \CSUPPORT.LIB                     582
+    57f0      208   _gltoa                          \STDIO.LIB                       1149
+    58c0      166   _gltoan                         \STDIO.LIB                       1351
+    5966       24   gtoa                            \STDIO.LIB                       1383
+    597e       24   ltoa                            \STDIO.LIB                       1400
+    5996       21   gtoan                           \STDIO.LIB                       1420
+    59ab       21   ltoan                           \STDIO.LIB                       1437
+    59c0        *   G_com                           \MUTIL.LIB                        785
+    59c0        *   L_com                           \MUTIL.LIB                        786
+    59cd        *   __divmod10                      \STDIO.LIB                       1064
+    59fa        *   tolower                         \STRING.LIB                      1599
+    5a05     2145   pflt                            \STDIO.LIB                       1883
+    6266     1115   __ftoa                          \STDIO.LIB                       1528
+    66c1        *   Bf_Bl                           \CSUPPORT.LIB                     416
+    66e5        *   Bf_Bg                           \CSUPPORT.LIB                     452
+    671d        *   F_unpack                        \CSUPPORT.LIB                     493
+    672a        *   S_right                         \CSUPPORT.LIB                     508
+    6782        *   G_div                           \MUTIL.LIB                        221
+    67b7        *   F_neg                           \MUTILFP.LIB                     1327
+    67bc        *   G_mod                           \MUTIL.LIB                         56
+    67d3        *   mod0                            \MUTIL.LIB                        314
+    67e5        *   Bf_Hc                           \UTIL.LIB                        1840
+    67e5        *   Bf_Hu                           \UTIL.LIB                        1841
+    67e5        *   Bf_Hi                           \UTIL.LIB                        1842
+    67ea        *   flt_0                           \UTIL.LIB                        1272
+    67f7        *   cf_ge                           \UTIL.LIB                        1280
+    680d        *   cf_gt                           \UTIL.LIB                        1297
+    6840        *   cf_le                           \UTIL.LIB                        1334
+    6856        *   cf_lt                           \UTIL.LIB                        1351
+    687c        *   cg_gt                           \UTIL.LIB                        1083
+    688f        *   G_asr                           \MUTIL.LIB                        454
+    68b2        *   toupper                         \STRING.LIB                      1562
+    68c2      148   gets                            \STDIO.LIB                         54
+    6956       61   getchar                         \STDIO.LIB                        229
+    6993        8   kbhit                           \STDIO.LIB                        183
+    699b       47   puts                            \STDIO.LIB                        337
+    69ca        *   putchar                         \STDIO.LIB                        372
+    69de        *   putbin                          \STDIO.LIB                        388
+    69e9        *   c_asl                           \UTIL.LIB                        1803
+    6a05      283   fat_print_config                \FAT_CONFIG.LIB                   343
+    6b20        *   exit                            \SYS.LIB                           49
+    6b2f      567   _Init_Stacks                    \STACK.LIB                       1032
+    6d66        *   _ProgStkSwitch                  \STACK.LIB                       1109
+    6d7f        *   _BiosStkSwitch                  \STACK.LIB                       1141
+    6d8a      276   Get_Stack_Size                  \STACK.LIB                       1172
+    6e9e      315   Alloc_Stack                     \STACK.LIB                       1250
+    6fd9      156   Dealloc_Stack                   \STACK.LIB                       1350
+    7075        *   L_or                            \MUTIL.LIB                        366
+    7075        *   G_or                            \MUTIL.LIB                        367
+    7087       32   xallocreserve                   \STACK.LIB                        597
+    70a7      215   _Adjust_Xalloc_Space            \STACK.LIB                        623
+    717e     1059   _Init_RamX_Xstores              \STACK.LIB                        684
+    75a1      227   _init_xalloc                    \STACK.LIB                        792
+    7684      781   _xalloc                         \STACK.LIB                        875
+    7991       19   xalloc                          \STACK.LIB                        939
+    79a4        *   L_not                           \UTIL.LIB                        1448
+    79a4        *   G_not                           \UTIL.LIB                        1449
+    79ad        *   cg_ge                           \UTIL.LIB                        1130
+    79cd        *   cg_lt                           \UTIL.LIB                        1065
+    79dd        *   C__L                            \UTIL.LIB                        1528
+    79dd        *   U__G                            \UTIL.LIB                        1529
+    79dd        *   C__G                            \UTIL.LIB                        1530
+    79dd        *   I__G                            \UTIL.LIB                        1531
+    79dd        *   U__L                            \UTIL.LIB                        1532
+    79e8        *   _switch                         \UTIL.LIB                          36
+    7a0d       60   fat_AutoMount                   \FAT.LIB                         5035
+    7a49     1849   _fat_automount                  \FAT.LIB                         3376
+    8182      197   fat_UnmountPartition            \FAT.LIB                         4711
+    8247      149   mbr_UnmountPartition            \PART.LIB                         607
+    82dc      245   fat_SyncPartition               \FAT.LIB                         5741
+    83d1       80   fat_IsFatMBREntry               \FAT.LIB                         3180
+    8421        *   strchr                          \STRING.LIB                       958
+    8424        *   _strchr                         \STRING.LIB                       960
+    8430        *   _param2                         \UTIL.LIB                         941
+    843b      799   fatwtc_flushdev                 \FATWTC.LIB                      1886
+    875a      245   fat_tick                        \FATWTC.LIB                       889
+    884f     1723   fatwtc_read                     \FATWTC.LIB                      1443
+    8f0a      475   _fatwtc_find                    \FATWTC.LIB                      1306
+    90e5      102   _fatwtc_makeMRU                 \FATWTC.LIB                       339
+    914b       91   _fatwtc_remove                  \FATWTC.LIB                       378
+    91a6     1488   _fatwtc_getfree                 \FATWTC.LIB                      1146
+    9776        *   x_                              \UTIL.LIB                        1609
+    9781      141   _fatwtc_LRU                     \FATWTC.LIB                       393
+    980e      103   _fatwtc_makeLRU                 \FATWTC.LIB                       358
+    9875       37   _dc_assert                      \ERRORS.LIB                        88
+    989a      293   fatrj_tranend                   \FATWTC.LIB                      2204
+    99bf      465   fatwtc_write                    \FATWTC.LIB                      1743
+    9b90      470   _fatrj_store_preimage           \FATWTC.LIB                      2089
+    9d66      264   fatwtc_makedirty                \FATWTC.LIB                      1814
+    9e6e       57   xmemcmp                         \XMEM.LIB                        1636
+    9ea7        *   _xmem_clc                       \XMEM.LIB                        2123
+    9eb6      119   fatrj_unregmarker               \FATWTC.LIB                      2728
+    9f2d     1108   _fatwtc_devwrite                \FATWTC.LIB                       926
+    a381      415   fat_Close                       \FAT.LIB                         6954
+    a520      247   fat_SyncFile                    \FAT.LIB                         6842
+    a617      252   fatrj_setmarker                 \FATWTC.LIB                      2793
+    a713      218   _fat_tm2timestamp               \FAT.LIB                         2648
+    a7ed       18   tm_rd                           \RTCLOCK.LIB                      654
+    a7ff        *   periodic_isr                    \VDRIVER.LIB                      528
+    a806        *   periodic_isr_ep2                \VDRIVER.LIB                      535
+    a89d        *   bios_intexit                    \VDRIVER.LIB                      695
+    a8b8        *   __slice_tick                    \SLICE.LIB                         74
+    a8d3        *   hitwd                           \VDRIVER.LIB                       48
+    a8da       15   VdInit                          \VDRIVER.LIB                       93
+    a8e9       15   slicefsp_init                   \SLICE.LIB                         29
+    a8f8        *   st4_s                           \CSUPPORT.LIB                     341
+    a8ff        *   slong_s                         \CSUPPORT.LIB                     346
+    a90d       86   read_rtc                        \RTCLOCK.LIB                      149
+    a963       80   mktm                            \RTCLOCK.LIB                      533
+    a9b3      134   _mktm_date                      \RTCLOCK.LIB                      423
+    aa39        *   llong_s                         \CSUPPORT.LIB                     319
+    aa48     1261   fat_MountPartition              \FAT.LIB                         4489
+    afa9       41   strncpy                         \STRING.LIB                       569
+    afe2       44   memcmp                          \STRING.LIB                      1512
+    b00e        *   memcpy                          \STRING.LIB                      1141
+    b00e        *   memmove                         \STRING.LIB                      1142
+    b08a       27   strcpy                          \STRING.LIB                       529
+    b0a5       47   strncmp                         \STRING.LIB                       825
+    b0d4      126   premain                         \PROGRAM.LIB                       61
+    b152        *   _init_bad_interrupts            \PROGRAM.LIB                      113
+    b1ac        *   _unexp_interrupt                \UTIL.LIB                        2157
+    b1b8        *   dkInitDebug                     \DKCOMMON.LIB                     279
+    b20b        *   dkProlog                        \DKENTRY.LIB                       55
+    b225        *   dkEpilog                        \DKENTRY.LIB                       81
+    b23b       15   dkSetStdioTimer                 \DKCOMMON.LIB                     327
+    b24a       33   dkCheckStdioTimeOut             \DKCOMMON.LIB                     332
+    b26b       15   dkSetGetCharTimer               \DKCOMMON.LIB                     340
+    b27a       35   dkCheckGetCharTimeOut           \DKCOMMON.LIB                     345
+    b29d        *   dkSetReturnAddress              \DKCOMMON.LIB                      22
+    b2f4        *   dkHandleRST20                   \DKCOMMON.LIB                      68
+    b3d9        *   dkHandleRST28                   \DKENTRY.LIB                      177
+    b407        *   dkHandleRST18                   \DKENTRY.LIB                      124
+ 00:e4ed        *   xgetlong                        \XMEM.LIB                        1790
+ 00:e4ed        *   xgetfloat                       \XMEM.LIB                        1791
+ 00:e533        *   xsetlong                        \XMEM.LIB                        1887
+ 00:e533        *   xsetfloat                       \XMEM.LIB                        1888
+ 00:e564        *   xmemset                         \XMEM.LIB                        1471
+ 00:e5b7        *   xsetint                         \XMEM.LIB                        1722
+ 00:e5d9        *   xstrlen                         \XMEM.LIB                        1406
+ 00:e60a      108   __fpconv_xmemwrapper            \MUTILFP.LIB                      188
+ 00:e60a        *   Hi_Bf                           \MUTILFP.LIB                      192
+ 00:e611        *   Bl_Bf                           \MUTILFP.LIB                      200
+ 00:e62b        *   Hc_Bf                           \MUTILFP.LIB                      217
+ 00:e62d        *   Hu_Bf                           \MUTILFP.LIB                      219
+ 00:e631        *   Bg_Bf                           \MUTILFP.LIB                      222
+ 00:e676      576   __F_addxmemwrapper              \MUTILFP.LIB                      290
+ 00:e676        *   F_sub                           \MUTILFP.LIB                      294
+ 00:e67a        *   F_add                           \MUTILFP.LIB                      300
+ 00:e76f        *   _normalize                      \MUTILFP.LIB                      547
+ 00:e8b6      179   __f_divxmemwrapper              \MUTILFP.LIB                     1094
+ 00:e8c0        *   F_div                           \MUTILFP.LIB                     1131
+ 00:e969      161   __f_mulxmemwrapper              \MUTILFP.LIB                      828
+ 00:e969        *   F_mul                           \MUTILFP.LIB                      914
+ 00:ea0a        *   periodic_init                   \VDRIVER.LIB                      470
+ 00:ea57        *   vwdog                           \VDRIVER.LIB                      332
+ 00:ea9c       67   vwdogInit                       \VDRIVER.LIB                      377
+ 00:eadf      959   _fat_table_update               \FAT.LIB                          700
+ 00:ee9e      198   mbr_MountPartition              \PART.LIB                         565
+ 00:ef64      590   fatrj_regpartition              \FATWTC.LIB                      2513
+ 01:e1b2      301   _fat_next_clust                 \FAT.LIB                         1706
+ 01:e2df      430   _fat12_next_clust               \FAT.LIB                         1024
+ 01:e48d    59087   _fat_new_clust                  \FAT.LIB                         1091
+ 0f:eb5c      133   fatrj_transtart                 \FATWTC.LIB                      2154
+ 0f:ebe1      462   _fat_adj_clust                  \FAT.LIB                          948
+ 0f:edaf      777   fatrj_rollback                  \FATWTC.LIB                      2287
+ 10:e0b8        *   _fat_xnull_len                  \FAT.LIB                          881
+ 10:e0ec      311   fatrj_setchk                    \FATWTC.LIB                      2953
+ 10:e223      140   fatrj_status                    \FATWTC.LIB                      2457
+ 10:e2af       23   paddrSS                         \XMEM.LIB                        1354
+ 10:e2c6        *   _fat_xfind_null                 \FAT.LIB                          804
+ 10:e4fb     2352   fat_FormatPartition             \FAT.LIB                         5464
+ 10:ee2b      878   _fat_CheckPart                  \FAT.LIB                         3098
+ 11:e199     1536   fat_EnumPartition               \FAT.LIB                         4263
+ 11:e799      553   _fat_PartCalc                   \FAT.LIB                         3023
+ 11:e9c2      130   _fat_unmountdevparts            \FAT.LIB                         3199
+ 11:ea44     1344   fat_EnumDevice                  \FAT.LIB                         3933
+ 11:ef84     1218   fatwtc_regdev                   \FATWTC.LIB                       709
+ 12:e446       19   xavail                          \XMEM.LIB                         614
+ 12:e459      608   _xavail                         \XMEM.LIB                         539
+ 12:e6b9      461   _fat_chkpoint                   \FAT.LIB                         2042
+ 12:e886     1517   _fat_free_clust                 \FAT.LIB                         1787
+ 12:ee73      208   xrelease                        \XMEM.LIB                         651
+ 12:ef43      611   fat_FormatDevice                \FAT.LIB                         4133
+ 13:e1a6     1127   mbr_CreatePartition             \PART.LIB                         455
+ 13:e60d      917   mbr_ValidatePartitions          \PART.LIB                          87
+ 13:e9a2     1358   mbr_FormatDevice                \PART.LIB                         329
+ 13:eef0      544   fat_UnmountDevice               \FAT.LIB                         4885
+ 14:e110       81   fat_CreateDir                   \FAT.LIB                         6390
+ 14:e161       99   fat_CreateFile                  \FAT.LIB                         6507
+ 14:e1c4     1467   fat_Open                        \FAT.LIB                         6073
+ 14:e77f      159   fatrj_getmarker                 \FATWTC.LIB                      2838
+ 14:e81e      170   _fat_clust2sec                  \FAT.LIB                         2102
+ 14:e8c8      459   fatrj_regmarker                 \FATWTC.LIB                      2637
+ 14:ea93     1982   _fat_create                     \FAT.LIB                         2766
+ 15:e251       52   _fat_Clust2Dir                  \FAT.LIB                          634
+ 15:e285      720   _fat_navigate                   \FAT.LIB                         2400
+ 15:e555      674   _fat_getname                    \FAT.LIB                         2272
+ 15:e7f7      936   _fat_scan                       \FAT.LIB                         2544
+ 15:eb9f       98   _fat_first_unused               \FAT.LIB                         2234
+ 15:ec01       86   _fat_first_deleted              \FAT.LIB                         2213
+ 15:ec57       80   _fat_xDir2Clust                 \FAT.LIB                          653
+ 15:eca7      361   fatwtc_flushall                 \FATWTC.LIB                      1998
+ 15:ee10        *   dkSetPrologHook                 \DKENTRY.LIB                      106
+ 15:ee18        *   dkSetExitHook                   \DKENTRY.LIB                       13
+ 15:ee20        *   dkCheckEntry                    \DKCORE.LIB                       346
+ 15:ee2b        *   dkSetSingleStepHook             \DKENTRY.LIB                       27
+ 15:ee33        *   dkSetEpilogHook                 \DKENTRY.LIB                       37
+
+
+// Global/static data symbol mapping and source reference.
+//  Addr     Size   Symbol                          File                         Line Num  Type
+    c8df        2   fat_sysdriver                   \FAT.LIB                          334  struct fat_sysdriver*
+    c8dd        2   fat_syswtc                      \FAT.LIB                          335  unsigned int    
+ 10:05c3       12   _fatConfig                      \FAT_CONFIG.LIB                   300  const struct _fatConfig[]
+ 10:05d2       24   _fatDevConfig                   \FAT_CONFIG.LIB                   311  const struct _fatDevConfig[]
+    c8ab       50   _fat_driver_table               \FAT_CONFIG.LIB                   312  struct _fat_driver_table[]
+    c845      102   _fat_device_table               \FAT_CONFIG.LIB                   313  struct _fat_device_table[]
+    c715      304   _fat_part_table                 \FAT_CONFIG.LIB                   315  struct _fat_part_table[]
+    c70d        8   fat_part_mounted                \FAT_CONFIG.LIB                   318  struct fat_part_mounted*[]
+ 10:05f3        2   num_fat_drivers                 \FAT_CONFIG.LIB                   287  const unsigned int
+ 10:05f5        2   num_fat_devices                 \FAT_CONFIG.LIB                   288  const unsigned int
+    c70b        2   _fatwtc_donealloc               \FATWTC.LIB                       419  int             
+    c707        4   _fatwtc_header                  \FATWTC.LIB                       423  long            
+    c4ce      569   _wtc                            \FATWTC.LIB                       330  struct _wtc     
+    c4b7       23   sf_dev                          \SFLASH.LIB                       641  struct sf_dev   
+    c4b3        4   sf_blocks                       \SFLASH.LIB                       638  long            
+    c4b1        2   sf_prefixsize                   \SFLASH.LIB                       639  int             
+    c4af        2   sf_blocksize                    \SFLASH.LIB                       640  int             
+ 10:05f7      120   sf_devtable                     \SFLASH.LIB                       787  const struct sf_devtable[]
+ 10:0671      256   BitRevTable                     \SYS.LIB                         1559  const char[]    
+ 10:07a8      129   _ctype_table                    \STRING.LIB                      1967  const char[]    
+ 10:0829       10   _tens                           \STDIO.LIB                       2153  const unsigned int[]
+ 10:0833       44   __ltens                         \STDIO.LIB                       1130  const unsigned long[]
+ 10:085f       32   pflt:round                      \STDIO.LIB                       1890  const long[]    
+ 10:0886        4   __ftoa:lg_2_10                  \STDIO.LIB                       1537  const float     
+ 10:088a       32   __f_divxmemwrapper:_divtable    \MUTILFP.LIB                     1101  const char[]    
+    c4ab        4   freeStacks                      \STACK.LIB                       1001  long[]          
+ 10:0984       10   stackSizes                      \STACK.LIB                       1002  const unsigned int[]
+    c4a7        4   BaseOfStacks1                   \STACK.LIB                        955  unsigned long   
+    c4a3        4   BaseOfStacks2                   \STACK.LIB                        955  unsigned long   
+    c49f        4   SizeOfStacks1                   \STACK.LIB                        956  unsigned long   
+    c49b        4   SizeOfStacks2                   \STACK.LIB                        956  unsigned long   
+    c499        2   main:biossp                     \STACK.LIB                       1106  int             
+    c495        4   Alloc_Stack:retval              \STACK.LIB                       1252  long            
+    c493        2   Alloc_Stack:fsPtr               \STACK.LIB                       1254  char*           
+    c491        2   Dealloc_Stack:fsPtr             \STACK.LIB                       1353  char*           
+ 10:098e       40   reserve_Store                   \STACK.LIB                        575  const struct reserve_Store[]
+ 10:09b6        2   rstore                          \STACK.LIB                        486  const int       
+    c43d       84   xalloc_Store                    \STACK.LIB                        588  struct xalloc_Store[]
+ 10:09b8        2   xstore                          \STACK.LIB                        487  const int       
+    c43b        2   _Init_RamX_Xstores:xIdx         \STACK.LIB                        686  int             
+    c42f       12   _fat_automount:cacheVolLabel    \FAT.LIB                         3388  char[]          
+    c423       12   _fat_automount:devVolLabel      \FAT.LIB                         3389  char[]          
+    c417       12   _fat_automount:deviceEnum       \FAT.LIB                         3390  int[]           
+ 10:09ba        7   FAT_codes                       \FAT.LIB                         3172  const char[]    
+    c416        1   bios_intnesting                 \VDRIVER.LIB                      434  char            
+    c415        1   bios_swpend                     \VDRIVER.LIB                      435  char            
+    c413        2   __MCOS_COUNTER                  \VDRIVER.LIB                      428  unsigned int    
+    c412        1   __TICK_COUNTER                  \VDRIVER.LIB                      425  char            
+    c411        1   __MS_COUNTER                    \VDRIVER.LIB                      426  char            
+    c40f        2   __SEC_COUNTER                   \VDRIVER.LIB                      427  int             
+    c40b        4   SEC_TIMER                       \VDRIVER.LIB                      432  unsigned long   
+    c407        4   MS_TIMER                        \VDRIVER.LIB                      430  unsigned long   
+    c403        4   TICK_TIMER                      \VDRIVER.LIB                      431  unsigned long   
+    c401        2   __MCOS_CNT_VAL                  \VDRIVER.LIB                      429  unsigned int    
+    c400        1   pisr_inuse                      \VDRIVER.LIB                      450  char            
+    c3ff        1   topVd                           \VDRIVER.LIB                       78  char            
+    c3eb       20   vd_wdogarray                    \VDRIVER.LIB                       83  unsigned int[]  
+    c3e9        2   FSP                             \DKENTRY.LIB                       20  void*           
+    c3e7        2   DBGFSP                          \DKENTRY.LIB                       20  void*           
+ 10:0a76       48   _mktm_date:__dom                \RTCLOCK.LIB                      429  const int[][]   
+    c3e5        2   fat_removableDev                \FAT.LIB                         3820  int             
+    c3e3        2   fat_solderedDev                 \FAT.LIB                         3821  int             
+    c38f       84   _temp_file                      \FAT.LIB                          590  struct _temp_file
+    c34f       64   _fat_create:dent                \FAT.LIB                         2769  struct _fat_create:dent[]
+    c3e9        2   FSP                             \DKENTRY.LIB                       20  void*           
+    c3e7        2   DBGFSP                          \DKENTRY.LIB                       20  void*           
+    c34b        4   __initial_stack                 \PROGRAM.LIB                       36  long            
+    c349        2   dkStdioTimeout                  \DKCOMMON.LIB                     324  unsigned int    
+    c347        2   dkGetCharTimeout                \DKCOMMON.LIB                     325  unsigned int    
+    c344        3   dkCurBPAddress                  \DKCOMMON.LIB                      18  struct dkCurBPAddress
+
+// Parameter and local auto symbol mapping and source reference.
+//Offset Rel. to     Size   Symbol                          File                         Line Num  Type
+      93      SP        2   main:i                          \FORMAT_FAT.C                      47  int             
+      91      SP        2   main:rc                         \FORMAT_FAT.C                      47  int             
+      11      SP       80   main:s                          \FORMAT_FAT.C                      48  char[]          
+       9      SP        2   main:uncond                     \FORMAT_FAT.C                      49  int             
+       7      SP        2   main:norec                      \FORMAT_FAT.C                      50  int             
+       5      SP        2   main:dev                        \FORMAT_FAT.C                      51  int             
+       4      SP        1   main:cmd                        \FORMAT_FAT.C                      52  char            
+       2      SP        2   main:fmt_flags                  \FORMAT_FAT.C                      53  unsigned int    
+       0      SP        2   main:particion                  \FORMAT_FAT.C                      54  struct main:particion*
+      19      SP        0   _fatwtc_init:_____ZW0000012C    \FATWTC.LIB                       431  void            
+      17      SP        2   _fatwtc_init:i                  \FATWTC.LIB                       433  unsigned int    
+      15      SP        2   _fatwtc_init:j                  \FATWTC.LIB                       433  unsigned int    
+      13      SP        2   _fatwtc_init:stat               \FATWTC.LIB                       433  unsigned int    
+      11      SP        2   _fatwtc_init:tie                \FATWTC.LIB                       433  unsigned int    
+       7      SP        4   _fatwtc_init:e                  \FATWTC.LIB                       434  long            
+       3      SP        4   _fatwtc_init:jrnls              \FATWTC.LIB                       434  long            
+       1      SP        2   _fatwtc_init:dev                \FATWTC.LIB                       435  unsigned int    
+       0      SP        1   _fatwtc_init:mask               \FATWTC.LIB                       436  char            
+      14      SP        2   fatrj_hasjournal:dev            \FATWTC.LIB                      2389  int             
+      16      SP        2   fatrj_hasjournal:prt            \FATWTC.LIB                      2390  int             
+      18      SP        2   fatrj_hasjournal:purge          \FATWTC.LIB                      2392  int             
+      10      SP        2   fatrj_hasjournal:r              \FATWTC.LIB                      2396  unsigned int    
+       8      SP        2   fatrj_hasjournal:lo             \FATWTC.LIB                      2396  unsigned int    
+       6      SP        2   fatrj_hasjournal:hi             \FATWTC.LIB                      2396  unsigned int    
+       2      SP        4   fatrj_hasjournal:rhp            \FATWTC.LIB                      2397  long            
+       0      SP        2   fatrj_hasjournal:rc             \FATWTC.LIB                      2398  int             
+      31      SP        2   fatrj_getchk:prt                \FATWTC.LIB                      3010  unsigned int    
+      33      SP        2   fatrj_getchk:data               \FATWTC.LIB                      3012  void*           
+       8      SP       21   fatrj_getchk:dd                 \FATWTC.LIB                      3014  char[]          
+       4      SP        4   fatrj_getchk:e                  \FATWTC.LIB                      3015  long            
+       2      SP        2   fatrj_getchk:rr                 \FATWTC.LIB                      3016  struct fatrj_getchk:rr*
+       0      SP        2   fatrj_getchk:i                  \FATWTC.LIB                      3017  unsigned int    
+       4      IX        2   xmem2root:dest                  \XMEM.LIB                         177  void*           
+       6      IX        4   xmem2root:src                   \XMEM.LIB                         177  unsigned long   
+      10      IX        2   xmem2root:len                   \XMEM.LIB                         177  unsigned int    
+       6      SP        4   xmem2xmem:dest                  \XMEM.LIB                         456  unsigned long   
+      10      SP        4   xmem2xmem:src                   \XMEM.LIB                         456  unsigned long   
+      14      SP        2   xmem2xmem:len                   \XMEM.LIB                         456  unsigned int    
+       0      SP        4   xmem2xmem:tocopy                \XMEM.LIB                         458  long            
+       2      SP        2   paddr:pointer                   \XMEM.LIB                        1174  void*           
+       2      SP        2   sf_InitDriver:driver            \SFLASH_FAT.LIB                   492  struct sf_InitDriver:driver*
+       4      SP        2   sf_InitDriver:device_list       \SFLASH_FAT.LIB                   492  void*           
+       0      SP        2   sf_init:rc                      \SFLASH.LIB                       680  int             
+       5      SP        2   sf_initDevice:dev               \SFLASH.LIB                       790  struct sf_initDevice:dev*
+       7      SP        2   sf_initDevice:cs_port           \SFLASH.LIB                       791  int             
+       9      SP        2   sf_initDevice:cs_shadow         \SFLASH.LIB                       792  char*           
+      11      SP        2   sf_initDevice:cs_pin            \SFLASH.LIB                       793  int             
+       2      SP        1   sf_initDevice:status            \SFLASH.LIB                       795  char            
+       0      SP        2   sf_initDevice:i                 \SFLASH.LIB                       796  int             
+       3      SP        2   sf_deviceStatus:dev             \SFLASH.LIB                       885  struct sf_deviceStatus:dev*
+       0      SP        1   sf_deviceStatus:status          \SFLASH.LIB                       887  char            
+       2      SP        2   sf_disableCS:dev                \SFLASH.LIB                       874  struct sf_disableCS:dev*
+       2      SP        2   sfspi_write:buffer              \SFLASH.LIB                       342  char*           
+       4      SP        2   sfspi_write:len                 \SFLASH.LIB                       342  int             
+       2      SP        2   sfspi_bitrev:buffer             \SFLASH.LIB                       547  char*           
+       4      SP        2   sfspi_bitrev:len                \SFLASH.LIB                       547  int             
+       2      SP        2   sfspi_read:buffer               \SFLASH.LIB                       448  char*           
+       4      SP        2   sfspi_read:len                  \SFLASH.LIB                       448  int             
+       2      SP        2   sf_enableCS:dev                 \SFLASH.LIB                       860  struct sf_enableCS:dev*
+      14      SP        4   sf_ReadSector:page              \SFLASH_FAT.LIB                   212  unsigned long   
+      18      SP        2   sf_ReadSector:buffer            \SFLASH_FAT.LIB                   213  char*           
+      20      SP        2   sf_ReadSector:device            \SFLASH_FAT.LIB                   214  struct sf_ReadSector:device*
+      22      SP        4   sf_ReadSector:xbuffer           \SFLASH_FAT.LIB                   215  long            
+       8      SP        4   sf_ReadSector:firstpage         \SFLASH_FAT.LIB                   217  long            
+       6      SP        2   sf_ReadSector:readsize          \SFLASH_FAT.LIB                   218  int             
+       4      SP        2   sf_ReadSector:i                 \SFLASH_FAT.LIB                   218  int             
+       2      SP        2   sf_ReadSector:blocks_per_page   \SFLASH_FAT.LIB                   218  int             
+       0      SP        2   sf_ReadSector:dev               \SFLASH_FAT.LIB                   219  struct sf_ReadSector:dev*
+      13      SP        2   sf_readPage:dev                 \SFLASH.LIB                      1419  struct sf_readPage:dev*
+      15      SP        2   sf_readPage:bank                \SFLASH.LIB                      1419  int             
+      17      SP        4   sf_readPage:page                \SFLASH.LIB                      1419  long            
+       4      SP        7   sf_readPage:command             \SFLASH.LIB                      1421  char[]          
+       2      SP        2   sf_readPage:i                   \SFLASH.LIB                      1422  int             
+       0      SP        2   sf_readPage:rshift              \SFLASH.LIB                      1422  int             
+       6      SP        2   sf_WriteContinue:device         \SFLASH_FAT.LIB                   374  struct sf_WriteContinue:device*
+       2      SP        2   sf_WriteContinue:blocks_per_page \SFLASH_FAT.LIB                   376  int             
+       0      SP        2   sf_WriteContinue:dev            \SFLASH_FAT.LIB                   377  struct sf_WriteContinue:dev*
+      13      SP        2   sf_writePage:dev                \SFLASH.LIB                      1279  struct sf_writePage:dev*
+      15      SP        2   sf_writePage:bank               \SFLASH.LIB                      1279  int             
+      17      SP        4   sf_writePage:page               \SFLASH.LIB                      1279  long            
+       4      SP        7   sf_writePage:command            \SFLASH.LIB                      1281  char[]          
+       2      SP        2   sf_writePage:i                  \SFLASH.LIB                      1282  int             
+       0      SP        2   sf_writePage:rshift             \SFLASH.LIB                      1282  int             
+       2      SP        2   sf_isWriting:dev                \SFLASH.LIB                      1363  struct sf_isWriting:dev*
+       6      SP        2   sf_getDevice:head               \SFLASH_FAT.LIB                    90  struct sf_getDevice:head*
+       8      SP        2   sf_getDevice:index              \SFLASH_FAT.LIB                    90  int             
+       2      SP        2   sf_getDevice:i                  \SFLASH_FAT.LIB                    92  int             
+       0      SP        2   sf_getDevice:element            \SFLASH_FAT.LIB                    93  struct sf_getDevice:element*
+      11      SP        2   sf_readDeviceRAM:dev            \SFLASH.LIB                      1149  struct sf_readDeviceRAM:dev*
+      13      SP        4   sf_readDeviceRAM:buffer         \SFLASH.LIB                      1150  long            
+      17      SP        2   sf_readDeviceRAM:offset         \SFLASH.LIB                      1151  int             
+      19      SP        2   sf_readDeviceRAM:len            \SFLASH.LIB                      1152  int             
+      21      SP        2   sf_readDeviceRAM:flags          \SFLASH.LIB                      1153  int             
+       2      SP        7   sf_readDeviceRAM:command        \SFLASH.LIB                      1155  char[]          
+       0      SP        2   sf_readDeviceRAM:i              \SFLASH.LIB                      1156  int             
+       2      SP        4   sfspi_xbitrev:buffer            \SFLASH.LIB                       590  long            
+       6      SP        2   sfspi_xbitrev:len               \SFLASH.LIB                       590  int             
+     130      SP        4   sfspi_xread:buffer              \SFLASH.LIB                       510  long            
+     134      SP        2   sfspi_xread:len                 \SFLASH.LIB                       510  int             
+       0      SP      128   sfspi_xread:buf                 \SFLASH.LIB                       513  char[]          
+       4      IX        4   root2xmem:dest                  \XMEM.LIB                         119  unsigned long   
+       8      IX        2   root2xmem:src                   \XMEM.LIB                         119  void*           
+      10      IX        2   root2xmem:len                   \XMEM.LIB                         119  unsigned int    
+      14      SP        4   sf_WriteSector:page             \SFLASH_FAT.LIB                   290  unsigned long   
+      18      SP        2   sf_WriteSector:buffer           \SFLASH_FAT.LIB                   291  char*           
+      20      SP        2   sf_WriteSector:device           \SFLASH_FAT.LIB                   292  struct sf_WriteSector:device*
+      22      SP        4   sf_WriteSector:xbuffer          \SFLASH_FAT.LIB                   293  long            
+       8      SP        4   sf_WriteSector:firstpage        \SFLASH_FAT.LIB                   295  long            
+       6      SP        2   sf_WriteSector:writesize        \SFLASH_FAT.LIB                   296  int             
+       4      SP        2   sf_WriteSector:i                \SFLASH_FAT.LIB                   296  int             
+       2      SP        2   sf_WriteSector:blocks_per_page  \SFLASH_FAT.LIB                   296  int             
+       0      SP        2   sf_WriteSector:dev              \SFLASH_FAT.LIB                   297  struct sf_WriteSector:dev*
+      11      SP        2   sf_writeDeviceRAM:dev           \SFLASH.LIB                      1017  struct sf_writeDeviceRAM:dev*
+      13      SP        4   sf_writeDeviceRAM:buffer        \SFLASH.LIB                      1018  long            
+      17      SP        2   sf_writeDeviceRAM:offset        \SFLASH.LIB                      1019  int             
+      19      SP        2   sf_writeDeviceRAM:len           \SFLASH.LIB                      1020  int             
+      21      SP        2   sf_writeDeviceRAM:flags         \SFLASH.LIB                      1021  int             
+       3      SP        6   sf_writeDeviceRAM:command       \SFLASH.LIB                      1023  char[]          
+       2      SP        1   sf_writeDeviceRAM:dummy         \SFLASH.LIB                      1023  char            
+       0      SP        2   sf_writeDeviceRAM:i             \SFLASH.LIB                      1024  int             
+     130      SP        4   sfspi_xwrite:buffer             \SFLASH.LIB                       409  long            
+     134      SP        2   sfspi_xwrite:len                \SFLASH.LIB                       409  int             
+       0      SP      128   sfspi_xwrite:buf                \SFLASH.LIB                       412  char[]          
+      20      SP        2   sf_EnumDevice:driver            \SFLASH_FAT.LIB                   133  struct sf_EnumDevice:driver*
+      22      SP        2   sf_EnumDevice:device            \SFLASH_FAT.LIB                   133  struct sf_EnumDevice:device*
+      24      SP        2   sf_EnumDevice:devnum            \SFLASH_FAT.LIB                   133  int             
+      14      SP        4   sf_EnumDevice:sectors           \SFLASH_FAT.LIB                   135  long            
+      10      SP        4   sf_EnumDevice:sectors_per_track \SFLASH_FAT.LIB                   135  long            
+       8      SP        2   sf_EnumDevice:tracks            \SFLASH_FAT.LIB                   136  int             
+       6      SP        2   sf_EnumDevice:base_size         \SFLASH_FAT.LIB                   136  int             
+       4      SP        2   sf_EnumDevice:sector_size       \SFLASH_FAT.LIB                   136  int             
+       2      SP        2   sf_EnumDevice:pages_per_sector  \SFLASH_FAT.LIB                   136  int             
+       0      SP        2   sf_EnumDevice:dev               \SFLASH_FAT.LIB                   137  struct sf_EnumDevice:dev*
+       4      SP        2   sf_InformStatus:device          \SFLASH_FAT.LIB                   448  struct sf_InformStatus:device*
+       6      SP        2   sf_InformStatus:status          \SFLASH_FAT.LIB                   448  int             
+       0      SP        2   sf_InformStatus:dev             \SFLASH_FAT.LIB                   450  struct sf_InformStatus:dev*
+       2      SP        2   printf:fmt                      \STDIO.LIB                        690  char*           
+       2      SP        2   __qe2:c                         \STDIO.LIB                        582  int             
+       4      SP        2   __qe2:__printfbuf               \STDIO.LIB                        582  char*           
+       6      SP        2   __qe2:__printfcnt               \STDIO.LIB                        582  int*            
+       8      SP        2   __qe2:instanceParam             \STDIO.LIB                        582  void*           
+     134      SP        2   _printf:fmt                     \STDIO.LIB                        625  char*           
+     136      SP        2   _printf:args                    \STDIO.LIB                        625  char*           
+     130      SP        2   _printf:__printfcnt             \STDIO.LIB                        627  int             
+     128      SP        2   _printf:__cnt                   \STDIO.LIB                        627  int             
+       0      SP      128   _printf:__printfbuf             \STDIO.LIB                        628  char[]          
+      40      SP        2   doprnt:putc                     \STDIO.LIB                        768  int(*)()        
+      42      SP        2   doprnt:fmt                      \STDIO.LIB                        768  char*           
+      44      SP        2   doprnt:arg1                     \STDIO.LIB                        768  void*           
+      46      SP        2   doprnt:instanceParam            \STDIO.LIB                        768  void*           
+      48      SP        2   doprnt:buf                      \STDIO.LIB                        768  char*           
+      50      SP        2   doprnt:cnt                      \STDIO.LIB                        768  int*            
+      36      SP        2   doprnt:p                        \STDIO.LIB                        770  struct doprnt:p 
+      32      SP        4   doprnt:alnum                    \STDIO.LIB                        771  long            
+      30      SP        2   doprnt:lng                      \STDIO.LIB                        772  int             
+      28      SP        2   doprnt:width                    \STDIO.LIB                        772  int             
+      26      SP        2   doprnt:prec                     \STDIO.LIB                        772  int             
+      24      SP        2   doprnt:FmtSpecified             \STDIO.LIB                        773  int             
+      22      SP        2   doprnt:temp                     \STDIO.LIB                        773  int             
+      20      SP        2   doprnt:j                        \STDIO.LIB                        773  int             
+      18      SP        2   doprnt:anum                     \STDIO.LIB                        773  int             
+      16      SP        2   doprnt:length                   \STDIO.LIB                        773  int             
+      15      SP        1   doprnt:code                     \STDIO.LIB                        774  char            
+      14      SP        1   doprnt:flag                     \STDIO.LIB                        774  char            
+      12      SP        2   doprnt:fptr                     \STDIO.LIB                        775  char*           
+      10      SP        2   doprnt:sptr                     \STDIO.LIB                        775  char*           
+       8      SP        2   doprnt:digits                   \STDIO.LIB                        776  int             
+       4      SP        4   doprnt:farstrptr                \STDIO.LIB                        779  long            
+       0      SP        4   doprnt:r                        \STDIO.LIB                        789  struct doprnt:r 
+       4      IX        1   phex:left                       \STDIO.LIB                       1734  char            
+       6      IX        2   phex:n1                         \STDIO.LIB                       1734  int             
+       8      IX        2   phex:putc                       \STDIO.LIB                       1734  int(*)()        
+      10      IX        2   phex:num                        \STDIO.LIB                       1734  int             
+      12      IX        2   phex:instanceParam              \STDIO.LIB                       1734  void*           
+      14      IX        2   phex:buf                        \STDIO.LIB                       1734  char*           
+      16      IX        2   phex:cnt                        \STDIO.LIB                       1734  int*            
+      18      IX        1   phex:code                       \STDIO.LIB                       1734  char            
+      -2      IX        2   phex:spaces                     \STDIO.LIB                       1736  int             
+      -7      IX        5   phex:array                      \STDIO.LIB                       1737  char[]          
+      -9      IX        2   phex:i                          \STDIO.LIB                       1738  int             
+       2      SP        1   outchrs:c                       \STDIO.LIB                       2411  char            
+       4      SP        2   outchrs:n                       \STDIO.LIB                       2411  int             
+       6      SP        2   outchrs:putc                    \STDIO.LIB                       2411  int(*)()        
+       8      SP        2   outchrs:instanceParam           \STDIO.LIB                       2411  void*           
+      10      SP        2   outchrs:buf                     \STDIO.LIB                       2411  char*           
+      12      SP        2   outchrs:cnt                     \STDIO.LIB                       2411  int*            
+       4      SP        2   outstr:string                   \STDIO.LIB                       2477  char*           
+       6      SP        2   outstr:putc                     \STDIO.LIB                       2477  int(*)()        
+       8      SP        2   outstr:instanceParam            \STDIO.LIB                       2477  void*           
+      10      SP        2   outstr:buf                      \STDIO.LIB                       2477  char*           
+      12      SP        2   outstr:cnt                      \STDIO.LIB                       2477  int*            
+       0      SP        2   outstr:ptr                      \STDIO.LIB                       2479  char*           
+       3      SP        1   outpad:left                     \STDIO.LIB                       1695  char            
+       5      SP        2   outpad:count                    \STDIO.LIB                       1695  int             
+       7      SP        2   outpad:putc                     \STDIO.LIB                       1695  int(*)()        
+       9      SP        2   outpad:instanceParam            \STDIO.LIB                       1695  void*           
+      11      SP        2   outpad:buf                      \STDIO.LIB                       1695  char*           
+      13      SP        2   outpad:cnt                      \STDIO.LIB                       1695  int*            
+       0      SP        1   outpad:k                        \STDIO.LIB                       1697  char            
+       4      IX        1   plhex:left                      \STDIO.LIB                       1005  char            
+       6      IX        2   plhex:n1                        \STDIO.LIB                       1005  int             
+       8      IX        2   plhex:putc                      \STDIO.LIB                       1005  int(*)()        
+      10      IX        4   plhex:num                       \STDIO.LIB                       1005  long            
+      14      IX        2   plhex:instanceParam             \STDIO.LIB                       1005  void*           
+      16      IX        2   plhex:buf                       \STDIO.LIB                       1005  char*           
+      18      IX        2   plhex:cnt                       \STDIO.LIB                       1005  int*            
+      20      IX        1   plhex:code                      \STDIO.LIB                       1005  char            
+      -2      IX        2   plhex:spaces                    \STDIO.LIB                       1007  int             
+     -11      IX        9   plhex:array                     \STDIO.LIB                       1008  char[]          
+     -13      IX        2   plhex:ptr                       \STDIO.LIB                       1009  char*           
+     -15      IX        2   plhex:i                         \STDIO.LIB                       1010  int             
+       4      IX        1   pint:left                       \STDIO.LIB                       1800  char            
+       6      IX        1   pint:code                       \STDIO.LIB                       1800  char            
+       8      IX        2   pint:n1                         \STDIO.LIB                       1800  int             
+      10      IX        2   pint:putc                       \STDIO.LIB                       1800  int(*)()        
+      12      IX        2   pint:num                        \STDIO.LIB                       1800  int             
+      14      IX        2   pint:instanceParam              \STDIO.LIB                       1800  void*           
+      16      IX        2   pint:buf                        \STDIO.LIB                       1800  char*           
+      18      IX        2   pint:cnt                        \STDIO.LIB                       1800  int*            
+      -2      IX        2   pint:spaces                     \STDIO.LIB                       1802  int             
+      -9      IX        7   pint:array                      \STDIO.LIB                       1803  char[]          
+     -10      IX        1   pint:isSigned                   \STDIO.LIB                       1804  char            
+       4      IX        1   plint:left                      \STDIO.LIB                       1469  char            
+       6      IX        1   plint:code                      \STDIO.LIB                       1469  char            
+       8      IX        2   plint:n1                        \STDIO.LIB                       1469  int             
+      10      IX        2   plint:putc                      \STDIO.LIB                       1469  int(*)()        
+      12      IX        4   plint:num                       \STDIO.LIB                       1469  long            
+      16      IX        2   plint:instanceParam             \STDIO.LIB                       1469  void*           
+      18      IX        2   plint:buf                       \STDIO.LIB                       1469  char*           
+      20      IX        2   plint:cnt                       \STDIO.LIB                       1469  int*            
+      -2      IX        2   plint:spaces                    \STDIO.LIB                       1471  int             
+     -16      IX       14   plint:array                     \STDIO.LIB                       1472  char[]          
+     -17      IX        1   plint:isSigned                  \STDIO.LIB                       1473  char            
+       2      SP        4   labs:x                          \MATH.LIB                        2422  long            
+       8      SP        4   _gltoa:num                      \STDIO.LIB                       1149  unsigned long   
+      12      SP        2   _gltoa:ibuf                     \STDIO.LIB                       1149  char*           
+      14      SP        1   _gltoa:neg                      \STDIO.LIB                       1149  char            
+       2      SP        4   _gltoa:tmpL                     \STDIO.LIB                       1151  unsigned long   
+       0      SP        2   _gltoa:beginStr                 \STDIO.LIB                       1152  char*           
+       6      SP        4   _gltoan:num                     \STDIO.LIB                       1351  unsigned long   
+      10      SP        1   _gltoan:neg                     \STDIO.LIB                       1351  char            
+       2      SP        2   _gltoan:dig                     \STDIO.LIB                       1353  int             
+       0      SP        2   _gltoan:j                       \STDIO.LIB                       1353  int             
+       2      SP        4   gtoa:num                        \STDIO.LIB                       1383  unsigned long   
+       6      SP        2   gtoa:ibuf                       \STDIO.LIB                       1383  char*           
+       2      SP        4   ltoa:num                        \STDIO.LIB                       1400  long            
+       6      SP        2   ltoa:ibuf                       \STDIO.LIB                       1400  char*           
+       2      SP        4   gtoan:num                       \STDIO.LIB                       1420  unsigned long   
+       2      SP        4   ltoan:num                       \STDIO.LIB                       1437  long            
+      72      SP        1   pflt:left                       \STDIO.LIB                       1873  char            
+      74      SP        1   pflt:code                       \STDIO.LIB                       1874  char            
+      76      SP        2   pflt:TotalLength                \STDIO.LIB                       1875  int             
+      78      SP        2   pflt:DigitsAfterDecPt           \STDIO.LIB                       1876  int             
+      80      SP        2   pflt:putc                       \STDIO.LIB                       1877  int(*)()        
+      82      SP        4   pflt:f                          \STDIO.LIB                       1878  float           
+      86      SP        2   pflt:FmtSpecified               \STDIO.LIB                       1879  int             
+      88      SP        2   pflt:instanceParam              \STDIO.LIB                       1880  void*           
+      90      SP        2   pflt:buffer                     \STDIO.LIB                       1881  char*           
+      92      SP        2   pflt:cnt                        \STDIO.LIB                       1882  int*            
+      28      SP       42   pflt:buf                        \STDIO.LIB                       1885  char[]          
+      26      SP        2   pflt:sgn                        \STDIO.LIB                       1886  int             
+      24      SP        2   pflt:mdig                       \STDIO.LIB                       1886  int             
+      22      SP        2   pflt:npow                       \STDIO.LIB                       1886  int             
+      20      SP        2   pflt:prec                       \STDIO.LIB                       1886  int             
+      18      SP        2   pflt:xcode                      \STDIO.LIB                       1887  int             
+      16      SP        2   pflt:lenf                       \STDIO.LIB                       1887  int             
+      14      SP        2   pflt:lene                       \STDIO.LIB                       1887  int             
+      12      SP        2   pflt:expp                       \STDIO.LIB                       1887  int             
+      10      SP        2   pflt:k                          \STDIO.LIB                       1888  int             
+       8      SP        2   pflt:j                          \STDIO.LIB                       1888  int             
+       6      SP        2   pflt:q                          \STDIO.LIB                       1888  int             
+       4      SP        2   pflt:firstDigitNonZero          \STDIO.LIB                       1888  int             
+       0      SP        4   pflt:slng                       \STDIO.LIB                       1889  long            
+      34      SP        4   __ftoa:f                        \STDIO.LIB                       1528  float           
+      38      SP        2   __ftoa:rlng                     \STDIO.LIB                       1528  long*           
+      28      SP        4   __ftoa:tmp                      \STDIO.LIB                       1531  float           
+      24      SP        4   __ftoa:mant                     \STDIO.LIB                       1532  float           
+      22      SP        2   __ftoa:sgn                      \STDIO.LIB                       1539  int             
+      20      SP        2   __ftoa:texp                     \STDIO.LIB                       1539  int             
+      18      SP        2   __ftoa:exp                      \STDIO.LIB                       1540  int             
+      16      SP        2   __ftoa:exp2                     \STDIO.LIB                       1540  int             
+      14      SP        2   __ftoa:exp10                    \STDIO.LIB                       1540  int             
+      12      SP        2   __ftoa:i                        \STDIO.LIB                       1540  int             
+       8      SP        4   __ftoa:lng                      \STDIO.LIB                       1541  unsigned long   
+       4      SP        4   __ftoa:chg                      \STDIO.LIB                       1541  unsigned long   
+       0      SP        4   __ftoa:slng                     \STDIO.LIB                       1542  long            
+       4      IX        2   gets:s                          \STDIO.LIB                         54  char*           
+      -2      IX        2   gets:p                          \STDIO.LIB                         56  char*           
+      -3      IX        1   gets:c                          \STDIO.LIB                         56  char            
+       0      IX        0   getchar:_____ZW000003CE         \STDIO.LIB                        229  void            
+      -1      IX        1   getchar:c                       \STDIO.LIB                        231  char            
+       4      IX        2   puts:s                          \STDIO.LIB                        337  char*           
+       8      SP        0   fat_print_config:_____ZW000003D9 \FAT_CONFIG.LIB                   343  void            
+       6      SP        2   fat_print_config:i              \FAT_CONFIG.LIB                   345  unsigned int    
+       4      SP        2   fat_print_config:j              \FAT_CONFIG.LIB                   345  unsigned int    
+       2      SP        2   fat_print_config:drvdesc        \FAT_CONFIG.LIB                   346  struct fat_print_config:drvdesc*
+       0      SP        2   fat_print_config:devdesc        \FAT_CONFIG.LIB                   347  struct fat_print_config:devdesc*
+      16      SP        4   _Init_Stacks:spaceLeft          \STACK.LIB                       1034  long            
+      14      SP        2   _Init_Stacks:i                  \STACK.LIB                       1035  int             
+       4      SP       10   _Init_Stacks:locCounts          \STACK.LIB                       1036  unsigned int[]  
+       2      SP        2   _Init_Stacks:allocIndex         \STACK.LIB                       1037  unsigned int    
+       0      SP        2   _Init_Stacks:totalStackCounts   \STACK.LIB                       1038  unsigned int    
+       4      SP        4   Get_Stack_Size:ptr              \STACK.LIB                       1173  long            
+       0      SP        2   Get_Stack_Size:i                \STACK.LIB                       1174  int             
+       6      SP        2   Alloc_Stack:sz                  \STACK.LIB                       1250  unsigned int    
+       2      SP        2   Alloc_Stack:i                   \STACK.LIB                       1253  int             
+       0      SP        2   Alloc_Stack:i2                  \STACK.LIB                       1253  int             
+       6      SP        4   Dealloc_Stack:ptr               \STACK.LIB                       1351  long            
+       2      SP        2   Dealloc_Stack:i                 \STACK.LIB                       1352  int             
+       0      SP        2   Dealloc_Stack:i2                \STACK.LIB                       1352  int             
+       6      SP        2   _Adjust_Xalloc_Space:xIdx       \STACK.LIB                        623  int             
+       0      SP        4   _Adjust_Xalloc_Space:_HPA       \STACK.LIB                        626  unsigned long   
+       6      SP        2   _Init_RamX_Xstores:rIdx         \STACK.LIB                        683  int             
+       8      SP        4   _Init_RamX_Xstores:ramBegin     \STACK.LIB                        683  unsigned long   
+      12      SP        4   _Init_RamX_Xstores:ramEnd       \STACK.LIB                        683  unsigned long   
+      16      SP        2   _Init_RamX_Xstores:isBBRam      \STACK.LIB                        684  int             
+       0      SP        4   _Init_RamX_Xstores:nextXstoreTop \STACK.LIB                        687  unsigned long   
+       0      SP        2   _init_xalloc:rIdx               \STACK.LIB                        799  int             
+      18      SP        2   _xalloc:szp                     \STACK.LIB                        875  long*           
+      20      SP        2   _xalloc:alignm                  \STACK.LIB                        875  unsigned int    
+      22      SP        2   _xalloc:type                    \STACK.LIB                        875  unsigned int    
+      14      SP        2   _xalloc:i                       \STACK.LIB                        877  int             
+      12      SP        2   _xalloc:pass                    \STACK.LIB                        877  int             
+       8      SP        4   _xalloc:mask                    \STACK.LIB                        878  long            
+       4      SP        4   _xalloc:sz                      \STACK.LIB                        879  long            
+       0      SP        4   _xalloc:base                    \STACK.LIB                        879  long            
+       2      SP        4   xalloc:sz                       \STACK.LIB                        939  long            
+       4      SP        2   fat_AutoMount:flags             \FAT.LIB                         5035  unsigned int    
+       0      SP        2   fat_AutoMount:rc                \FAT.LIB                         5037  int             
+      59      SP        2   _fat_automount:nDrvs            \FAT.LIB                         3373  unsigned int    
+      61      SP        2   _fat_automount:nDevs            \FAT.LIB                         3373  unsigned int    
+      63      SP        2   _fat_automount:drvConfig        \FAT.LIB                         3374  struct _fat_automount:drvConfig*
+      65      SP        2   _fat_automount:devConfig        \FAT.LIB                         3374  struct _fat_automount:devConfig*
+      67      SP        2   _fat_automount:drvTable         \FAT.LIB                         3375  struct _fat_automount:drvTable*
+      69      SP        2   _fat_automount:devTable         \FAT.LIB                         3375  struct _fat_automount:devTable*
+      71      SP        2   _fat_automount:prtTable         \FAT.LIB                         3375  struct _fat_automount:prtTable*
+      73      SP        2   _fat_automount:prtMountList     \FAT.LIB                         3376  struct _fat_automount:prtMountList**
+      75      SP        2   _fat_automount:flags            \FAT.LIB                         3376  unsigned int    
+      55      SP        2   _fat_automount:usesignature     \FAT.LIB                         3378  char*           
+      53      SP        2   _fat_automount:i                \FAT.LIB                         3379  int             
+      51      SP        2   _fat_automount:j                \FAT.LIB                         3379  int             
+      49      SP        2   _fat_automount:mounts           \FAT.LIB                         3379  int             
+      47      SP        2   _fat_automount:rc               \FAT.LIB                         3379  int             
+      45      SP        2   _fat_automount:save_rc          \FAT.LIB                         3379  int             
+      43      SP        2   _fat_automount:useflags         \FAT.LIB                         3380  unsigned int    
+      41      SP        2   _fat_automount:drvdesc          \FAT.LIB                         3381  struct _fat_automount:drvdesc*
+      39      SP        2   _fat_automount:devdesc          \FAT.LIB                         3382  struct _fat_automount:devdesc*
+      37      SP        2   _fat_automount:temppart         \FAT.LIB                         3383  struct _fat_automount:temppart*
+      35      SP        2   _fat_automount:temppartlist     \FAT.LIB                         3383  struct _fat_automount:temppartlist**
+      33      SP        2   _fat_automount:dev              \FAT.LIB                         3384  struct _fat_automount:dev*
+      31      SP        2   _fat_automount:driver           \FAT.LIB                         3385  struct _fat_automount:driver*
+      27      SP        4   _fat_automount:ladrDev          \FAT.LIB                         3386  long            
+      23      SP        4   _fat_automount:ladrCache        \FAT.LIB                         3386  long            
+      22      SP        1   _fat_automount:newVolume        \FAT.LIB                         3387  char            
+       0      SP       22   _fat_automount:di               \FAT.LIB                         3391  struct _fat_automount:di
+       8      SP        2   fat_UnmountPartition:part       \FAT.LIB                         4710  struct fat_UnmountPartition:part*
+       4      SP        2   fat_UnmountPartition:rc         \FAT.LIB                         4713  int             
+       0      SP        4   fat_UnmountPartition:sbuf       \FAT.LIB                         4714  long            
+       2      SP        2   mbr_UnmountPartition:dev        \PART.LIB                         607  struct mbr_UnmountPartition:dev*
+       4      SP        2   mbr_UnmountPartition:pnum       \PART.LIB                         607  int             
+       4      SP        2   fat_SyncPartition:part          \FAT.LIB                         5740  struct fat_SyncPartition:part*
+       0      SP        2   fat_SyncPartition:rc            \FAT.LIB                         5743  int             
+       2      SP        1   fat_IsFatMBREntry:parttype      \FAT.LIB                         3180  char            
+      14      SP        2   fatwtc_flushdev:dev             \FATWTC.LIB                      1884  unsigned int    
+      16      SP        2   fatwtc_flushdev:flags           \FATWTC.LIB                      1886  unsigned int    
+      10      SP        2   fatwtc_flushdev:i               \FATWTC.LIB                      1888  unsigned int    
+       8      SP        2   fatwtc_flushdev:stat            \FATWTC.LIB                      1888  unsigned int    
+       4      SP        4   fatwtc_flushdev:dip             \FATWTC.LIB                      1889  long            
+       2      SP        2   fatwtc_flushdev:rc              \FATWTC.LIB                      1890  int             
+       0      SP        2   fatwtc_flushdev:rc2             \FATWTC.LIB                      1890  int             
+       6      SP        2   fat_tick:i                      \FATWTC.LIB                       891  unsigned int    
+       4      SP        2   fat_tick:dr                     \FATWTC.LIB                       892  struct fat_tick:dr*
+       2      SP        2   fat_tick:rc                     \FATWTC.LIB                       893  int             
+       0      SP        2   fat_tick:stat                   \FATWTC.LIB                       894  unsigned int    
+      41      SP        2   fatwtc_read:prt                 \FATWTC.LIB                      1438  unsigned int    
+      43      SP        2   fatwtc_read:seccount            \FATWTC.LIB                      1439  unsigned int    
+      45      SP        4   fatwtc_read:secnum              \FATWTC.LIB                      1440  unsigned long   
+      49      SP        2   fatwtc_read:where               \FATWTC.LIB                      1441  long*           
+      51      SP        2   fatwtc_read:flags               \FATWTC.LIB                      1443  unsigned int    
+      37      SP        2   fatwtc_read:dev                 \FATWTC.LIB                      1445  unsigned int    
+      36      SP        1   fatwtc_read:mask                \FATWTC.LIB                      1446  char            
+      34      SP        2   fatwtc_read:ent                 \FATWTC.LIB                      1447  int             
+      32      SP        2   fatwtc_read:rc                  \FATWTC.LIB                      1447  int             
+      30      SP        2   fatwtc_read:stat                \FATWTC.LIB                      1448  unsigned int    
+      28      SP        2   fatwtc_read:start               \FATWTC.LIB                      1449  unsigned int    
+      26      SP        2   fatwtc_read:i                   \FATWTC.LIB                      1450  unsigned int    
+      24      SP        2   fatwtc_read:devcount            \FATWTC.LIB                      1450  unsigned int    
+      22      SP        2   fatwtc_read:dr                  \FATWTC.LIB                      1451  struct fatwtc_read:dr*
+      20      SP        2   fatwtc_read:rr                  \FATWTC.LIB                      1452  struct fatwtc_read:rr*
+      16      SP        4   fatwtc_read:ssec                \FATWTC.LIB                      1453  unsigned long   
+      12      SP        4   fatwtc_read:devsec              \FATWTC.LIB                      1453  unsigned long   
+       8      SP        4   fatwtc_read:buf                 \FATWTC.LIB                      1454  long            
+       4      SP        4   fatwtc_read:buf2                \FATWTC.LIB                      1454  long            
+       0      SP        4   fatwtc_read:e                   \FATWTC.LIB                      1454  long            
+      19      SP        2   _fatwtc_find:prt                \FATWTC.LIB                      1301  unsigned int    
+      21      SP        4   _fatwtc_find:secnum             \FATWTC.LIB                      1302  unsigned long   
+      25      SP        2   _fatwtc_find:devp               \FATWTC.LIB                      1303  unsigned int*   
+      27      SP        2   _fatwtc_find:statp              \FATWTC.LIB                      1304  unsigned int*   
+      29      SP        2   _fatwtc_find:startp             \FATWTC.LIB                      1306  unsigned int*   
+      15      SP        2   _fatwtc_find:dev                \FATWTC.LIB                      1315  unsigned int    
+      14      SP        1   _fatwtc_find:fceb               \FATWTC.LIB                      1316  char            
+      12      SP        2   _fatwtc_find:i                  \FATWTC.LIB                      1317  unsigned int    
+      10      SP        2   _fatwtc_find:t                  \FATWTC.LIB                      1317  unsigned int    
+       8      SP        2   _fatwtc_find:stat               \FATWTC.LIB                      1317  unsigned int    
+       4      SP        4   _fatwtc_find:b                  \FATWTC.LIB                      1318  long            
+       0      SP        4   _fatwtc_find:s                  \FATWTC.LIB                      1319  unsigned long   
+       4      SP        2   _fatwtc_makeMRU:index           \FATWTC.LIB                       339  unsigned int    
+       0      SP        2   _fatwtc_makeMRU:wr              \FATWTC.LIB                       344  struct _fatwtc_makeMRU:wr*
+       4      SP        2   _fatwtc_remove:index            \FATWTC.LIB                       378  unsigned int    
+       0      SP        2   _fatwtc_remove:wr               \FATWTC.LIB                       382  struct _fatwtc_remove:wr*
+      25      SP        2   _fatwtc_getfree:dev             \FATWTC.LIB                      1143  unsigned int    
+      27      SP        4   _fatwtc_getfree:secnum          \FATWTC.LIB                      1144  unsigned long   
+      31      SP        2   _fatwtc_getfree:seccount        \FATWTC.LIB                      1146  unsigned int    
+      21      SP        2   _fatwtc_getfree:lonelyquad      \FATWTC.LIB                      1152  int             
+      19      SP        2   _fatwtc_getfree:lonelypair      \FATWTC.LIB                      1152  int             
+      17      SP        2   _fatwtc_getfree:lonelysingle    \FATWTC.LIB                      1152  int             
+      15      SP        2   _fatwtc_getfree:lonely16        \FATWTC.LIB                      1152  int             
+      13      SP        2   _fatwtc_getfree:rc              \FATWTC.LIB                      1152  int             
+      11      SP        2   _fatwtc_getfree:fceb            \FATWTC.LIB                      1153  unsigned int    
+       9      SP        2   _fatwtc_getfree:b               \FATWTC.LIB                      1153  unsigned int    
+       7      SP        2   _fatwtc_getfree:stat            \FATWTC.LIB                      1153  unsigned int    
+       5      SP        2   _fatwtc_getfree:i               \FATWTC.LIB                      1153  unsigned int    
+       4      SP        1   _fatwtc_getfree:fcebl           \FATWTC.LIB                      1154  char            
+       0      SP        4   _fatwtc_getfree:e               \FATWTC.LIB                      1155  long            
+       8      SP        0   _fatwtc_LRU:_____ZW000005E9     \FATWTC.LIB                       393  void            
+       6      SP        2   _fatwtc_LRU:p                   \FATWTC.LIB                       398  struct _fatwtc_LRU:p*
+       4      SP        2   _fatwtc_LRU:ent                 \FATWTC.LIB                       399  unsigned int    
+       0      SP        4   _fatwtc_LRU:e                   \FATWTC.LIB                       400  long            
+       4      SP        2   _fatwtc_makeLRU:index           \FATWTC.LIB                       358  unsigned int    
+       0      SP        2   _fatwtc_makeLRU:wr              \FATWTC.LIB                       364  struct _fatwtc_makeLRU:wr*
+       2      SP        2   _dc_assert:exp                  \ERRORS.LIB                        88  char*           
+       4      SP        2   _dc_assert:filenm               \ERRORS.LIB                        88  char*           
+       6      SP        2   _dc_assert:line                 \ERRORS.LIB                        88  int             
+      10      SP        2   fatrj_tranend:prt               \FATWTC.LIB                      2202  unsigned int    
+      12      SP        2   fatrj_tranend:flags             \FATWTC.LIB                      2204  unsigned int    
+       4      SP        4   fatrj_tranend:e                 \FATWTC.LIB                      2206  long            
+       2      SP        2   fatrj_tranend:rr                \FATWTC.LIB                      2207  struct fatrj_tranend:rr*
+       0      SP        2   fatrj_tranend:rc                \FATWTC.LIB                      2208  int             
+      31      SP        2   fatwtc_write:prt                \FATWTC.LIB                      1737  unsigned int    
+      33      SP        4   fatwtc_write:secnum             \FATWTC.LIB                      1738  unsigned long   
+      37      SP        2   fatwtc_write:offset             \FATWTC.LIB                      1739  unsigned int    
+      39      SP        2   fatwtc_write:len                \FATWTC.LIB                      1740  unsigned int    
+      41      SP        4   fatwtc_write:data               \FATWTC.LIB                      1741  long            
+      45      SP        2   fatwtc_write:flags              \FATWTC.LIB                      1743  unsigned int    
+      27      SP        2   fatwtc_write:rc                 \FATWTC.LIB                      1745  int             
+      25      SP        2   fatwtc_write:seccount           \FATWTC.LIB                      1746  unsigned int    
+      21      SP        4   fatwtc_write:buf                \FATWTC.LIB                      1747  long            
+       0      SP       21   fatwtc_write:cbuf               \FATWTC.LIB                      1748  char[]          
+      12      SP        2   _fatrj_store_preimage:prt       \FATWTC.LIB                      2083  unsigned int    
+      14      SP        4   _fatrj_store_preimage:secnum    \FATWTC.LIB                      2084  unsigned long   
+      18      SP        4   _fatrj_store_preimage:buf       \FATWTC.LIB                      2085  long            
+      22      SP        2   _fatrj_store_preimage:offset    \FATWTC.LIB                      2086  unsigned int    
+      24      SP        2   _fatrj_store_preimage:len       \FATWTC.LIB                      2087  unsigned int    
+      26      SP        2   _fatrj_store_preimage:type      \FATWTC.LIB                      2089  unsigned int    
+       8      SP        2   _fatrj_store_preimage:jlen      \FATWTC.LIB                      2091  unsigned int    
+       6      SP        2   _fatrj_store_preimage:rr        \FATWTC.LIB                      2092  struct _fatrj_store_preimage:rr*
+       2      SP        4   _fatrj_store_preimage:e         \FATWTC.LIB                      2093  long            
+       0      SP        2   _fatrj_store_preimage:lastoffs  \FATWTC.LIB                      2094  unsigned int    
+      10      SP        4   fatwtc_makedirty:where          \FATWTC.LIB                      1814  long            
+       6      SP        2   fatwtc_makedirty:ent            \FATWTC.LIB                      1816  unsigned int    
+       4      SP        2   fatwtc_makedirty:stat           \FATWTC.LIB                      1816  unsigned int    
+       0      SP        4   fatwtc_makedirty:e              \FATWTC.LIB                      1817  long            
+       2      SP        4   xmemcmp:xstr                    \XMEM.LIB                        1637  long            
+       6      SP        2   xmemcmp:str                     \XMEM.LIB                        1637  char*           
+       8      SP        2   xmemcmp:n                       \XMEM.LIB                        1637  unsigned int    
+       4      SP        2   fatrj_unregmarker:handle        \FATWTC.LIB                      2726  int             
+       6      SP        2   fatrj_unregmarker:flags         \FATWTC.LIB                      2728  unsigned int    
+       0      SP        2   fatrj_unregmarker:rc            \FATWTC.LIB                      2730  int             
+      33      SP        2   _fatwtc_devwrite:ent            \FATWTC.LIB                       924  unsigned int    
+      35      SP        2   _fatwtc_devwrite:flags          \FATWTC.LIB                       926  unsigned int    
+      27      SP        4   _fatwtc_devwrite:secnum         \FATWTC.LIB                       934  unsigned long   
+      25      SP        2   _fatwtc_devwrite:len            \FATWTC.LIB                       935  unsigned int    
+      23      SP        2   _fatwtc_devwrite:dev            \FATWTC.LIB                       935  unsigned int    
+      21      SP        2   _fatwtc_devwrite:stat           \FATWTC.LIB                       935  unsigned int    
+      19      SP        2   _fatwtc_devwrite:tie            \FATWTC.LIB                       935  unsigned int    
+      17      SP        2   _fatwtc_devwrite:i              \FATWTC.LIB                       935  unsigned int    
+      16      SP        1   _fatwtc_devwrite:mask           \FATWTC.LIB                       936  char            
+      12      SP        4   _fatwtc_devwrite:e              \FATWTC.LIB                       937  long            
+       8      SP        4   _fatwtc_devwrite:buf            \FATWTC.LIB                       938  long            
+       4      SP        4   _fatwtc_devwrite:buf2           \FATWTC.LIB                       938  long            
+       2      SP        2   _fatwtc_devwrite:dr             \FATWTC.LIB                       939  struct _fatwtc_devwrite:dr*
+       0      SP        2   _fatwtc_devwrite:rc             \FATWTC.LIB                       940  int             
+      14      SP        2   fat_Close:file                  \FAT.LIB                         6952  struct fat_Close:file*
+      10      SP        2   fat_Close:p                     \FAT.LIB                         6956  struct fat_Close:p*
+       8      SP        2   fat_Close:q                     \FAT.LIB                         6957  struct fat_Close:q*
+       6      SP        2   fat_Close:rc                    \FAT.LIB                         6958  int             
+       2      SP        4   fat_Close:tstamp                \FAT.LIB                         6959  unsigned int[]  
+       0      SP        2   fat_Close:part                  \FAT.LIB                         6960  struct fat_Close:part*
+      10      SP        2   fat_SyncFile:file               \FAT.LIB                         6841  struct fat_SyncFile:file*
+       6      SP        2   fat_SyncFile:rc                 \FAT.LIB                         6844  int             
+       4      SP        2   fat_SyncFile:tstime             \FAT.LIB                         6845  unsigned int    
+       2      SP        2   fat_SyncFile:tsdate             \FAT.LIB                         6846  unsigned int    
+       0      SP        2   fat_SyncFile:part               \FAT.LIB                         6847  struct fat_SyncFile:part*
+      10      SP        2   fatrj_setmarker:handle          \FATWTC.LIB                      2791  int             
+      12      SP        2   fatrj_setmarker:data            \FATWTC.LIB                      2793  void*           
+       4      SP        4   fatrj_setmarker:e               \FATWTC.LIB                      2795  long            
+       2      SP        2   fatrj_setmarker:rr              \FATWTC.LIB                      2796  struct fatrj_setmarker:rr*
+       0      SP        2   fatrj_setmarker:len             \FATWTC.LIB                      2797  unsigned int    
+       9      SP        2   _fat_tm2timestamp:dat           \FAT.LIB                         2647  unsigned int*   
+      11      SP        2   _fat_tm2timestamp:tim           \FAT.LIB                         2648  unsigned int*   
+      13      SP        2   _fat_tm2timestamp:tenths        \FAT.LIB                         2648  char*           
+       0      SP        7   _fat_tm2timestamp:t             \FAT.LIB                         2650  struct _fat_tm2timestamp:t
+       2      SP        2   tm_rd:t                         \RTCLOCK.LIB                      654  struct tm_rd:t* 
+       0      SP        2   vwdogInit:k                     \VDRIVER.LIB                      379  int             
+       0      SP        0   VdInit:_____ZW0000068E          \VDRIVER.LIB                       93  void            
+       0      SP        0   read_rtc:_____ZW00000693        \RTCLOCK.LIB                      149  void            
+       2      SP        2   mktm:timeptr                    \RTCLOCK.LIB                      533  struct mktm:timeptr*
+       4      SP        4   mktm:time                       \RTCLOCK.LIB                      533  unsigned long   
+       2      SP        2   _mktm_date:timeptr              \RTCLOCK.LIB                      423  struct _mktm_date:timeptr*
+       4      SP        2   _mktm_date:day                  \RTCLOCK.LIB                      423  unsigned int    
+      10      SP        2   fat_MountPartition:part         \FAT.LIB                         4487  struct fat_MountPartition:part*
+       6      SP        2   fat_MountPartition:i            \FAT.LIB                         4491  int             
+       4      SP        2   fat_MountPartition:rc           \FAT.LIB                         4491  int             
+       0      SP        4   fat_MountPartition:x            \FAT.LIB                         4492  unsigned long   
+      17      SP        2   _fat_table_update:part          \FAT.LIB                          699  struct _fat_table_update:part*
+      19      SP        4   _fat_table_update:clust         \FAT.LIB                          699  unsigned long   
+      23      SP        2   _fat_table_update:state         \FAT.LIB                          700  int*            
+      12      SP        2   _fat_table_update:rc            \FAT.LIB                          702  int             
+      10      SP        2   _fat_table_update:sec           \FAT.LIB                          703  unsigned int    
+       8      SP        2   _fat_table_update:ofs           \FAT.LIB                          703  unsigned int    
+       6      SP        2   _fat_table_update:i             \FAT.LIB                          703  unsigned int    
+       4      SP        2   _fat_table_update:odd           \FAT.LIB                          703  unsigned int    
+       0      SP        4   _fat_table_update:sbuf          \FAT.LIB                          704  long            
+       3      SP        2   mbr_MountPartition:dev          \PART.LIB                         565  struct mbr_MountPartition:dev*
+       5      SP        2   mbr_MountPartition:pnum         \PART.LIB                         565  int             
+      13      SP        2   fatrj_regpartition:dev          \FATWTC.LIB                      2511  unsigned int    
+      15      SP        2   fatrj_regpartition:hlpid        \FATWTC.LIB                      2513  unsigned int    
+       8      SP        2   fatrj_regpartition:i            \FATWTC.LIB                      2517  unsigned int    
+       4      SP        4   fatrj_regpartition:rhp          \FATWTC.LIB                      2518  long            
+       2      SP        2   fatrj_regpartition:rr           \FATWTC.LIB                      2519  struct fatrj_regpartition:rr*
+       0      SP        2   fatrj_regpartition:dr           \FATWTC.LIB                      2520  struct fatrj_regpartition:dr*
+      11      SP        2   _fat_next_clust:part            \FAT.LIB                         1706  struct _fat_next_clust:part*
+      13      SP        2   _fat_next_clust:clust           \FAT.LIB                         1706  unsigned long*  
+      15      SP        2   _fat_next_clust:block           \FAT.LIB                         1706  unsigned int    
+       6      SP        2   _fat_next_clust:rc              \FAT.LIB                         1708  int             
+       4      SP        2   _fat_next_clust:x               \FAT.LIB                         1709  unsigned int    
+       0      SP        4   _fat_next_clust:sbuf            \FAT.LIB                         1710  long            
+      19      SP        2   _fat12_next_clust:part          \FAT.LIB                         1024  struct _fat12_next_clust:part*
+      21      SP        2   _fat12_next_clust:clust         \FAT.LIB                         1024  unsigned long*  
+      14      SP        2   _fat12_next_clust:rc            \FAT.LIB                         1026  int             
+      12      SP        2   _fat12_next_clust:x             \FAT.LIB                         1027  unsigned int    
+      10      SP        2   _fat12_next_clust:y             \FAT.LIB                         1027  unsigned int    
+       8      SP        2   _fat12_next_clust:ofs           \FAT.LIB                         1028  unsigned int    
+       4      SP        4   _fat12_next_clust:sector        \FAT.LIB                         1029  unsigned long   
+       0      SP        4   _fat12_next_clust:sbuf          \FAT.LIB                         1030  long            
+      35      SP        2   _fat_new_clust:part             \FAT.LIB                         1090  struct _fat_new_clust:part*
+      37      SP        4   _fat_new_clust:clust            \FAT.LIB                         1090  unsigned long   
+      41      SP        2   _fat_new_clust:n_clust          \FAT.LIB                         1091  unsigned long*  
+      43      SP        2   _fat_new_clust:count            \FAT.LIB                         1091  int             
+      30      SP        2   _fat_new_clust:y                \FAT.LIB                         1095  int             
+      28      SP        2   _fat_new_clust:x                \FAT.LIB                         1096  unsigned int    
+      24      SP        4   _fat_new_clust:cl               \FAT.LIB                         1097  long            
+      22      SP        2   _fat_new_clust:myclust          \FAT.LIB                         1098  unsigned int    
+      20      SP        2   _fat_new_clust:z                \FAT.LIB                         1099  int             
+      18      SP        2   _fat_new_clust:rc               \FAT.LIB                         1100  int             
+      16      SP        2   _fat_new_clust:allocated        \FAT.LIB                         1102  int             
+      14      SP        2   _fat_new_clust:ofs              \FAT.LIB                         1103  int             
+      12      SP        2   _fat_new_clust:fat_sector       \FAT.LIB                         1104  unsigned int    
+       8      SP        4   _fat_new_clust:sector           \FAT.LIB                         1105  unsigned long   
+       6      SP        2   _fat_new_clust:fat_cntr         \FAT.LIB                         1106  int             
+       4      SP        2   _fat_new_clust:fat_end_offset   \FAT.LIB                         1107  int             
+       0      SP        4   _fat_new_clust:sbuf             \FAT.LIB                         1108  long            
+       9      SP        2   fatrj_transtart:prt             \FATWTC.LIB                      2154  unsigned int    
+       2      SP        4   fatrj_transtart:e               \FATWTC.LIB                      2156  long            
+       0      SP        2   fatrj_transtart:rr              \FATWTC.LIB                      2157  struct fatrj_transtart:rr*
+       7      SP        2   _fat_adj_clust:part             \FAT.LIB                          948  struct _fat_adj_clust:part*
+       9      SP        2   _fat_adj_clust:clust            \FAT.LIB                          948  unsigned int*   
+      11      SP        2   _fat_adj_clust:len              \FAT.LIB                          948  int*            
+      13      SP        2   _fat_adj_clust:ofs              \FAT.LIB                          948  int             
+       2      SP        2   _fat_adj_clust:x                \FAT.LIB                          950  int             
+       0      SP        2   _fat_adj_clust:y                \FAT.LIB                          950  int             
+      19      SP        2   fatrj_rollback:prt              \FATWTC.LIB                      2285  unsigned int    
+      21      SP        2   fatrj_rollback:flags            \FATWTC.LIB                      2287  unsigned int    
+      12      SP        4   fatrj_rollback:e                \FATWTC.LIB                      2291  long            
+       8      SP        4   fatrj_rollback:trail            \FATWTC.LIB                      2291  long            
+       4      SP        4   fatrj_rollback:hdr              \FATWTC.LIB                      2291  long            
+       2      SP        2   fatrj_rollback:rr               \FATWTC.LIB                      2292  struct fatrj_rollback:rr*
+       0      SP        2   fatrj_rollback:rc               \FATWTC.LIB                      2293  int             
+      11      SP        2   fatrj_setchk:prt                \FATWTC.LIB                      2951  unsigned int    
+      13      SP        2   fatrj_setchk:data               \FATWTC.LIB                      2953  void*           
+       4      SP        4   fatrj_setchk:e                  \FATWTC.LIB                      2955  long            
+       2      SP        2   fatrj_setchk:rr                 \FATWTC.LIB                      2956  struct fatrj_setchk:rr*
+       0      SP        2   fatrj_setchk:rc                 \FATWTC.LIB                      2957  int             
+       5      SP        2   fatrj_status:prt                \FATWTC.LIB                      2455  int             
+       7      SP        2   fatrj_status:free               \FATWTC.LIB                      2457  unsigned int*   
+       0      SP        2   fatrj_status:rjr                \FATWTC.LIB                      2459  struct fatrj_status:rjr*
+       3      SP        2   paddrSS:pointer                 \XMEM.LIB                        1354  void*           
+      75      SP        2   fat_FormatPartition:dev         \FAT.LIB                         5462  struct fat_FormatPartition:dev*
+      77      SP        2   fat_FormatPartition:part        \FAT.LIB                         5462  struct fat_FormatPartition:part*
+      79      SP        2   fat_FormatPartition:pnum        \FAT.LIB                         5462  int             
+      81      SP        2   fat_FormatPartition:type        \FAT.LIB                         5463  int             
+      83      SP        2   fat_FormatPartition:label       \FAT.LIB                         5463  char*           
+      85      SP        2   fat_FormatPartition:usr         \FAT.LIB                         5463  int(*)()        
+      70      SP        2   fat_FormatPartition:i           \FAT.LIB                         5467  int             
+      68      SP        2   fat_FormatPartition:rc          \FAT.LIB                         5468  int             
+      64      SP        4   fat_FormatPartition:x           \FAT.LIB                         5469  long            
+      62      SP        2   fat_FormatPartition:wptr        \FAT.LIB                         5470  unsigned int*   
+       0      SP       62   fat_FormatPartition:bpb_dat     \FAT.LIB                         5471  struct fat_FormatPartition:bpb_dat
+      13      SP        2   _fat_CheckPart:part             \FAT.LIB                         3098  struct _fat_CheckPart:part*
+       8      SP        2   _fat_CheckPart:c                \FAT.LIB                         3100  unsigned int    
+       6      SP        2   _fat_CheckPart:s                \FAT.LIB                         3101  unsigned int    
+       4      SP        2   _fat_CheckPart:rc               \FAT.LIB                         3102  int             
+       0      SP        4   _fat_CheckPart:sbuf             \FAT.LIB                         3103  long            
+       4      IX        2   strncpy:dst                     \STRING.LIB                       569  char*           
+       6      IX        2   strncpy:src                     \STRING.LIB                       569  char*           
+       8      IX        2   strncpy:n                       \STRING.LIB                       569  unsigned int    
+       9      SP        2   fat_EnumPartition:dev           \FAT.LIB                         4261  struct fat_EnumPartition:dev*
+      11      SP        2   fat_EnumPartition:pnum          \FAT.LIB                         4261  int             
+      13      SP        2   fat_EnumPartition:part          \FAT.LIB                         4261  struct fat_EnumPartition:part*
+       4      SP        2   fat_EnumPartition:rc            \FAT.LIB                         4265  int             
+       0      SP        4   fat_EnumPartition:sbuf          \FAT.LIB                         4266  long            
+       9      SP        2   _fat_PartCalc:part              \FAT.LIB                         3023  struct _fat_PartCalc:part*
+       2      SP        4   _fat_PartCalc:c                 \FAT.LIB                         3025  unsigned long   
+       0      SP        2   _fat_PartCalc:rc                \FAT.LIB                         3026  int             
+       7      SP        2   _fat_unmountdevparts:prtMountList \FAT.LIB                         3199  struct _fat_unmountdevparts:prtMountList**
+       9      SP        2   _fat_unmountdevparts:devnum     \FAT.LIB                         3199  int             
+       2      SP        2   _fat_unmountdevparts:i          \FAT.LIB                         3201  int             
+       0      SP        2   _fat_unmountdevparts:rc         \FAT.LIB                         3201  int             
+     251      SP        2   fat_EnumDevice:driver           \FAT.LIB                         3930  struct fat_EnumDevice:driver*
+     253      SP        2   fat_EnumDevice:dev              \FAT.LIB                         3930  struct fat_EnumDevice:dev*
+     255      SP        2   fat_EnumDevice:devnum           \FAT.LIB                         3930  int             
+     257      SP        2   fat_EnumDevice:sig              \FAT.LIB                         3931  char*           
+     259      SP        2   fat_EnumDevice:norecovery       \FAT.LIB                         3931  int             
+     232      SP       16   fat_EnumDevice:dsig             \FAT.LIB                         3935  char[]          
+     230      SP        2   fat_EnumDevice:rc               \FAT.LIB                         3936  int             
+     226      SP        4   fat_EnumDevice:xptr             \FAT.LIB                         3937  long            
+     224      SP        2   fat_EnumDevice:ptr              \FAT.LIB                         3938  struct fat_EnumDevice:ptr*
+       0      SP      224   fat_EnumDevice:temp             \FAT.LIB                         3939  char[]          
+      74      SP        2   fatwtc_regdev:removable         \FATWTC.LIB                       703  int             
+      76      SP        2   fatwtc_regdev:cusize            \FATWTC.LIB                       704  unsigned int    
+      78      SP       16   fatwtc_regdev:sig               \FATWTC.LIB                       705  char*           
+      80      SP        2   fatwtc_regdev:fdev              \FATWTC.LIB                       706  struct fatwtc_regdev:fdev*
+      82      SP        2   fatwtc_regdev:norecovery        \FATWTC.LIB                       707  int             
+      84      SP        2   fatwtc_regdev:checkpoint        \FATWTC.LIB                       708  int(*)()        
+      49      SP       22   fatwtc_regdev:di                \FATWTC.LIB                       711  struct fatwtc_regdev:di
+      22      SP       27   fatwtc_regdev:rh                \FATWTC.LIB                       712  struct fatwtc_regdev:rh
+      20      SP        2   fatwtc_regdev:dr                \FATWTC.LIB                       713  struct fatwtc_regdev:dr*
+      18      SP        2   fatwtc_regdev:dev               \FATWTC.LIB                       714  int             
+      16      SP        2   fatwtc_regdev:rc                \FATWTC.LIB                       715  int             
+      14      SP        2   fatwtc_regdev:dev_free          \FATWTC.LIB                       716  int             
+      12      SP        2   fatwtc_regdev:dev_reassign      \FATWTC.LIB                       717  int             
+       8      SP        4   fatwtc_regdev:dip               \FATWTC.LIB                       718  long            
+       6      SP        2   fatwtc_regdev:reused            \FATWTC.LIB                       719  int             
+       4      SP        2   fatwtc_regdev:stat              \FATWTC.LIB                       720  unsigned int    
+       2      SP        2   fatwtc_regdev:i                 \FATWTC.LIB                       720  unsigned int    
+       0      SP        2   fatwtc_regdev:chkdata           \FATWTC.LIB                       721  char*           
+       4      IX        2   memcmp:s1                       \STRING.LIB                      1512  void*           
+       6      IX        2   memcmp:s2                       \STRING.LIB                      1512  void*           
+       8      IX        2   memcmp:n                        \STRING.LIB                      1512  unsigned int    
+       3      SP        2   xavail:addr_ptr                 \XMEM.LIB                         614  long*           
+      29      SP        2   _xavail:addr_ptr                \XMEM.LIB                         539  long*           
+      31      SP        2   _xavail:alignm                  \XMEM.LIB                         539  unsigned int    
+      33      SP        2   _xavail:type                    \XMEM.LIB                         539  unsigned int    
+      24      SP        2   _xavail:i                       \XMEM.LIB                         541  int             
+      22      SP        2   _xavail:j                       \XMEM.LIB                         541  int             
+      20      SP        2   _xavail:k                       \XMEM.LIB                         541  int             
+      16      SP        4   _xavail:sz                      \XMEM.LIB                         542  long            
+      12      SP        4   _xavail:mask                    \XMEM.LIB                         542  long            
+       8      SP        4   _xavail:base                    \XMEM.LIB                         542  long            
+       4      SP        4   _xavail:maxsz                   \XMEM.LIB                         543  long            
+       0      SP        4   _xavail:maxbbsz                 \XMEM.LIB                         543  long            
+      93      SP        2   _fat_chkpoint:dev               \FAT.LIB                         2042  unsigned int    
+      95      SP        2   _fat_chkpoint:prt               \FAT.LIB                         2042  unsigned int    
+      97      SP        2   _fat_chkpoint:fdev              \FAT.LIB                         2042  struct _fat_chkpoint:fdev*
+      99      SP        2   _fat_chkpoint:chkdat            \FAT.LIB                         2042  void*           
+      88      SP        2   _fat_chkpoint:rc                \FAT.LIB                         2044  int             
+      86      SP        2   _fat_chkpoint:count             \FAT.LIB                         2044  int             
+      84      SP        2   _fat_chkpoint:state             \FAT.LIB                         2045  unsigned int    
+      80      SP        4   _fat_chkpoint:clust             \FAT.LIB                         2046  unsigned long   
+      76      SP        4   _fat_chkpoint:nclust            \FAT.LIB                         2047  unsigned long   
+       0      SP       76   _fat_chkpoint:part              \FAT.LIB                         2048  struct _fat_chkpoint:part
+      29      SP        2   _fat_free_clust:part            \FAT.LIB                         1787  struct _fat_free_clust:part*
+      31      SP        4   _fat_free_clust:clust           \FAT.LIB                         1787  unsigned long   
+      24      SP        2   _fat_free_clust:myclust         \FAT.LIB                         1790  unsigned int    
+      22      SP        2   _fat_free_clust:inuse           \FAT.LIB                         1790  unsigned int    
+      20      SP        2   _fat_free_clust:x               \FAT.LIB                         1791  unsigned int    
+      18      SP        2   _fat_free_clust:y               \FAT.LIB                         1792  int             
+      14      SP        4   _fat_free_clust:sector          \FAT.LIB                         1793  unsigned long   
+      12      SP        2   _fat_free_clust:ofs             \FAT.LIB                         1794  int             
+      10      SP        2   _fat_free_clust:pnum            \FAT.LIB                         1796  int             
+       6      SP        4   _fat_free_clust:sbuf            \FAT.LIB                         1797  long            
+       4      SP        2   _fat_free_clust:newclust        \FAT.LIB                         1798  unsigned int    
+       2      SP        2   _fat_free_clust:z               \FAT.LIB                         1799  int             
+       0      SP        2   _fat_free_clust:rc              \FAT.LIB                         1800  int             
+       5      SP        4   xrelease:addr                   \XMEM.LIB                         651  long            
+       9      SP        4   xrelease:sz                     \XMEM.LIB                         651  long            
+       0      SP        2   xrelease:i                      \XMEM.LIB                         653  int             
+      15      SP        2   fat_FormatDevice:dev            \FAT.LIB                         4132  struct fat_FormatDevice:dev*
+      17      SP        2   fat_FormatDevice:mode           \FAT.LIB                         4132  int             
+      10      SP        2   fat_FormatDevice:rc             \FAT.LIB                         4135  int             
+       8      SP        2   fat_FormatDevice:sec_clust      \FAT.LIB                         4135  int             
+       6      SP        2   fat_FormatDevice:type           \FAT.LIB                         4135  int             
+       4      SP        2   fat_FormatDevice:retcode        \FAT.LIB                         4135  int             
+       0      SP        4   fat_FormatDevice:sc             \FAT.LIB                         4136  long            
+     259      SP        2   mbr_CreatePartition:dev         \PART.LIB                         455  struct mbr_CreatePartition:dev*
+     261      SP        2   mbr_CreatePartition:pnum        \PART.LIB                         455  int             
+     263      SP        1   mbr_CreatePartition:type        \PART.LIB                         455  char            
+     254      SP        2   mbr_CreatePartition:rc          \PART.LIB                         457  int             
+     236      SP       18   mbr_CreatePartition:tmp_part    \PART.LIB                         458  struct mbr_CreatePartition:tmp_part
+     234      SP        2   mbr_CreatePartition:ptr_part    \PART.LIB                         458  struct mbr_CreatePartition:ptr_part*
+     232      SP        2   mbr_CreatePartition:ptr         \PART.LIB                         459  char*           
+     228      SP        4   mbr_CreatePartition:mbr_buf_size \PART.LIB                         460  long            
+     224      SP        4   mbr_CreatePartition:mbr_buf     \PART.LIB                         461  long            
+       0      SP      224   mbr_CreatePartition:temp        \PART.LIB                         462  char[]          
+      45      SP        2   mbr_ValidatePartitions:dev      \PART.LIB                          87  struct mbr_ValidatePartitions:dev*
+      40      SP        2   mbr_ValidatePartitions:i        \PART.LIB                          89  int             
+      38      SP        2   mbr_ValidatePartitions:j        \PART.LIB                          89  int             
+      36      SP        2   mbr_ValidatePartitions:ptr_part \PART.LIB                          90  struct mbr_ValidatePartitions:ptr_part*
+       4      SP       32   mbr_ValidatePartitions:part_ends \PART.LIB                          91  unsigned long[][]
+       0      SP        4   mbr_ValidatePartitions:k        \PART.LIB                          91  unsigned long   
+     310      SP        2   mbr_FormatDevice:dev            \PART.LIB                         329  struct mbr_FormatDevice:dev*
+     305      SP        2   mbr_FormatDevice:rc             \PART.LIB                         331  int             
+     304      SP        1   mbr_FormatDevice:prev           \PART.LIB                         332  char            
+     232      SP       72   mbr_FormatDevice:pbuf           \PART.LIB                         333  char[]          
+     228      SP        4   mbr_FormatDevice:mbr_buf_size   \PART.LIB                         334  long            
+     224      SP        4   mbr_FormatDevice:mbr_buf        \PART.LIB                         335  long            
+       0      SP      224   mbr_FormatDevice:temp           \PART.LIB                         336  char[]          
+      11      SP        2   fat_UnmountDevice:dev           \FAT.LIB                         4884  struct fat_UnmountDevice:dev*
+       6      SP        2   fat_UnmountDevice:rc            \FAT.LIB                         4887  int             
+       4      SP        2   fat_UnmountDevice:i             \FAT.LIB                         4887  int             
+       2      SP        2   fat_UnmountDevice:part          \FAT.LIB                         4888  struct fat_UnmountDevice:part*
+       0      SP        2   fat_UnmountDevice:dptr          \FAT.LIB                         4889  struct fat_UnmountDevice:dptr*
+       9      SP        2   fat_CreateDir:part              \FAT.LIB                         6388  struct fat_CreateDir:part*
+      11      SP        2   fat_CreateDir:dirname           \FAT.LIB                         6388  char*           
+       2      SP        4   fat_CreateDir:alloc             \FAT.LIB                         6392  long            
+       0      SP        2   fat_CreateDir:rc                \FAT.LIB                         6393  int             
+       7      SP        2   fat_CreateFile:part             \FAT.LIB                         6504  struct fat_CreateFile:part*
+       9      SP        2   fat_CreateFile:filename         \FAT.LIB                         6504  char*           
+      11      SP        4   fat_CreateFile:alloc_size       \FAT.LIB                         6505  long            
+      15      SP        2   fat_CreateFile:file             \FAT.LIB                         6505  struct fat_CreateFile:file*
+       2      SP        2   fat_CreateFile:dummy            \FAT.LIB                         6509  int             
+       0      SP        2   fat_CreateFile:rc               \FAT.LIB                         6510  int             
+      21      SP        2   fat_Open:part                   \FAT.LIB                         6070  struct fat_Open:part*
+      23      SP        2   fat_Open:name                   \FAT.LIB                         6070  char*           
+      25      SP        2   fat_Open:type                   \FAT.LIB                         6070  int             
+      27      SP        2   fat_Open:ff                     \FAT.LIB                         6071  int             
+      29      SP        2   fat_Open:file                   \FAT.LIB                         6071  struct fat_Open:file*
+      31      SP        2   fat_Open:prealloc               \FAT.LIB                         6071  long*           
+      16      SP        2   fat_Open:rc                     \FAT.LIB                         6075  int             
+      14      SP        2   fat_Open:loc                    \FAT.LIB                         6076  struct fat_Open:loc*
+      10      SP        4   fat_Open:sbuf                   \FAT.LIB                         6077  long            
+       6      SP        4   fat_Open:clust                  \FAT.LIB                         6078  unsigned long   
+       2      SP        4   fat_Open:free                   \FAT.LIB                         6078  unsigned long   
+       0      SP        2   fat_Open:newpath                \FAT.LIB                         6079  char*           
+      11      SP        2   fatrj_getmarker:handle          \FATWTC.LIB                      2836  int             
+      13      SP        2   fatrj_getmarker:data            \FATWTC.LIB                      2838  void*           
+       4      SP        4   fatrj_getmarker:e               \FATWTC.LIB                      2840  long            
+       2      SP        2   fatrj_getmarker:rr              \FATWTC.LIB                      2841  struct fatrj_getmarker:rr*
+       0      SP        2   fatrj_getmarker:len             \FATWTC.LIB                      2842  unsigned int    
+       3      SP        2   _fat_clust2sec:part             \FAT.LIB                         2101  struct _fat_clust2sec:part*
+       5      SP        4   _fat_clust2sec:clust            \FAT.LIB                         2101  unsigned long   
+       9      SP        2   _fat_clust2sec:sector           \FAT.LIB                         2102  unsigned long*  
+      17      SP        2   fatrj_regmarker:dev             \FATWTC.LIB                      2632  unsigned int    
+      19      SP        4   fatrj_regmarker:secnum          \FATWTC.LIB                      2633  unsigned long   
+      23      SP        2   fatrj_regmarker:offset          \FATWTC.LIB                      2634  unsigned int    
+      25      SP        2   fatrj_regmarker:len             \FATWTC.LIB                      2635  unsigned int    
+      27      SP        2   fatrj_regmarker:flags           \FATWTC.LIB                      2637  unsigned int    
+      12      SP        2   fatrj_regmarker:i               \FATWTC.LIB                      2639  unsigned int    
+       8      SP        4   fatrj_regmarker:rhp             \FATWTC.LIB                      2640  long            
+       4      SP        4   fatrj_regmarker:where           \FATWTC.LIB                      2640  long            
+       2      SP        2   fatrj_regmarker:rr              \FATWTC.LIB                      2641  struct fatrj_regmarker:rr*
+       0      SP        2   fatrj_regmarker:rc              \FATWTC.LIB                      2642  int             
+      24      SP        2   _fat_create:part                \FAT.LIB                         2765  struct _fat_create:part*
+      26      SP        2   _fat_create:type                \FAT.LIB                         2765  int             
+      28      SP        2   _fat_create:loc                 \FAT.LIB                         2766  struct _fat_create:loc*
+      30      SP        2   _fat_create:prealloc            \FAT.LIB                         2766  long*           
+      19      SP        2   _fat_create:i                   \FAT.LIB                         2770  unsigned int    
+      18      SP        1   _fat_create:msec                \FAT.LIB                         2771  char            
+      16      SP        2   _fat_create:tim                 \FAT.LIB                         2772  unsigned int    
+      14      SP        2   _fat_create:dat                 \FAT.LIB                         2773  unsigned int    
+      12      SP        2   _fat_create:rc                  \FAT.LIB                         2774  int             
+       8      SP        4   _fat_create:sector              \FAT.LIB                         2776  unsigned long   
+       4      SP        4   _fat_create:sbuf                \FAT.LIB                         2777  long            
+       0      SP        4   _fat_create:alloc               \FAT.LIB                         2778  long            
+       3      SP        2   _fat_Clust2Dir:buf              \FAT.LIB                          634  char*           
+       5      SP        4   _fat_Clust2Dir:c                \FAT.LIB                          634  unsigned long   
+      17      SP        2   _fat_navigate:part              \FAT.LIB                         2399  struct _fat_navigate:part*
+      19      SP        2   _fat_navigate:name              \FAT.LIB                         2399  char*           
+      21      SP        2   _fat_navigate:newpart           \FAT.LIB                         2399  char**          
+      23      SP        2   _fat_navigate:type              \FAT.LIB                         2400  int             
+      25      SP        2   _fat_navigate:loc               \FAT.LIB                         2400  struct _fat_navigate:loc*
+      12      SP        2   _fat_navigate:i                 \FAT.LIB                         2402  int             
+      10      SP        2   _fat_navigate:inroot            \FAT.LIB                         2402  int             
+       8      SP        2   _fat_navigate:block             \FAT.LIB                         2402  int             
+       6      SP        2   _fat_navigate:rc                \FAT.LIB                         2403  int             
+       4      SP        2   _fat_navigate:ptr               \FAT.LIB                         2404  char*           
+       0      SP        4   _fat_navigate:sbuf              \FAT.LIB                         2405  long            
+      30      SP        2   _fat_getname:fname              \FAT.LIB                         2272  char*           
+      32      SP        2   _fat_getname:buf                \FAT.LIB                         2272  char*           
+      25      SP        2   _fat_getname:j                  \FAT.LIB                         2274  int             
+      12      SP       13   _fat_getname:name               \FAT.LIB                         2275  char[]          
+      10      SP        2   _fat_getname:dot                \FAT.LIB                         2276  char*           
+       8      SP        2   _fat_getname:slash              \FAT.LIB                         2277  char*           
+       6      SP        2   _fat_getname:len                \FAT.LIB                         2278  unsigned int    
+       4      SP        2   _fat_getname:i                  \FAT.LIB                         2278  unsigned int    
+       2      SP        2   _fat_getname:c                  \FAT.LIB                         2278  unsigned int    
+       0      SP        2   _fat_getname:plen               \FAT.LIB                         2278  unsigned int    
+       4      IX        2   strcpy:dst                      \STRING.LIB                       529  char*           
+       6      IX        2   strcpy:src                      \STRING.LIB                       529  char*           
+      24      SP        2   _fat_scan:part                  \FAT.LIB                         2543  struct _fat_scan:part*
+      26      SP        2   _fat_scan:fname                 \FAT.LIB                         2543  char*           
+      28      SP        2   _fat_scan:type                  \FAT.LIB                         2543  int             
+      30      SP        2   _fat_scan:loc                   \FAT.LIB                         2544  struct _fat_scan:loc*
+      32      SP        2   _fat_scan:block                 \FAT.LIB                         2544  unsigned int    
+      19      SP        2   _fat_scan:j                     \FAT.LIB                         2546  int             
+      17      SP        2   _fat_scan:k                     \FAT.LIB                         2547  int             
+      15      SP        2   _fat_scan:rc                    \FAT.LIB                         2548  int             
+      11      SP        4   _fat_scan:sbuf                  \FAT.LIB                         2549  long            
+       0      SP       11   _fat_scan:buf                   \FAT.LIB                         2550  char[]          
+       3      SP        2   _fat_first_unused:loc           \FAT.LIB                         2234  struct _fat_first_unused:loc*
+       3      SP        2   _fat_first_deleted:loc          \FAT.LIB                         2213  struct _fat_first_deleted:loc*
+       4      IX        2   strncmp:str1                    \STRING.LIB                       825  char*           
+       6      IX        2   strncmp:str2                    \STRING.LIB                       825  char*           
+       8      IX        2   strncmp:n                       \STRING.LIB                       825  unsigned int    
+       3      SP        4   _fat_xDir2Clust:buf             \FAT.LIB                          653  long            
+       7      SP        2   _fat_xDir2Clust:c               \FAT.LIB                          653  unsigned long*  
+      11      SP        2   fatwtc_flushall:flags           \FATWTC.LIB                      1998  unsigned int    
+       6      SP        2   fatwtc_flushall:rc              \FATWTC.LIB                      2000  int             
+       4      SP        2   fatwtc_flushall:rc2             \FATWTC.LIB                      2000  int             
+       2      SP        2   fatwtc_flushall:i               \FATWTC.LIB                      2001  unsigned int    
+       0      SP        2   fatwtc_flushall:dr              \FATWTC.LIB                      2002  struct fatwtc_flushall:dr*
+       0      SP        0   dkSetStdioTimer:_____ZW00000BD2 \DKCOMMON.LIB                     327  void            
+       0      SP        0   dkCheckStdioTimeOut:_____ZW00000BD4 \DKCOMMON.LIB                     332  void            
+       0      SP        0   dkSetGetCharTimer:_____ZW00000BD8 \DKCOMMON.LIB                     340  void            
+       0      SP        0   dkCheckGetCharTimeOut:_____ZW00000BDA \DKCOMMON.LIB                     345  void            
+
+
+// Macro listing and source reference.
+//  Name                           File                         Line Num
+   _RESTRICT_WATCHCODE_            
+   USE_PORTA_AUX_IO                \DEFAULT.H                        239
+   ADC_ONBOARD                     \DEFAULT.H                        240
+   ZWORLD_RESERVED_SIZE            \DEFAULT.H                        241
+   __RCM37XX_LIB                   \RCM37XX.LIB                        2
+   LCDCSREGISTER                   \RCM37XX.LIB                       39
+   LCDCSSHADOW                     \RCM37XX.LIB                       40
+   LCDCSCONFIG                     \RCM37XX.LIB                       41
+   LCDSTROBE                       \RCM37XX.LIB                       42
+   KEYCSREGISTER                   \RCM37XX.LIB                       44
+   KEYCSSHADOW                     \RCM37XX.LIB                       45
+   KEYCSCONFIG                     \RCM37XX.LIB                       46
+   KEYSTROBE                       \RCM37XX.LIB                       47
+   LCDBASEADDR                     \RCM37XX.LIB                       52
+   KEYBASEADDR                     \RCM37XX.LIB                       53
+   ADC_SCLKBAUD                    \RCM37XX.LIB                       63
+   AD_OSC_ENABLE                   \RCM37XX.LIB                       66
+   AD_OSC_DISABLE                  \RCM37XX.LIB                       70
+   ADDIRECT                        \RCM37XX.LIB                       75
+   ADREADINS                       \RCM37XX.LIB                       76
+   ADWRITEINS                      \RCM37XX.LIB                       77
+   ADLEN8                          \RCM37XX.LIB                       78
+   ADLEN16                         \RCM37XX.LIB                       79
+   ADMODE0                         \RCM37XX.LIB                       80
+   ADMODE1                         \RCM37XX.LIB                       81
+   ADMODE2                         \RCM37XX.LIB                       82
+   ADMODE3                         \RCM37XX.LIB                       83
+   ADLSBYTE                        \RCM37XX.LIB                       86
+   ADMSBYTE                        \RCM37XX.LIB                       87
+   ADPGAREG                        \RCM37XX.LIB                       88
+   ADCNTLREG                       \RCM37XX.LIB                       89
+   ADGAINMUXREG                    \RCM37XX.LIB                       90
+   ADDIOSTATEREG                   \RCM37XX.LIB                       91
+   ADDIOCNTLREG                    \RCM37XX.LIB                       92
+   ADREFOSCREG                     \RCM37XX.LIB                       93
+   ADSICREG                        \RCM37XX.LIB                       94
+   ADIDREG                         \RCM37XX.LIB                       95
+   ADSINGLE                        \RCM37XX.LIB                       98
+   ADDIFFNL                        \RCM37XX.LIB                       99
+   GAIN_1                          \RCM37XX.LIB                      101
+   GAIN_2                          \RCM37XX.LIB                      102
+   GAIN_4                          \RCM37XX.LIB                      103
+   GAIN_5                          \RCM37XX.LIB                      104
+   GAIN_8                          \RCM37XX.LIB                      105
+   GAIN_10                         \RCM37XX.LIB                      106
+   GAIN_16                         \RCM37XX.LIB                      107
+   GAIN_20                         \RCM37XX.LIB                      108
+   ADOVERFLOW                      \RCM37XX.LIB                      829
+   SE_DEVCHAN                      \RCM37XX.LIB                      830
+   ADC_CALIB_ADDRS                 \RCM37XX.LIB                      981
+   ADC_CALIB_ADDRD                 \RCM37XX.LIB                      982
+   ADC_CALIB_ADDRM                 \RCM37XX.LIB                      983
+   CALIB_START                     \RCM37XX.LIB                      985
+   CALIB_END                       \RCM37XX.LIB                      986
+   MAXAIN                          \RCM37XX.LIB                      988
+   ADCHANNELS                      \RCM37XX.LIB                      989
+   ADCHANNELD                      \RCM37XX.LIB                      990
+   ADCHANNELM                      \RCM37XX.LIB                      991
+   ADCHANNELALL                    \RCM37XX.LIB                      992
+   SINGLE                          \RCM37XX.LIB                      994
+   DIFF                            \RCM37XX.LIB                      995
+   mAMP                            \RCM37XX.LIB                      996
+   ALLCHAN                         \RCM37XX.LIB                     1425
+   __LCD122KEY7_LIB                \LCD122KEY7.LIB                     2
+   LCDMREADSTATUS                  \LCD122KEY7.LIB                    90
+   LCDMWRITEINSTR                  \LCD122KEY7.LIB                    91
+   LCDSREADSTATUS                  \LCD122KEY7.LIB                    92
+   LCDSWRITEINSTR                  \LCD122KEY7.LIB                    93
+   LCDMREADDATA                    \LCD122KEY7.LIB                    94
+   LCDMWRITEDATA                   \LCD122KEY7.LIB                    95
+   LCDSREADDATA                    \LCD122KEY7.LIB                    96
+   LCDSWRITEDATA                   \LCD122KEY7.LIB                    97
+   LCDBACKLIGHT                    \LCD122KEY7.LIB                    99
+   LCDLEDREG                       \LCD122KEY7.LIB                   102
+   LCDLED0ADDR                     \LCD122KEY7.LIB                   103
+   LCDLEDADDR                      \LCD122KEY7.LIB                   104
+   KEYADDR                         \LCD122KEY7.LIB                   107
+   __KEYPAD7_LIB                   \KEYPAD7.LIB                        2
+   SET_EXTBUFFER_RD                \KEYPAD7.LIB                       11
+   SET_EXTBUFFER_WR                \KEYPAD7.LIB                       15
+   __MSCG12232_LIB                 \MSCG12232.LIB                      2
+   LCD_XS                          \MSCG12232.LIB                     27
+   LCD_YS                          \MSCG12232.LIB                     28
+   PIXEL_XS                        \MSCG12232.LIB                     34
+   PIXEL_YS                        \MSCG12232.LIB                     35
+   PIXGROUP                        \MSCG12232.LIB                     36
+   XMEM_BUF_SIZE                   \MSCG12232.LIB                     37
+   LCDON                           \MSCG12232.LIB                    123
+   LCDOFF                          \MSCG12232.LIB                    124
+   LCDSETLINE                      \MSCG12232.LIB                    126
+   LCDSETPAGE                      \MSCG12232.LIB                    127
+   LCDSETCOLUMN                    \MSCG12232.LIB                    128
+   LCDLEFTWARD                     \MSCG12232.LIB                    130
+   LCDRIGHTWARD                    \MSCG12232.LIB                    131
+   LCDSTATICDRIVEON                \MSCG12232.LIB                    133
+   LCDSTATICDRIVEOFF               \MSCG12232.LIB                    134
+   LCDDUTYCYCLE1_16                \MSCG12232.LIB                    136
+   LCDDUTYCYCLE1_32                \MSCG12232.LIB                    137
+   LCDRMWBEGIN                     \MSCG12232.LIB                    139
+   LCDRMWEND                       \MSCG12232.LIB                    140
+   LCDRESET                        \MSCG12232.LIB                    142
+   LCDBUSY                         \MSCG12232.LIB                    145
+   LCDDISPDIR                      \MSCG12232.LIB                    146
+   LCDISON                         \MSCG12232.LIB                    147
+   LCDRESETING                     \MSCG12232.LIB                    148
+   BACKLIGHTOFF                    \MSCG12232.LIB                    151
+   BACKLIGHTON                     \MSCG12232.LIB                    152
+   LCDDISPLAYOFF                   \MSCG12232.LIB                    155
+   LCDDISPLAYON                    \MSCG12232.LIB                    156
+   LCDMASTER                       \MSCG12232.LIB                    159
+   LCDSLAVE                        \MSCG12232.LIB                    160
+   MAXTIMEOUT                      \MSCG12232.LIB                    163
+   LCDMASK                         \MSCG12232.LIB                    167
+   GLBUFMASK                       \MSCG12232.LIB                    168
+   GLMASKCNT                       \MSCG12232.LIB                    169
+   __GRAPHIC_LIB                   \GRAPHIC.LIB                       51
+   FONTOFFSET                      \GRAPHIC.LIB                       57
+   NO_BORDER                       \GRAPHIC.LIB                      119
+   SINGLE_LINE                     \GRAPHIC.LIB                      123
+   DOUBLE_LINE                     \GRAPHIC.LIB                      127
+   PIXBLACK                        \GRAPHIC.LIB                      372
+   PIXWHITE                        \GRAPHIC.LIB                      373
+   PIXXOR                          \GRAPHIC.LIB                      374
+   __6X8L_LIB                      \6X8L.LIB                           2
+   __8X10L_LIB                     \8X10L.LIB                          2
+   __12X16_LIB                     \12X16L.LIB                         2
+   __COURIER12_LIB                 \COURIER12.LIB                      2
+   __R3000_LIB__                   \R3000.LIB                         18
+   QD_DIVISOR                      \R3000.LIB                         21
+   QD_OVERFLOW                     \R3000.LIB                         23
+   QD_UNDERFLOW                    \R3000.LIB                         24
+   PWM_FREQ_FACTOR                 \R3000.LIB                        288
+   PWM_SPREAD                      \R3000.LIB                        340
+   PWM_OPENDRAIN                   \R3000.LIB                        341
+   __PROGRAM_LIB                   \PROGRAM.LIB                        2
+   FAT_BLOCK                       \FORMAT_FAT.C                      39
+   FAT_USE_FORWARDSLASH            \FORMAT_FAT.C                      40
+   __FAT_LIB                       \FAT.LIB                            2
+   FAT_VERSION                     \FAT.LIB                            4
+   FAT_FAT12                       \FAT.LIB                          150
+   FAT_FAT16                       \FAT.LIB                          151
+   FAT_WRITEACCESS                 \FAT.LIB                          152
+   DRIVE_A                         \FAT.LIB                          174
+   DRIVE_B                         \FAT.LIB                          175
+   PARTITION_A                     \FAT.LIB                          183
+   PARTITION_B                     \FAT.LIB                          184
+   PARTITION_C                     \FAT.LIB                          185
+   PARTITION_D                     \FAT.LIB                          186
+   PARTITION_E                     \FAT.LIB                          187
+   PARTITION_F                     \FAT.LIB                          188
+   PARTITION_G                     \FAT.LIB                          189
+   PARTITION_H                     \FAT.LIB                          190
+   ERR_FAT_MUTEX_ERROR             \FAT.LIB                          194
+   FAT_BLOCK_FLAGS                 \FAT.LIB                          213
+   _fat_debug                      \FAT.LIB                          221
+   SEEK_SET                        \FAT.LIB                          225
+   SEEK_CUR                        \FAT.LIB                          226
+   SEEK_END                        \FAT.LIB                          227
+   SEEK_RAW                        \FAT.LIB                          228
+   FAT_FILE                        \FAT.LIB                          232
+   FAT_DIR                         \FAT.LIB                          233
+   FAT_LABEL                       \FAT.LIB                          235
+   PART_TYPE_FAT12                 \FAT.LIB                          238
+   PART_TYPE_DOS3                  \FAT.LIB                          239
+   PART_TYPE_EXT                   \FAT.LIB                          240
+   PART_TYPE_DOS4                  \FAT.LIB                          241
+   PART_TYPE_DOS32                 \FAT.LIB                          242
+   PART_TYPE_DOS32_13              \FAT.LIB                          243
+   PART_TYPE_DOS4_13               \FAT.LIB                          244
+   PART_TYPE_EXT_13                \FAT.LIB                          245
+   FAT_TYPE_MASK                   \FAT.LIB                          248
+   FAT_TYPE_NO                     \FAT.LIB                          249
+   FAT_TYPE_12                     \FAT.LIB                          250
+   FAT_TYPE_16                     \FAT.LIB                          251
+   FAT_TYPE_32                     \FAT.LIB                          252
+   FAT_TYPE_VOL                    \FAT.LIB                          253
+   FAT_TYPE_MTD                    \FAT.LIB                          254
+   FAT_OPEN                        \FAT.LIB                          258
+   FAT_CREATE                      \FAT.LIB                          260
+   FAT_MUST_CREATE                 \FAT.LIB                          262
+   FAT_SEQUENTIAL                  \FAT.LIB                          264
+   FAT_READONLY                    \FAT.LIB                          268
+   FAT_MODEFLAGS                   \FAT.LIB                          270
+   FAT_INC_LNAME                   \FAT.LIB                          273
+   FAT_INC_EMPTY                   \FAT.LIB                          274
+   FAT_INC_DEL                     \FAT.LIB                          275
+   FAT_INC_ACTIVE                  \FAT.LIB                          276
+   FAT_INC_ALL                     \FAT.LIB                          277
+   FAT_INC_DEF                     \FAT.LIB                          278
+   FAT_FIL_RD_ONLY                 \FAT.LIB                          280
+   FAT_FIL_HIDDEN                  \FAT.LIB                          281
+   FAT_FIL_SYSTEM                  \FAT.LIB                          282
+   FAT_FIL_LABEL                   \FAT.LIB                          283
+   FAT_FIL_DIR                     \FAT.LIB                          284
+   FAT_FIL_ARCHIVE                 \FAT.LIB                          285
+   FAT_BRK_END                     \FAT.LIB                          288
+   FAT_BRK_POS                     \FAT.LIB                          289
+   FAT_MAX_PARTITIONS              \FAT.LIB                          292
+   FAT_DIRPS                       \FAT.LIB                          293
+   FAT_DIRSZ                       \FAT.LIB                          294
+   FAT_ROOTSZ                      \FAT.LIB                          295
+   FAT_SECSIZE                     \FAT.LIB                          296
+   CLUST_12MAX                     \FAT.LIB                          297
+   SEC_32MB                        \FAT.LIB                          298
+   SEC_64MB                        \FAT.LIB                          299
+   SEC_128MB                       \FAT.LIB                          300
+   SEC_256MB                       \FAT.LIB                          301
+   SEC_512MB                       \FAT.LIB                          302
+   SEC_1GB                         \FAT.LIB                          303
+   FAT_BADMARK                     \FAT.LIB                          305
+   FAT_EOC                         \FAT.LIB                          306
+   EDRVBUSY                        \FAT.LIB                          309
+   FAT_SLASH_CH                    \FAT.LIB                          321
+   FAT_SLASH_STR                   \FAT.LIB                          322
+   _FATX_OTHER_SLASH_CH            \FAT.LIB                          323
+   __PART_LIB                      \PART.LIB                          25
+   _part_nodebug                   \PART.LIB                          30
+   errno                           \ERRNO.LIB                         38
+   _set_errno                      \ERRNO.LIB                         39
+   EPERM                           \ERRNO.LIB                         42
+   ENOENT                          \ERRNO.LIB                         43
+   EIO                             \ERRNO.LIB                         44
+   ENXIO                           \ERRNO.LIB                         45
+   E2BIG                           \ERRNO.LIB                         46
+   EBADF                           \ERRNO.LIB                         47
+   EAGAIN                          \ERRNO.LIB                         48
+   EWOULDBLOCK                     \ERRNO.LIB                         49
+   ENOMEM                          \ERRNO.LIB                         50
+   EACCES                          \ERRNO.LIB                         51
+   EFAULT                          \ERRNO.LIB                         52
+   ENOTBLK                         \ERRNO.LIB                         53
+   EBUSY                           \ERRNO.LIB                         54
+   EEXIST                          \ERRNO.LIB                         55
+   ENODEV                          \ERRNO.LIB                         56
+   ENOTDIR                         \ERRNO.LIB                         57
+   EISDIR                          \ERRNO.LIB                         58
+   EINVAL                          \ERRNO.LIB                         59
+   ENFILE                          \ERRNO.LIB                         60
+   EMFILE                          \ERRNO.LIB                         61
+   EFBIG                           \ERRNO.LIB                         62
+   ENOSPC                          \ERRNO.LIB                         63
+   EROFS                           \ERRNO.LIB                         64
+   ENAMETOOLONG                    \ERRNO.LIB                         67
+   ENOSYS                          \ERRNO.LIB                         68
+   ENOTEMPTY                       \ERRNO.LIB                         69
+   EEOF                            \ERRNO.LIB                         70
+   ENODATA                         \ERRNO.LIB                         71
+   ETIME                           \ERRNO.LIB                         72
+   ENONET                          \ERRNO.LIB                         73
+   ENOLINK                         \ERRNO.LIB                         74
+   ECOMM                           \ERRNO.LIB                         75
+   EPROTO                          \ERRNO.LIB                         76
+   EMULTIHOP                       \ERRNO.LIB                         77
+   EBADMSG                         \ERRNO.LIB                         78
+   EOVERFLOW                       \ERRNO.LIB                         79
+   ENOTUNIQ                        \ERRNO.LIB                         80
+   EBADFD                          \ERRNO.LIB                         81
+   EILSEQ                          \ERRNO.LIB                         82
+   ERESTART                        \ERRNO.LIB                         83
+   EUSERS                          \ERRNO.LIB                         84
+   ENOTSOCK                        \ERRNO.LIB                         85
+   EDESTADDRREQ                    \ERRNO.LIB                         86
+   EMSGSIZE                        \ERRNO.LIB                         87
+   EPROTOTYPE                      \ERRNO.LIB                         88
+   ENOPROTOOPT                     \ERRNO.LIB                         89
+   EPROTONOSUPPORT                 \ERRNO.LIB                         90
+   ESOCKTNOSUPPORT                 \ERRNO.LIB                         91
+   EOPNOTSUPP                      \ERRNO.LIB                         92
+   EPFNOSUPPORT                    \ERRNO.LIB                         93
+   EAFNOSUPPORT                    \ERRNO.LIB                         94
+   EADDRINUSE                      \ERRNO.LIB                         95
+   EADDRNOTAVAIL                   \ERRNO.LIB                         96
+   ENETDOWN                        \ERRNO.LIB                         97
+   ENETUNREACH                     \ERRNO.LIB                         98
+   ENETRESET                       \ERRNO.LIB                         99
+   ECONNABORTED                    \ERRNO.LIB                        100
+   ECONNRESET                      \ERRNO.LIB                        101
+   ENOBUFS                         \ERRNO.LIB                        102
+   EISCONN                         \ERRNO.LIB                        103
+   ENOTCONN                        \ERRNO.LIB                        104
+   ESHUTDOWN                       \ERRNO.LIB                        105
+   ETOOMANYREFS                    \ERRNO.LIB                        106
+   ETIMEDOUT                       \ERRNO.LIB                        107
+   ECONNREFUSED                    \ERRNO.LIB                        108
+   EHOSTDOWN                       \ERRNO.LIB                        109
+   EHOSTUNREACH                    \ERRNO.LIB                        110
+   EALREADY                        \ERRNO.LIB                        111
+   EINPROGRESS                     \ERRNO.LIB                        112
+   EDQUOT                          \ERRNO.LIB                        113
+   ENOMEDIUM                       \ERRNO.LIB                        114
+   EMEDIUMTYPE                     \ERRNO.LIB                        115
+   EBADSEQ                         \ERRNO.LIB                        119
+   EUNEXEOC                        \ERRNO.LIB                        120
+   ENOTB                           \ERRNO.LIB                        121
+   EBADFNUM                        \ERRNO.LIB                        122
+   EROOTFULL                       \ERRNO.LIB                        125
+   ENOPART                         \ERRNO.LIB                        126
+   EBADPART                        \ERRNO.LIB                        127
+   EUNFORMAT                       \ERRNO.LIB                        128
+   ETYPE                           \ERRNO.LIB                        129
+   EPATHSTR                        \ERRNO.LIB                        130
+   EBADBLOCK                       \ERRNO.LIB                        131
+   EBADDATA                        \ERRNO.LIB                        132
+   EDRVBUSY                        \ERRNO.LIB                        133
+   EUNFLUSHABLE                    \ERRNO.LIB                        134
+   EMISMATCH                       \ERRNO.LIB                        141
+   EDEVNOTREG                      \ERRNO.LIB                        145
+   EPARTIALWRITE                   \ERRNO.LIB                        147
+   EJOVERFLOW                      \ERRNO.LIB                        149
+   ETRANSOPEN                      \ERRNO.LIB                        155
+   EBROKENTIE                      \ERRNO.LIB                        157
+   ETRANSNOTOPEN                   \ERRNO.LIB                        159
+   ECMCONFLICT                     \ERRNO.LIB                        161
+   EFSTATE                         \ERRNO.LIB                        163
+   EPSTATE                         \ERRNO.LIB                        166
+   ECORRUPT                        \ERRNO.LIB                        169
+   __PART_DEFS_LIB                 \PART_DEFS.LIB                     10
+   MBRTYPE_READONLY                \PART_DEFS.LIB                     68
+   MBRTYPE_WRITEPROT               \PART_DEFS.LIB                     69
+   MBRTYPE_ACTIVITY                \PART_DEFS.LIB                     70
+   MBRTYPE_DOORLOCK                \PART_DEFS.LIB                     71
+   MBRTYPE_REMOVE                  \PART_DEFS.LIB                     72
+   MBRTYPE_MAG                     \PART_DEFS.LIB                     73
+   MBRTYPE_FORMAT                  \PART_DEFS.LIB                     74
+   MBRTYPE_FLASH                   \PART_DEFS.LIB                     75
+   MBRTYPE_MARKERS                 \PART_DEFS.LIB                     76
+   MBRP_READONLY                   \PART_DEFS.LIB                     79
+   MBRP_MOUNTED                    \PART_DEFS.LIB                     80
+   MBR_START_DEFINED               \PART.LIB                          60
+   FAT_USOFS_DELETED               \FAT.LIB                          357
+   FAT_ACCESSED                    \FAT.LIB                          377
+   FAT_MODIFIED                    \FAT.LIB                          379
+   FAT_OP_OPEN                     \FAT.LIB                          412
+   FAT_OP_CLOSE                    \FAT.LIB                          413
+   FAT_OP_SPLIT                    \FAT.LIB                          414
+   FAT_OP_TRUNC                    \FAT.LIB                          415
+   FAT_OP_DELETE                   \FAT.LIB                          416
+   FAT_OP_SYNC                     \FAT.LIB                          417
+   FAT_OP_CREATE                   \FAT.LIB                          418
+   FAT_OP_SEEK                     \FAT.LIB                          419
+   FAT_OP_WRITE                    \FAT.LIB                          420
+   FAT_FILESTATE_NOTOPEN           \FAT.LIB                          424
+   FAT_FILESTATE_INIT              \FAT.LIB                          427
+   FAT_FILESTATE_NAV               \FAT.LIB                          428
+   FAT_FILESTATE_GETPATH           \FAT.LIB                          429
+   FAT_FILESTATE_EXTDIR            \FAT.LIB                          430
+   FAT_FILESTATE_CREATE            \FAT.LIB                          431
+   FAT_FILESTATE_FOUND             \FAT.LIB                          432
+   FAT_FILESTATE_DIRLEN            \FAT.LIB                          433
+   FAT_FILESTATE_IDLE              \FAT.LIB                          434
+   FAT_FILESTATE_CLOSE             \FAT.LIB                          436
+   FAT_FILESTATE_SP_END            \FAT.LIB                          438
+   FAT_FILESTATE_SP_TRANS          \FAT.LIB                          439
+   FAT_FILESTATE_SP_VERIFY         \FAT.LIB                          440
+   FAT_FILESTATE_SP_UPD_FILE       \FAT.LIB                          441
+   FAT_FILESTATE_SP_MARK1          \FAT.LIB                          442
+   FAT_FILESTATE_SP_MARK2          \FAT.LIB                          443
+   FAT_FILESTATE_SP_MARK3          \FAT.LIB                          444
+   FAT_FILESTATE_SP_MARK4          \FAT.LIB                          445
+   FAT_FILESTATE_SP_EXP_DIR        \FAT.LIB                          446
+   FAT_FILESTATE_SP_ADD_DIR        \FAT.LIB                          447
+   FAT_FILESTATE_SP_CLR_DIR        \FAT.LIB                          448
+   FAT_FILESTATE_SP_SAV_NAME       \FAT.LIB                          449
+   FAT_FILESTATE_SP_SAV_DIR        \FAT.LIB                          450
+   FAT_FILESTATE_SP_GET_MRKR       \FAT.LIB                          451
+   FAT_FILESTATE_SPLIT_ERR         \FAT.LIB                          452
+   FAT_FILESTATE_TR_NEXT           \FAT.LIB                          454
+   FAT_FILESTATE_TR_START          \FAT.LIB                          455
+   FAT_FILESTATE_TR_MARK           \FAT.LIB                          456
+   FAT_FILESTATE_TR_MARK1          \FAT.LIB                          457
+   FAT_FILESTATE_TR_MARK2          \FAT.LIB                          458
+   FAT_FILESTATE_TR_MARK3          \FAT.LIB                          459
+   FAT_FILESTATE_TR_FREE           \FAT.LIB                          460
+   FAT_FILESTATE_TRUNC_ERR         \FAT.LIB                          461
+   FAT_FILESTATE_SYNC              \FAT.LIB                          463
+   FAT_FILESTATE_SEEK              \FAT.LIB                          465
+   FAT_FILESTATE_SEEK1             \FAT.LIB                          466
+   FAT_FILESTATE_WRITE             \FAT.LIB                          468
+   FAT_FILESTATE_CR_INIT           \FAT.LIB                          472
+   FAT_FILESTATE_CR_NEW            \FAT.LIB                          473
+   FAT_FILESTATE_CR_CLEAR          \FAT.LIB                          474
+   FAT_FILESTATE_CR_START          \FAT.LIB                          475
+   FAT_FILESTATE_CR_DENTRY         \FAT.LIB                          476
+   FAT_FILESTATE_CR_UPDATE         \FAT.LIB                          477
+   FAT_FILESTATE_CR_ALLOC          \FAT.LIB                          478
+   FAT_FILESTATE_ERR               \FAT.LIB                          479
+   FAT_IDLE                        \FAT.LIB                          513
+   FAT_PSTATE                      \FAT.LIB                          514
+   FAT_MOUNT                       \FAT.LIB                          515
+   FAT_UNMNT                       \FAT.LIB                          516
+   FAT_ALLOC                       \FAT.LIB                          517
+   FAT_DEL                         \FAT.LIB                          518
+   FATATTR_READ_ONLY               \FAT.LIB                          560
+   FATATTR_HIDDEN                  \FAT.LIB                          561
+   FATATTR_SYSTEM                  \FAT.LIB                          562
+   FATATTR_VOLUME_ID               \FAT.LIB                          563
+   FATATTR_DIRECTORY               \FAT.LIB                          564
+   FATATTR_ARCHIVE                 \FAT.LIB                          565
+   FATATTR_LONG_NAME               \FAT.LIB                          566
+   _fat_cUint2Ulong                \FAT.LIB                          579
+   _fat_cUlong2Ulong               \FAT.LIB                          580
+   _fat_cUint2Uint                 \FAT.LIB                          581
+   _fat_Uint2Ulongc                \FAT.LIB                          582
+   _fat_Ulong2Ulongc               \FAT.LIB                          583
+   _fat_Uint2Uintc                 \FAT.LIB                          584
+   FAT_CONFIG_H                    \FAT_CONFIG.LIB                    13
+   FDDF_MOUNT_PART_0               \FAT_CONFIG.LIB                    39
+   FDDF_MOUNT_PART_1               \FAT_CONFIG.LIB                    40
+   FDDF_MOUNT_PART_2               \FAT_CONFIG.LIB                    41
+   FDDF_MOUNT_PART_3               \FAT_CONFIG.LIB                    42
+   FDDF_MOUNT_PART_ALL             \FAT_CONFIG.LIB                    43
+   FDDF_MOUNT_DEV_0                \FAT_CONFIG.LIB                    44
+   FDDF_MOUNT_DEV_1                \FAT_CONFIG.LIB                    45
+   FDDF_MOUNT_DEV_2                \FAT_CONFIG.LIB                    46
+   FDDF_MOUNT_DEV_3                \FAT_CONFIG.LIB                    47
+   FDDF_MOUNT_DEV_ALL              \FAT_CONFIG.LIB                    48
+   FDDF_NO_RECOVERY                \FAT_CONFIG.LIB                    49
+   FDDF_COND_DEV_FORMAT            \FAT_CONFIG.LIB                    53
+   FDDF_COND_PART_FORMAT           \FAT_CONFIG.LIB                    54
+   FDDF_UNCOND_DEV_FORMAT          \FAT_CONFIG.LIB                    55
+   FDDF_UNCOND_PART_FORMAT         \FAT_CONFIG.LIB                    56
+   FDDF_USE_DEFAULT                \FAT_CONFIG.LIB                    63
+   _DRIVER_CALLBACK                \FAT_CONFIG.LIB                    69
+   _DEVICE_CALLBACK                \FAT_CONFIG.LIB                    72
+   BL2600M                         \FAT_CONFIG.LIB                   112
+   BL2600N                         \FAT_CONFIG.LIB                   115
+   _DC_BRD_OPT0_                   \FAT_CONFIG.LIB                   136
+   RCM4000                         \FAT_CONFIG.LIB                   141
+   RCM4200_SERIES                  \FAT_CONFIG.LIB                   142
+   _DRIVER_0                       \FAT_CONFIG.LIB                   211
+   _DRIVER_0_INIT                  \FAT_CONFIG.LIB                   212
+   _DEVICE_0                       \FAT_CONFIG.LIB                   214
+   FAT_MAXCU                       \FAT_CONFIG.LIB                   240
+   _DEVICE_1                       \FAT_CONFIG.LIB                   247
+   _DEVICE_2                       \FAT_CONFIG.LIB                   250
+   _DEVICE_3                       \FAT_CONFIG.LIB                   253
+   _DEVICE_CUSTOM_0                \FAT_CONFIG.LIB                   256
+   _DEVICE_CUSTOM_1                \FAT_CONFIG.LIB                   259
+   SF_SPI_CSPORT                   \SFLASH_FAT.LIB                    15
+   SF_SPI_CSSHADOW                 \SFLASH_FAT.LIB                    16
+   SF_SPI_CSDD                     \SFLASH_FAT.LIB                    17
+   SF_SPI_CSDDSHADOW               \SFLASH_FAT.LIB                    18
+   SF_SPI_CSPIN                    \SFLASH_FAT.LIB                    19
+   MBR_DRIVER_INIT                 \SFLASH_FAT.LIB                    50
+   MBR_SIG                         \SFLASH_FAT.LIB                    51
+   __SFLASH_LIB__                  \SFLASH.LIB                        55
+   _XMEM_XLT                       \SFLASH.LIB                        67
+   _sflash_nodebug                 \SFLASH.LIB                        72
+   SF_SPI_DIVISOR                  \SFLASH.LIB                        77
+   SF_SPI_CONTROL_VALUE            \SFLASH.LIB                        80
+   SF_SPI_TXMASK                   \SFLASH.LIB                        81
+   SF_SPI_RXMASK                   \SFLASH.LIB                        82
+   SF_SPI_CLOCKMODE                \SFLASH.LIB                        85
+   SF_SPI_TACRSHADOW               \SFLASH.LIB                       101
+   SF_SPI_PCFRSHADOW               \SFLASH.LIB                       105
+   SF_SPI_PBDDRSHADOW              \SFLASH.LIB                       109
+   SF_SPI_PFFRSHADOW               \SFLASH.LIB                       113
+   SF_SPI_PFDCRSHADOW              \SFLASH.LIB                       117
+   SF_SPI_PFDDRSHADOW              \SFLASH.LIB                       121
+   SF_SR_OFFSET                    \SFLASH.LIB                       125
+   SF_CR_OFFSET                    \SFLASH.LIB                       126
+   SF_ER_OFFSET                    \SFLASH.LIB                       127
+   SF_SERPORT                      \SFLASH.LIB                       130
+   SF_SERPORT_TR                   \SFLASH.LIB                       148
+   SF_SERPORT_TR_REG               \SFLASH.LIB                       150
+   SF_SERPORT_TR_SHADOW            \SFLASH.LIB                       153
+   SF_SERPORT_CR_SHADOW            \SFLASH.LIB                       156
+   SF_SERPORT_ER_SHADOW            \SFLASH.LIB                       159
+   SF_BITSREVERSED                 \SFLASH.LIB                       199
+   SF_RAMBANK1                     \SFLASH.LIB                       200
+   SF_RAMBANK2                     \SFLASH.LIB                       201
+   SF_FS_BITREV                    \SFLASH_FAT.LIB                    62
+   _DRIVER_1_INIT                  \FAT_CONFIG.LIB                   271
+   _DRIVER_CUSTOM_INIT             \FAT_CONFIG.LIB                   276
+   __FATWTC_LIB                    \FATWTC.LIB                         2
+   _fatwtc_debug                   \FATWTC.LIB                        45
+   FAT_LBASIZE                     \FATWTC.LIB                        50
+   FAT_LBASHIFT                    \FATWTC.LIB                        51
+   FAT_FLUSHINTERVAL               \FATWTC.LIB                        71
+   WTC_NO_PREIMAGE                 \FATWTC.LIB                       122
+   WTC_MEMSET                      \FATWTC.LIB                       123
+   WTC_MAKE_LRU                    \FATWTC.LIB                       124
+   WTC_WAIT                        \FATWTC.LIB                       129
+   WTC_PURGE                       \FATWTC.LIB                       132
+   WTC_CONTINUE                    \FATWTC.LIB                       134
+   WTC_NOWRITE                     \FATWTC.LIB                       137
+   WTC_ONMOD                       \FATWTC.LIB                       138
+   WTC_UNUSED                      \FATWTC.LIB                       145
+   WTC_TIED1                       \FATWTC.LIB                       146
+   WTC_TIED2                       \FATWTC.LIB                       147
+   WTC_TIED4                       \FATWTC.LIB                       148
+   WTC_TIED8                       \FATWTC.LIB                       149
+   WTC_TIEDMASK                    \FATWTC.LIB                       151
+   WTC_FIRST                       \FATWTC.LIB                       157
+   WTC_USED                        \FATWTC.LIB                       159
+   WTC_LOCKED                      \FATWTC.LIB                       160
+   WTC_BUSY                        \FATWTC.LIB                       161
+   WTC_DIRTY                       \FATWTC.LIB                       162
+   RJ_VALID                        \FATWTC.LIB                       180
+   RJT_PREIMAGE                    \FATWTC.LIB                       182
+   RJT_CHECKPOINT                  \FATWTC.LIB                       183
+   RJT_MARKER                      \FATWTC.LIB                       184
+   WTCDI_FREE                      \FATWTC.LIB                       199
+   WTCDI_USED                      \FATWTC.LIB                       200
+   WTCDI_REMOVABLE                 \FATWTC.LIB                       201
+   WTC_VALID                       \FATWTC.LIB                       214
+   RJ_CHKENT                       \FATWTC.LIB                       254
+   RJ_MRKENT                       \FATWTC.LIB                       255
+   WTCDR_REGISTERED                \FATWTC.LIB                       267
+   WTCDR_REASSIGN                  \FATWTC.LIB                       268
+   FATWTC_CACHEMASK                \FATWTC.LIB                       297
+   FATWTC_CACHEON                  \FATWTC.LIB                       301
+   FATWTC_CACHEOFF                 \FATWTC.LIB                       302
+   FATWTC_SIMBUSY                  \FATWTC.LIB                       325
+   WTC_NO_ACTION                   \FATWTC.LIB                       542
+   _fat_tick                       \FATWTC.LIB                       845
+   _fat_EnumDevice                 \FAT.LIB                         3815
+   _fat_FormatDevice               \FAT.LIB                         4062
+   _fat_EnumPartition              \FAT.LIB                         4194
+   _fat_MountPartition             \FAT.LIB                         4428
+   _fat_UnmountPartition           \FAT.LIB                         4653
+   _fat_UnmountDevice              \FAT.LIB                         4828
+   _fat_Init                       \FAT.LIB                         5058
+   _fat_PartitionDevice            \FAT.LIB                         5218
+   _fat_FormatPartition            \FAT.LIB                         5339
+   _fat_SyncPartition              \FAT.LIB                         5685
+   _fat_GetName                    \FAT.LIB                         5764
+   FAT_LOWERCASE                   \FAT.LIB                         5768
+   _fat_Status                     \FAT.LIB                         5855
+   _fat_Open                       \FAT.LIB                         5960
+   _fat_CreateDir                  \FAT.LIB                         6310
+   _fat_CreateFile                 \FAT.LIB                         6311
+   _fat_OpenDir                    \FAT.LIB                         6546
+   _fat_ReadDir                    \FAT.LIB                         6618
+   _fat_SyncFile                   \FAT.LIB                         6782
+   _fat_Close                      \FAT.LIB                         6893
+   _fat_Delete                     \FAT.LIB                         7014
+   _fat_Split                      \FAT.LIB                         7211
+   _fat_Truncate                   \FAT.LIB                         7561
+   _fat_Read                       \FAT.LIB                         7770
+   _fat_Write                      \FAT.LIB                         7957
+   _fat_xWrite                     \FAT.LIB                         7958
+   _fat_Seek                       \FAT.LIB                         8250
+   _fat_Tell                       \FAT.LIB                         8464
+   _fat_Free                       \FAT.LIB                         8536
+   _fat_FileSize                   \FAT.LIB                         8598
+   _fat_GetAttr                    \FAT.LIB                         8663
+   _fat_SetAttr                    \FAT.LIB                         8727
+   _fat_CreateTime                 \FAT.LIB                         8814
+   _fat_LastAccess                 \FAT.LIB                         8883
+   _fat_LastWrite                  \FAT.LIB                         8950
+   SFLASH_DEVTABLE_SIZE            \SFLASH.LIB                       770
+   STDIO_MAX_PRINTF_BUF_SIZE       \STDIO.LIB                        578
+   DEFMANTISSA                     \STDIO.LIB                       1869
+   STACK_CNT_256                   \STACK.LIB                        964
+   STACK_CNT_512                   \STACK.LIB                        967
+   STACK_CNT_1K                    \STACK.LIB                        970
+   STACK_CNT_2K                    \STACK.LIB                        973
+   STACK_CNT_4K                    \STACK.LIB                        976
+   TOTAL_STACK_CNT                 \STACK.LIB                        999
+   RSTORE                          \STACK.LIB                        578
+   XSTORE                          \STACK.LIB                        592
+   FAT_NC_READ_N2                  \FAT.LIB                         1076
+   FAT_NC_READ_NB                  \FAT.LIB                         1077
+   FAT_NC_NEW_BLOCK                \FAT.LIB                         1078
+   FAT_NC_READ_X2                  \FAT.LIB                         1079
+   FAT_NC_READ_XB                  \FAT.LIB                         1080
+   FAT_NC_NEXT_BLOCK               \FAT.LIB                         1081
+   FAT_NC_READ_L2                  \FAT.LIB                         1082
+   FAT_NC_READ_L                   \FAT.LIB                         1083
+   FAT_NC_LINK                     \FAT.LIB                         1084
+   FAT_NC_LINK2                    \FAT.LIB                         1085
+   FAT_NC_SPAN1                    \FAT.LIB                         1086
+   FAT_NC_SPAN2                    \FAT.LIB                         1087
+   FAT_NC_ERROR                    \FAT.LIB                         1088
+   FAT_FC_CALC                     \FAT.LIB                         1780
+   FAT_FC_READ                     \FAT.LIB                         1781
+   FAT_FC_READ2                    \FAT.LIB                         1782
+   FAT_FC_GET                      \FAT.LIB                         1783
+   FAT_FC_FREE                     \FAT.LIB                         1784
+   FAT_FC_ERR                      \FAT.LIB                         1785
+   __DKCOMMON_LIB                  \DKCOMMON.LIB                       2
+   __DKENTRY_LIB                   \DKENTRY.LIB                        2
+   DEFAULTSTACKSIZE                \PROGRAM.LIB                       54
+
+
+// Function call graph.
+premain
+   Alloc_Stack
+   Dealloc_Stack
+   VdInit
+      periodic_init
+         read_rtc
+   _BiosStkSwitch
+   _Init_Stacks
+      xalloc
+         _xalloc
+            exit
+   _ProgStkSwitch
+   _init_bad_interrupts
+   _init_xalloc
+      _Init_RamX_Xstores
+         _Adjust_Xalloc_Space
+      exit
+      memset
+   exception
+   exit
+   main
+      exit
+      fat_AutoMount
+         _fat_automount
+            _fat_unmountdevparts
+               fat_UnmountPartition
+                  fat_Close
+                     fat_SyncFile
+                        _fat_tm2timestamp
+                           tm_rd
+                              mktm
+                        fatrj_setmarker
+                           root2xmem
+                              paddr
+                              xmem2xmem
+                                 xmem_cpyblkbwd
+                                 xmem_cpyblkfwd
+                           xgetint
+                           xsetint
+                     fatrj_unregmarker
+                        fatrj_tranend
+                           fatwtc_write
+                              _fatrj_store_preimage
+                                 xgetint
+                                 xmem2xmem->**see above**
+                                 xsetint
+                                 xsetlong
+                              fatwtc_makedirty
+                                 xgetint
+                                 xsetint
+                              fatwtc_read
+                                 _dc_assert
+                                    exception
+                                    exit
+                                    printf
+                                       _printf
+                                          __qe2
+                                          doprnt
+                                             outchrs
+                                             pflt
+                                                __ftoa
+                                                _gltoa
+                                                itoa
+                                                ltoan
+                                                   _gltoan
+                                                outchrs
+                                                outstr
+                                                strlen
+                                             phex
+                                                htoa
+                                                outchrs
+                                                outpad
+                                                   outchrs
+                                                outstr
+                                                strlen
+                                             pint
+                                                abs
+                                                itoa
+                                                itoan
+                                                outchrs
+                                                outpad->**see above**
+                                                outstr
+                                                utoa
+                                                utoan
+                                             plhex
+                                                hltoa
+                                                outchrs
+                                                outpad->**see above**
+                                                outstr
+                                                strlen
+                                             plint
+                                                gtoa
+                                                   _gltoa
+                                                gtoan
+                                                   _gltoan
+                                                labs
+                                                ltoa
+                                                   _gltoa
+                                                ltoan->**see above**
+                                                outchrs
+                                                outpad->**see above**
+                                                outstr
+                                             strlen
+                                             strtol
+                                             tolower
+                                             xgetint
+                                             xstrlen
+                                 _fatwtc_find
+                                    fat_tick
+                                       _fatwtc_devwrite
+                                          _fatwtc_remove
+                                          xgetint
+                                          xgetlong
+                                          xsetint
+                                       fatwtc_read->***recurses***
+                                    xgetint
+                                    xgetlong
+                                 _fatwtc_getfree
+                                    _fatwtc_LRU
+                                       xgetint
+                                    _fatwtc_devwrite->**see above**
+                                    xgetint
+                                    xsetint
+                                    xsetlong
+                                 _fatwtc_makeLRU
+                                    _fatwtc_remove
+                                 _fatwtc_makeMRU
+                                    _fatwtc_remove
+                                 fat_tick->**see above**
+                                 xgetint
+                                 xsetint
+                              xmem2root
+                                 paddr
+                                 xmem2xmem->**see above**
+                              xmem2xmem->**see above**
+                              xmemcmp
+                              xmemset
+                           xgetint
+                           xgetlong
+                           xsetint
+                        xsetint
+                     memset
+                  fat_SyncPartition
+                     fat_IsFatMBREntry
+                        strchr
+                     fatwtc_flushdev
+                        _fatwtc_devwrite->**see above**
+                        fat_tick->**see above**
+                        fatrj_tranend->**see above**
+                        fatrj_unregmarker->**see above**
+                        xgetint
+                        xsetint
+                  mbr_UnmountPartition
+            fat_EnumDevice
+               fatwtc_regdev
+                  _fatwtc_devwrite->**see above**
+                  _fatwtc_makeMRU->**see above**
+                  fatrj_rollback
+                     fatrj_tranend->**see above**
+                     fatwtc_write->**see above**
+                     xgetint
+                     xgetlong
+                     xmem2xmem->**see above**
+                     xsetint
+                  memcmp
+                  memcpy
+                  memset
+                  root2xmem->**see above**
+                  xgetint
+                  xmem2root->**see above**
+                  xsetint
+               memset
+               strlen
+               strncpy
+               xalloc->**see above**
+               xavail
+                  _xavail
+                     _xalloc->**see above**
+               xgetint
+               xmem2root->**see above**
+               xmemcmp
+               xrelease
+                  exception
+                  exit
+            fat_EnumPartition
+               _fat_PartCalc
+               fat_IsFatMBREntry->**see above**
+               fatrj_regpartition
+                  xgetint
+                  xmemset
+                  xsetint
+               fatwtc_read->**see above**
+               memset
+               xgetint
+               xgetlong
+            fat_FormatDevice
+               mbr_CreatePartition
+                  _xalloc->**see above**
+                  mbr_ValidatePartitions
+                  root2xmem->**see above**
+                  xavail->**see above**
+                  xgetint
+                  xmem2root->**see above**
+                  xmemcmp
+                  xmemset
+                  xrelease->**see above**
+               mbr_FormatDevice
+                  _xalloc->**see above**
+                  mbr_ValidatePartitions
+                  memcpy
+                  memset
+                  root2xmem->**see above**
+                  xavail->**see above**
+                  xgetint
+                  xmem2root->**see above**
+                  xmem2xmem->**see above**
+                  xmemcmp
+                  xrelease->**see above**
+                  xsetint
+               memset
+            fat_FormatPartition
+               _fat_CheckPart
+                  fat_IsFatMBREntry->**see above**
+                  fatwtc_read->**see above**
+                  xgetint
+                  xgetlong
+               _fat_tm2timestamp->**see above**
+               fat_EnumPartition->**see above**
+               fat_IsFatMBREntry->**see above**
+               fatrj_tranend->**see above**
+               fatwtc_flushdev->**see above**
+               fatwtc_write->**see above**
+               memset
+               paddrSS
+               strlen
+               strncpy
+               xmem2root->**see above**
+            fat_MountPartition
+               _fat_new_clust
+                  _fat_adj_clust
+                  _fat_table_update
+                     fatwtc_read->**see above**
+                     fatwtc_write->**see above**
+                     paddr
+                     xgetint
+                  _fat_xfind_null
+                  _fat_xnull_len
+                  _fatrj_store_preimage->**see above**
+                  fatrj_rollback->**see above**
+                  fatrj_setchk
+                     _fatrj_store_preimage->**see above**
+                     root2xmem->**see above**
+                     xgetint
+                     xmemset
+                  fatrj_status
+                     xgetint
+                  fatrj_tranend->**see above**
+                  fatrj_transtart
+                     xgetint
+                  fatwtc_makedirty->**see above**
+                  fatwtc_read->**see above**
+                  fatwtc_write->**see above**
+                  paddr
+                  paddrSS
+                  xgetint
+                  xgetlong
+                  xsetint
+                  xsetlong
+               _fat_next_clust
+                  _fat12_next_clust
+                     _fat_table_update->**see above**
+                     fatwtc_read->**see above**
+                     xgetint
+                  fatwtc_read->**see above**
+                  xgetint
+               _fat_table_update->**see above**
+               fat_IsFatMBREntry->**see above**
+               fatrj_regpartition->**see above**
+               mbr_MountPartition
+            fat_UnmountDevice
+               fat_UnmountPartition->**see above**
+               fatwtc_flushdev->**see above**
+               memset
+            fat_UnmountPartition->**see above**
+            memset
+            strlen
+      fat_CreateDir
+         fat_Close->**see above**
+         fat_Open
+            _fat_clust2sec
+            _fat_create
+               _fat_Clust2Dir
+               _fat_clust2sec
+               _fat_new_clust->**see above**
+               _fat_tm2timestamp->**see above**
+               fatrj_rollback->**see above**
+               fatwtc_write->**see above**
+               memcpy
+               memset
+               paddr
+            _fat_navigate
+               _fat_getname
+                  memcmp
+                  memcpy
+                  strchr
+                  strcpy
+                  strlen
+                  toupper
+               _fat_scan
+                  _fat_clust2sec
+                  _fat_first_deleted
+                  _fat_first_unused
+                  _fat_next_clust->**see above**
+                  fatwtc_read->**see above**
+                  strncmp
+                  xgetint
+                  xmem2root->**see above**
+               _fat_xDir2Clust
+                  xgetint
+               fatwtc_read->**see above**
+            _fat_next_clust->**see above**
+            _fat_xDir2Clust->**see above**
+            fatrj_getmarker
+               xgetint
+               xmem2root->**see above**
+            fatrj_regmarker
+               _fatrj_store_preimage->**see above**
+               fatwtc_read->**see above**
+               xgetint
+               xmem2xmem->**see above**
+               xsetint
+            fatrj_rollback->**see above**
+            fatrj_tranend->**see above**
+            fatrj_transtart->**see above**
+            fatwtc_read->**see above**
+            memset
+            strchr
+      fat_UnmountDevice->**see above**
+      fat_print_config
+         printf->**see above**
+      fatwtc_flushall
+         fatwtc_flushdev->**see above**
+         memset
+         xsetint
+      gets
+         getchar
+            kbhit
+         putchar
+         puts
+            putchar
+      printf->**see above**
+      toupper

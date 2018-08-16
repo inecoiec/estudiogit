@@ -1,0 +1,23 @@
+<?xml version="1.0" standalone="yes"?>
+
+<RabbitWeb>
+	<LectTemp><?z printf("%5.1f",$vintLectTemp)?></LectTemp>
+	<LectHum><?z printf("%5.1f",$vintLectHum)?></LectHum>
+	<EstEq1><?z echo($wEstEq1)?></EstEq1>
+	<EstEq2><?z echo($wEstEq2)?></EstEq2>
+	<EstTemp><?z echo($wEstTemp)?></EstTemp>
+	<Est220><?z echo($wEstLinea)?></Est220>
+	<EstSec><?z echo($wEstSec)?></EstSec>
+	<EstModo><?z echo($wEstModo)?></EstModo>
+	<EstDelayMed><?z echo($wEstDelayMed)?></EstDelayMed>
+	<ProxConm><?z echo($vHoras)?> : <?z echo($vMinutos)?> : <?z echo($vSegundos)?></ProxConm>
+	<TipoCr1><?z echo($config.vintTipoCr1)?> </TipoCr1>
+	<Reenc1><?z echo($config.vintReenc1)?> </Reenc1>
+	<CompMode1><?z echo($config.vintCompMode1)?></CompMode1>
+	<TipoCr2><?z echo($config.vintTipoCr2)?></TipoCr2>
+	<Reenc2><?z echo($config.vintReenc2)?></Reenc2>
+	<CompMode2><?z echo($config.vintCompMode2)?></CompMode2>
+	<DivCr1><?z echo($config.vintDivCr1)?></DivCr1>
+	<DivCr2><?z echo($config.vintDivCr2)?></DivCr2>
+</RabbitWeb>
+

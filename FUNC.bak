@@ -1,0 +1,87 @@
+var jsLectTemp;
+var jsLectHum;
+var jsEstEq1;
+var jsEstEq2;
+var jsColEstEq1;
+var jsColEstEq1;
+var jsEstTemp;
+var jsEst220;
+var	jsEstSec;
+var jsEstModo;
+var	jsEstDelaymed;
+var jsProxConm;
+var jsDivCr1;
+var jsDivCr2;
+var xmlDoc;
+var xmlhttp;
+var wPagina;
+
+function Read_XML_File(pagina)
+{
+   wPagina=pagina;
+	try {//Test for Internet Explorer
+		xmlDoc=new ActiveXObject("Microsoft.XMLDOM");
+		xmlDoc.async=false; //We want a synchronous connection
+		xmlDoc.load("variables.xml"); //Load the XML file
+	}catch(err){ //If ActiveX isn't going to work we use a more codified standard
+		try {//Every browser but Internet Explorer
+			xhttp=new XMLHttpRequest();
+			xhttp.open("GET","variables.xml",false);
+			xhttp.send("");
+			xmlDoc=xhttp.responseXML;
+		}catch(err){ //If that doesn't work, we produce an error mocking our user.
+<!--			alert("Su explorador no es compatible con IneControl"); -->
+			return;
+		}
+
+	}
+    jsLectTemp = xmlDoc.getElementsByTagName("LectTemp")[0].childNodes[0].nodeValue;
+	jsLectHum = xmlDoc.getElementsByTagName("LectHum")[0].childNodes[0].nodeValue;
+	jsEstEq1 = xmlDoc.getElementsByTagName("EstEq1")[0].childNodes[0].nodeValue;
+	jsEstEq2 = xmlDoc.getElementsByTagName("EstEq2")[0].childNodes[0].nodeValue;
+	jsEstTemp = xmlDoc.getElementsByTagName("EstTemp")[0].childNodes[0].nodeValue;
+	jsEst220 = xmlDoc.getElementsByTagName("Est220")[0].childNodes[0].nodeValue;
+	jsEstSec = xmlDoc.getElementsByTagName("EstSec")[0].childNodes[0].nodeValue;
+ 	jsEstModo = xmlDoc.getElementsByTagName("EstModo")[0].childNodes[0].nodeValue;
+	jsEstDelayMed = xmlDoc.getElementsByTagName("EstDelayMed")[0].childNodes[0].nodeValue;
+	jsProxConm = xmlDoc.getElementsByTagName("ProxConm")[0].childNodes[0].nodeValue;
+	jsDivCr1 = xmlDoc.getElementsByTagName("DivCr1")[0].childNodes[0].nodeValue;
+	jsDivCr2 = xmlDoc.getElementsByTagName("DivCr2")[0].childNodes[0].nodeValue;
+
+	document.getElementById("idLectTemp").innerHTML=jsLectTemp;
+	document.getElementById("idLectHum").innerHTML=jsLectHum;
+	document.getElementById("idEstEq1").innerHTML=jsEstEq1;
+	document.getElementById("CeldaEq1").className=jsEstEq1;
+	document.getElementById("idEstEq2").innerHTML=jsEstEq2;
+	document.getElementById("CeldaEq2").className=jsEstEq2;
+	document.getElementById("idEstTemp").innerHTML=jsEstTemp;
+	document.getElementById("CeldaTemp").className=jsEstTemp;
+	document.getElementById("idEst220").innerHTML=jsEst220;
+	document.getElementById("Celda220").className=jsEst220;
+	document.getElementById("idEstSec").innerHTML=jsEstSec;
+	document.getElementById("CeldaSec").className=jsEstSec;
+	document.getElementById("idEstModo").innerHTML=jsEstModo;
+	document.getElementById("CeldaModo").className=jsEstModo;
+	document.getElementById("idEstDelay").innerHTML=jsEstDelayMed;
+	document.getElementById("CeldaDelay").className=jsEstDelayMed;
+	document.getElementById("idProxConm").innerHTML=jsProxConm;
+
+	if (wPagina==='IRLEARN'){
+		document.getElementById("idDivCr1").innerHTML=jsDivCr1;
+		document.getElementById("idDivCr2").innerHTML=jsDivCr2;
+	}
+
+	setTimeout("Read_XML_File(wPagina)",1000);
+//Store the value of My_Data tag in the XML_Data variable
+}
+
+function alerta(mensaje,cgi_redirect)
+{
+	alert(mensaje);
+	location.href=cgi_redirect;
+
+}
+
+function MM_openBrWindow(theURL,winName,features) { //v2.0
+  window.open(theURL,winName,features);
+}

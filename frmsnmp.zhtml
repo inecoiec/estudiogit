@@ -1,0 +1,227 @@
+<html>
+<head>
+<?z if ($bitPassOK==0) { ?>
+            <META HTTP-EQUIV="REFRESH" CONTENT="0;URL=/">
+<?z } ?> 
+
+<title><?z print($TituloPags) ?></title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<script src="func.js" language="JavaScript"> <!-- Todo el contenido va aqui--></script>    
+<link rel="stylesheet" href="estilos.css">
+</head>
+<body onLoad="Read_XML_File('NADA')" bgcolor="#F2FFE6" text="#333333" link="#FFFFFF" vlink="#FFFFFF" alink="#FFFFFF">
+
+
+<table width="600" height="536" border="0" align="center" bgcolor="#FFFFFF">
+  <tr valign="top" align="left"> 
+    <td height="60" colspan="2"><!-- #BeginLibraryItem "/Library/panel.lbi" -->
+<style type="text/css">
+<!--
+.Estilo1 {color: #FFFFFF}
+.Estilo2 {
+	font-family: Arial, Helvetica, sans-serif;
+	font-weight: bold;
+}
+-->
+</style>
+<div id="Panel">
+  <table width="99%" border="0" align="center">
+    <tr>
+      <td width="822" bgcolor="#333333"><div align="center"><span class="Estilo1"><?z print($config.wAsunto)?></span></div></td>
+    </tr>
+  </table>
+</div>
+<table width="99%" border="1">
+  <tr>
+    <td width="30%" height="44" ><table width="104%"  border="0" cellspacing="0" cellpadding="1">
+        <tr>
+          <td width="42%" height="37"><span class="Bold1">Temp:</span></td>
+          <td width="31%"><span class="Bold1"><div id="idLectTemp" ></div></span></td>
+          
+		  <td width="27%"><span class="Bold1">C</span></td>
+        </tr>
+    </table></td>
+    <td width="30%" ><table width="100%"  border="0" cellspacing="0" cellpadding="1">
+        <tr class="Bold1">
+          <td width="45%" height="37">Hum:</td>
+          <td width="35%"><div id="idLectHum" ></div></td>
+          <td width="20%" class="Bold1">%</td>
+        </tr>
+    </table></td>
+	<td width="21%" valign="middle"><div align="center" class="Estilo4"><b>
+        <span class="Estilo3">
+        <?z print($wModelo)?>
+        </span></b><span class="Estilo3"></span></div></td>
+    <td width="19%" valign="middle"><font size="3" color="#333399" face="Times New Roman, Times, serif"><b><a href="/iec/fparams.zhtml"><img src="/Encabe2.jpg" alt="" name="refresh1" width="190" height="41" border="0" align="middle" id="refresh1"></a></b></font></td>
+  </tr>
+</table>
+<div align="center"></div>
+<table border="1" width="99%" height="75" name="VisEstados" bordercolor="#666600" cellspacing="0" align="center">
+  <tr>
+    <td width="158" align="center" height="35" bgcolor="#FFFFCC">
+      <p align="center"><font color="#000000" face="Times New Roman, Times, serif"><b><font size="4">AA1</font></b> </font> </td>
+    <td width="152" align="center" height="35" bgcolor="#FFFFCC"><font color="#000000" face="Times New Roman, Times, serif"><b><font size="4">&nbsp;AA2</font></b></font></td>
+    <td width="79" align="center" height="35" bgcolor="#CC6633">
+      <p align="center"><font color="#FFFFFF" face="Times New Roman, Times, serif"><b>Temp.</b></font> </td>
+    <td width="75" align="center" height="35" bgcolor="#CC6633">
+      <p align="center"><font color="#FFFFFF" face="Times New Roman, Times, serif"><b> 220 V</b></font> </td>
+    <td width="163" align="center" height="35" bgcolor="#CC6633"><font color="#FFFFFF" face="Times New Roman, Times, serif"><b>Secuenciador</b></font></td>
+    <td bgcolor="#006666" align="center" height="35" width="209"> <font size="3" color="#333333" face="Times New Roman, Times, serif"><b><font size="4" color="#FFFFFF">Conmutaci&oacute;n en:</font></b></font><font color="#FFFFFF" face="Times New Roman, Times, serif" size="4"><b>&nbsp;</b> </font></td>
+            <td height="35" colspan="3" align="center" bgcolor="#006666"><font color="#FFFFFF" face="Times New Roman, Times, serif" size="4"><b><div id="idProxConm"><font size="3" color="#333333" face="Times New Roman, Times, serif"><b><font size="4" color="#FFFFFF"></font></b></font><font color="#FFFFFF" face="Times New Roman, Times, serif" size="4"><b>&nbsp;</b></font></div>
+            </b></font></td>
+  </tr>
+    <tr>
+    <!-- <img src="./hang<?z echo($currentGIF) ?>.gif" height="145" width="120"> -->
+    <td id="CeldaEq1" width="158" align="center" height="38">
+      <div id="idEstEq1"></div></td>
+    <td id="CeldaEq2" width="152" align="center" height="38">
+      <div id="idEstEq2"></div></td>
+    <td id="CeldaTemp" width="79" align="center" height="38"><div id="idEstTemp"></div></td>
+    <td id="Celda220" width="75" align="center" height="38"><div id="idEst220"></div></td>
+    <td id="CeldaSec" width="163" align="center" height="38"><div id="idEstSec"></div></td>
+    <td id="CeldaModo" width="209" align ="center" height="38"><div id="idEstModo"></div></td>
+    <td id="CeldaDelay" width="166" align ="center" height="38"><div id="idEstDelay"></div></td>
+  </tr>
+  <center>
+  </center>
+</table><!-- #EndLibraryItem --></tr>
+  <tr> 
+    <td width="16%" height="316" valign="top"> 
+      <p>&nbsp;</p>      <!-- #BeginLibraryItem "/Library/Navegacion.lbi" --><table width="156" border="1" cellpadding="0" height="304" cellspacing="0">
+        <tr bgcolor="#333399" valign="middle" align="center"> 
+          <td width="152" height="25"> 
+            <p><font face="Times New Roman, Times, serif" color="#FFFFFF"><b><a href="/linklogout.cgi">Ver Par&aacute;metros</a></b></font></p>
+          </td>
+        </tr>
+        <tr bgcolor="#669999" valign="middle"> 
+          <td width="152" height="25"><font face="Times New Roman, Times, serif" color="#FFFFFF"><b>Configuraci&oacute;n</b></font></td>
+        </tr>
+        <tr bgcolor="#333399" valign="middle" align="center"> 
+          <td width="152" height="25"> 
+            <p><font color="#FFFFFF" face="Times New Roman, Times, serif"><b><a href="/ftiempos.zhtml">Tiempos</a></b></font></p>
+          </td>
+        </tr>
+        <tr bgcolor="#333399" valign="middle" align="center"> 
+          <td width="152" height="25"> 
+            <p><font color="#FFFFFF" face="Times New Roman, Times, serif"><b><a href="/ftemp.zhtml">Temperatura</a></b></font></p>
+          </td>
+        </tr>
+        <tr bgcolor="#333399" valign="middle" align="center"> 
+          <td width="152" height="25"> 
+            <p><font color="#FFFFFF" face="Times New Roman, Times, serif"><b><a href="/frmred.zhtml">Red</a></b></font></p>
+          </td>
+        </tr>
+        <tr bgcolor="#333399" valign="middle" align="center"> 
+          <td width="152" height="25"><font color="#FFFFFF" face="Times New Roman, Times, serif"><b><a href="/frmmens.zhtml">Mensajes</a></b></font></td>
+        </tr>
+        <tr bgcolor="#333399" valign="middle" align="center">
+          <td height="25"><font color="#FFFFFF" face="Times New Roman, Times, serif"><b><a href="/frmsnmp.zhtml">Parametros SNMP </a></b></font></td>
+        </tr>
+        <tr bgcolor="#333399" valign="middle" align="center">
+          <td height="25"><font color="#FFFFFF" face="Times New Roman, Times, serif"><b><a href="/fcomirojo.zhtml">Comandos Infrarojos</a></b></font></td>
+        </tr>
+        <tr bgcolor="#669999" valign="middle" align="left"> 
+          <td width="152" height="24"><font color="#FFFFFF" face="Times New Roman, Times, serif"><b>Administraci&oacute;n</b></font></td>
+        </tr>
+        <tr bgcolor="#333399" valign="middle" align="center"> 
+          <td width="152" height="24"> 
+            <p><font color="#FFFFFF" face="Times New Roman, Times, serif"><b><a href="/frmcontrol.zhtml">Control 
+              del SA-712W</a></b></font></p>
+          </td>
+        </tr>
+        <tr bgcolor="#333399" valign="middle" align="center"> 
+          <td width="152" height="23"> 
+            <p>
+          </td>
+        </tr>
+        <tr valign="top"> 
+          <td width="152" height="31">
+            <p align="center">&nbsp;</p>
+            <p align="center"><font size="2" face="Arial, Helvetica, sans-serif" color="#000000">
+              <INPUT name="button1" type="button" onClick="location.href='/linklogout.cgi'" value="     Logout   ">
+            </font></p>
+            <p align="center">&nbsp;</p>          </td>
+        </tr>
+      </table>
+<!-- #EndLibraryItem --></td>
+    <td width="84%" height="316" valign="top"> 
+      <table width="601" border="1" cellspacing="0" cellpadding="0" height="244" bordercolor="#333399">
+        <tr align="center" bgcolor="#333399"> 
+          <td width="597" height="21"> 
+            <p><b><font color="#FFFFFF" face="Times New Roman, Times, serif" size="4">Parametros SNMP </font></b></p>
+          </td>
+        </tr>
+        <tr align="center"> 
+          <td width="597" height="271">
+		  
+            <form method="post" action="/frmsnmp.zhtml">
+              <p>&nbsp;</p>
+              <table width="75%" border="1" cellspacing="0" cellpadding="0">
+                <tr>
+                  <td>SNMP habilitado </td>
+                  <td colspan="2" align="center">
+				  <SELECT NAME="config.inthabisnmp">
+                  	<?z print_select($config.inthabisnmp) ?>
+                  </SELECT></td>
+                </tr>
+                <tr> 
+                  <td width="74%"><font color="#000000">Read Community </font></td>
+                  <td colspan="2" width="26%" align="center"> 
+                    <input name="config.snmpReadComm" type="text" id="config.snmpReadComm" value="<?z print($config.snmpReadComm)?>" size="15" maxlength="15">
+                  </td>
+                </tr>
+                <tr>
+                  <td width="74%"><font color="#000000">Read/Write Community </font></td>
+                  <td colspan="2" width="26%" align="center">
+                    <input name="config.snmpWriteComm" type="text" id="config.snmpWriteComm" value="<?z print($config.snmpWriteComm)?>" size="15" maxlength="15">
+                  </td>
+                </tr>
+                <tr>
+                  <td>Trap Community </td>
+                  <td colspan="2" align="center"><input name="config.snmpTrapComm" type="text" id="config.snmpTrapComm" value="<?z print($config.snmpTrapComm)?>" size="15" maxlength="15"></td>
+                </tr>
+                <tr>
+                  <td>	IP Trap Dest 1                
+			      </td>
+				  <td colspan="2" align="center">
+				  <input name="config.snmpIPtrap1" type="text" id="config.snmpIPtrap1" value="<?z print($config.snmpIPtrap1)?>" size="15" maxlength="15">
+				  
+				  
+				  </td>
+                	
+						
+					
+				</tr>
+                <tr>
+                  <td>IP Trap Dest 2 </td>
+                  <td colspan="2" align="center"><input name="config.snmpIPtrap2" type="text" id="config.snmpIPtrap2" value="<?z print($config.snmpIPtrap2)?>" size="15" maxlength="15"></td>
+                </tr>
+                <tr> 
+                  <td width="74%">IP Trap Dest 3 </td>
+                  <td colspan="2" width="26%" align="center"><input name="config.snmpIPtrap3" type="text" id="config.snmpIPtrap3" value="<?z print($config.snmpIPtrap3)?>" size="15" maxlength="15">
+                  </td>
+                </tr>
+              </table>
+              <p> 
+			    <input type="submit" value="Grabar Nuevos Valores" name="B1">
+<!--                <INPUT name="Grabar" value="Grabar Cambios" type="button" onClick="alerta('El sistema se reiniciará para aplicar los cambios','/btcargadatsnmp.cgi')">  
+-->
+                <input type="reset" value="Restablecer" name="B2">
+
+<!--				<?z if(updating()) { ?>
+	                <meta http-equiv="REFRESH" content="0;URL=/frmreset.zhtml">
+				<?z } ?>
+-->				
+              </p>
+            </form>
+            <p>&nbsp;</p>
+          </td>
+        </tr>
+      </table>
+      <p>
+ 
+</p></td>
+  </tr>
+</table>
+</body>
+</html>

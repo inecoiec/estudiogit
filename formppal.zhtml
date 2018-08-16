@@ -1,0 +1,208 @@
+<html>
+<head>
+<!-- <META HTTP-EQUIV="Cache-Control" CONTENT ="no-cache"> -->
+
+<title><?z print($TituloPags) ?></title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<script src="func.js" language="JavaScript"> <!-- Todo el contenido va aqui--></script>    
+<link rel="stylesheet" href="estilos.css">
+</head>
+
+<body onLoad="Read_XML_File('NADA')" bgcolor="#F2FFE6" text="#333333" link="#FFFFFF" vlink="#FFFFFF" alink="#FFFFFF">
+
+<table width="720" height="536" border="0" align="center" bgcolor="#FFFFFF">
+  <tr valign="top" align="left"> 
+    <td height="60"><!-- #BeginLibraryItem "/Library/panel.lbi" -->
+<style type="text/css">
+<!--
+.Estilo1 {color: #FFFFFF}
+.Estilo2 {
+	font-family: Arial, Helvetica, sans-serif;
+	font-weight: bold;
+}
+-->
+</style>
+<div id="Panel">
+  <table width="99%" border="0" align="center">
+    <tr>
+      <td width="822" bgcolor="#333333"><div align="center"><span class="Estilo1"><?z print($config.wAsunto)?></span></div></td>
+    </tr>
+  </table>
+</div>
+<table width="99%" border="1">
+  <tr>
+    <td width="30%" height="44" ><table width="104%"  border="0" cellspacing="0" cellpadding="1">
+        <tr>
+          <td width="42%" height="37"><span class="Bold1">Temp:</span></td>
+          <td width="31%"><span class="Bold1"><div id="idLectTemp" ></div></span></td>
+          
+		  <td width="27%"><span class="Bold1">C</span></td>
+        </tr>
+    </table></td>
+    <td width="30%" ><table width="100%"  border="0" cellspacing="0" cellpadding="1">
+        <tr class="Bold1">
+          <td width="45%" height="37">Hum:</td>
+          <td width="35%"><div id="idLectHum" ></div></td>
+          <td width="20%" class="Bold1">%</td>
+        </tr>
+    </table></td>
+	<td width="21%" valign="middle"><div align="center" class="Estilo4"><b>
+        <span class="Estilo3">
+        <?z print($wModelo)?>
+        </span></b><span class="Estilo3"></span></div></td>
+    <td width="19%" valign="middle"><font size="3" color="#333399" face="Times New Roman, Times, serif"><b><a href="/iec/fparams.zhtml"><img src="/Encabe2.jpg" alt="" name="refresh1" width="190" height="41" border="0" align="middle" id="refresh1"></a></b></font></td>
+  </tr>
+</table>
+<div align="center"></div>
+<table border="1" width="99%" height="75" name="VisEstados" bordercolor="#666600" cellspacing="0" align="center">
+  <tr>
+    <td width="158" align="center" height="35" bgcolor="#FFFFCC">
+      <p align="center"><font color="#000000" face="Times New Roman, Times, serif"><b><font size="4">AA1</font></b> </font> </td>
+    <td width="152" align="center" height="35" bgcolor="#FFFFCC"><font color="#000000" face="Times New Roman, Times, serif"><b><font size="4">&nbsp;AA2</font></b></font></td>
+    <td width="79" align="center" height="35" bgcolor="#CC6633">
+      <p align="center"><font color="#FFFFFF" face="Times New Roman, Times, serif"><b>Temp.</b></font> </td>
+    <td width="75" align="center" height="35" bgcolor="#CC6633">
+      <p align="center"><font color="#FFFFFF" face="Times New Roman, Times, serif"><b> 220 V</b></font> </td>
+    <td width="163" align="center" height="35" bgcolor="#CC6633"><font color="#FFFFFF" face="Times New Roman, Times, serif"><b>Secuenciador</b></font></td>
+    <td bgcolor="#006666" align="center" height="35" width="209"> <font size="3" color="#333333" face="Times New Roman, Times, serif"><b><font size="4" color="#FFFFFF">Conmutaci&oacute;n en:</font></b></font><font color="#FFFFFF" face="Times New Roman, Times, serif" size="4"><b>&nbsp;</b> </font></td>
+            <td height="35" colspan="3" align="center" bgcolor="#006666"><font color="#FFFFFF" face="Times New Roman, Times, serif" size="4"><b><div id="idProxConm"><font size="3" color="#333333" face="Times New Roman, Times, serif"><b><font size="4" color="#FFFFFF"></font></b></font><font color="#FFFFFF" face="Times New Roman, Times, serif" size="4"><b>&nbsp;</b></font></div>
+            </b></font></td>
+  </tr>
+    <tr>
+    <!-- <img src="./hang<?z echo($currentGIF) ?>.gif" height="145" width="120"> -->
+    <td id="CeldaEq1" width="158" align="center" height="38">
+      <div id="idEstEq1"></div></td>
+    <td id="CeldaEq2" width="152" align="center" height="38">
+      <div id="idEstEq2"></div></td>
+    <td id="CeldaTemp" width="79" align="center" height="38"><div id="idEstTemp"></div></td>
+    <td id="Celda220" width="75" align="center" height="38"><div id="idEst220"></div></td>
+    <td id="CeldaSec" width="163" align="center" height="38"><div id="idEstSec"></div></td>
+    <td id="CeldaModo" width="209" align ="center" height="38"><div id="idEstModo"></div></td>
+    <td id="CeldaDelay" width="166" align ="center" height="38"><div id="idEstDelay"></div></td>
+  </tr>
+  <center>
+  </center>
+</table><!-- #EndLibraryItem --></tr>
+  <tr> 
+    <td width="80%" height="376" valign="top"> 
+      <div align="left"></div>
+      <table width="721" border="1" cellspacing="0" cellpadding="0" height="244" bordercolor="#333399">
+        <tr align="center" bgcolor="#333399"> 
+          <td width="685" height="21"> 
+            <p><b><font color="#FFFFFF" size="4" face="Times New Roman, Times, serif">Par&aacute;metros</font></b> 
+            </p>
+          </td>
+        </tr>
+        <tr align="center"> 
+          <td width="685" height="226" bordercolor="#FFFFFF"> 
+            <p><font face="Times New Roman, Times, serif" color="#000000"><?z print($wMailStatus)?></font></p>
+            <table width="91%" border="1" cellspacing="0" cellpadding="0">
+              <tr> 
+                <td height="26" colspan="2" bordercolor="#999999" bgcolor="#0000CC"><div align="center"><font color="#FFFFFF" size="2" face="Verdana, Arial, Helvetica, sans-serif"><strong>Temperatura</strong></font></div></td>
+                <td height="26" bordercolor="#CCCCCC" bgcolor="#CCCCCC"> 
+                <div align="center"><strong></strong></div></td>
+                <td height="26" colspan="2" bordercolor="#999999" bgcolor="#0000CC"><div align="center"><strong><font color="#FFFFFF" size="2" face="Verdana, Arial, Helvetica, sans-serif">Red Equipo </font></strong></div></td>
+              </tr>
+              <tr> 
+                <td width="23%" height="26" bordercolor="#999999"><font color="#000000" face="Times New Roman, Times, serif"><font size="2" face="Verdana, Arial, Helvetica, sans-serif">Temperatura 
+                  Alta</font></font></td>
+                <td width="26%" height="26" align="center" bordercolor="#999999"><font color="#000000" size="2" face="Verdana, Arial, Helvetica, sans-serif"><?z print($config.vintTempAlta)?> 
+                  Grados </font></td>
+                <td width="1%" bordercolor="#CCCCCC" bgcolor="#CCCCCC">&nbsp;</td>
+                <td width="22%" height="26" bordercolor="#999999"><font face="Times New Roman, Times, serif" color="#000000"><font size="2" face="Verdana, Arial, Helvetica, sans-serif"> Direcci&oacute;n IP</font></font></td>
+                <td width="28%" height="26" bordercolor="#999999"> 
+                  <div align="center"><font color="#000000" size="2" face="Verdana, Arial, Helvetica, sans-serif">
+                    <?z print($config.wdirip)?>
+                </font> </div>                </td>
+              </tr>
+              <tr> 
+                <td width="23%" height="26" bordercolor="#999999"><font face="Times New Roman, Times, serif" color="#000000"><font size="2" face="Verdana, Arial, Helvetica, sans-serif">Temperatura Normal</font></font></td>
+                <td width="26%" height="26" align="center" bordercolor="#999999"><font color="#000000" size="2" face="Verdana, Arial, Helvetica, sans-serif">
+                  <?z print($config.vintTempNormal)?>
+Grados </font></td>
+                <td width="1%" bordercolor="#CCCCCC" bgcolor="#CCCCCC">&nbsp;</td>
+                <td width="22%" height="26" bordercolor="#999999"><font face="Times New Roman, Times, serif" color="#000000"><font size="2" face="Verdana, Arial, Helvetica, sans-serif">M&aacute;scara Red</font></font></td>
+                <td width="28%" height="26" bordercolor="#999999"> 
+                  <div align="center"><font color="#000000" size="2" face="Verdana, Arial, Helvetica, sans-serif">
+                    <?z print($config.wmask)?>
+                </font></div>                </td>
+              </tr>
+              <tr>
+                <td height="27" colspan="2" bordercolor="#999999" bgcolor="#0000CC"><div align="center"><font color="#FFFFFF" size="2" face="Verdana, Arial, Helvetica, sans-serif"><strong>Tiempos de Conmutaci&oacute;n </strong></font></div></td>
+                <td bordercolor="#CCCCCC" bgcolor="#CCCCCC">&nbsp;</td>
+                <td height="27" bordercolor="#999999"><font face="Times New Roman, Times, serif" color="#000000"><font size="2" face="Verdana, Arial, Helvetica, sans-serif">Gateway</font></font></td>
+                <td height="27" bordercolor="#999999"><div align="center"><font color="#000000" size="2" face="Verdana, Arial, Helvetica, sans-serif">
+                    <?z print($config.wrouter)?>
+                </font></div></td>
+              </tr>
+              <tr>
+                <td height="30" bordercolor="#999999"><font size="2" face="Verdana, Arial, Helvetica, sans-serif"><font color="#0000FF"> <font color="#000000">Primera </font></font></font><font color="#000000" size="2" face="Verdana, Arial, Helvetica, sans-serif">Conmutaci&oacute;n</font></td>
+                <td height="30" align="center" bordercolor="#999999"><div align="center"><font color="#000000" size="2" face="Verdana, Arial, Helvetica, sans-serif"><?z print($config.vintTimPriConm)?>
+                <?z print($magTHPriConm)?></font></div></td>
+                <td bordercolor="#CCCCCC" bgcolor="#CCCCCC">&nbsp;</td>
+                <td height="30" bordercolor="#999999"><font color="#000000" size="2" face="Verdana, Arial, Helvetica, sans-serif">DNS Primario </font></td>
+                <td height="30" bordercolor="#999999"><div align="center"><font face="Times New Roman, Times, serif" color="#000000"><font face="Verdana, Arial, Helvetica, sans-serif"><font size="2"><?z print($config.wdnssrvr)?></font></font>
+                </font></div></td>
+              </tr>
+              <tr>
+                <td height="26" bordercolor="#999999"><font face="Times New Roman, Times, serif" color="#000000"><font size="2" face="Verdana, Arial, Helvetica, sans-serif">Tiempo Conmutaci&oacute;n</font></font></td>
+                <td height="26" align="center" bordercolor="#999999"><font color="#000000" size="2" face="Verdana, Arial, Helvetica, sans-serif"><?z print($config.vintTimConmut1)?>
+                  <?z print($magTHConmut1)?>
+                </font><font size="2" face="Verdana, Arial, Helvetica, sans-serif">&nbsp; </font></td>
+                <td height="26" bordercolor="#CCCCCC" bgcolor="#CCCCCC"><div align="center"><strong></strong></div></td>
+                <td height="26" colspan="2" bordercolor="#999999" bgcolor="#0000CC"><div align="center"><strong><font color="#FFFFFF" size="2" face="Verdana, Arial, Helvetica, sans-serif">Servicio SNMP </font></strong></div></td>
+              </tr>
+              <tr>
+                <td height="29" colspan="2" bordercolor="#999999" bgcolor="#0000CC"><div align="center"><font color="#FFFFFF" size="2" face="Verdana, Arial, Helvetica, sans-serif"><strong>Alertas por  e-mail </strong></font></div></td>
+                <td bordercolor="#CCCCCC" bgcolor="#CCCCCC">&nbsp;</td>
+                <td height="29" bordercolor="#999999"><font size="2" face="Verdana, Arial, Helvetica, sans-serif">Servicio Habilitado </font></td>
+                <td height="29" bordercolor="#999999"><div align="center"><font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+                    <select name="config.inthabisnmp" disabled id="config.inthabisnmp">
+                      <?z print_select($config.inthabisnmp) ?>
+                    </select>
+                </font></div></td>
+              </tr>
+              <tr>
+                <td height="29" bordercolor="#999999"><font face="Times New Roman, Times, serif" color="#000000"><font size="2" face="Verdana, Arial, Helvetica, sans-serif">Mensajes Habilitados</font></font></td>
+                <td height="29" align="center" bordercolor="#999999"><font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+                  <select name="config.inthabimens" disabled>
+                    <?z print_select($config.inthabimens) ?>
+                  </select>
+                </font></td>
+                <td bordercolor="#CCCCCC" bgcolor="#CCCCCC">&nbsp;</td>
+                <td height="29" bordercolor="#999999"><font size="2" face="Verdana, Arial, Helvetica, sans-serif">Trap Dest 1 </font></td>
+                <td height="29" bordercolor="#999999"><div align="center"><font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+                    <?z print($config.snmpIPtrap1)?>
+                </font></div></td>
+              </tr>
+              <tr>
+                <td height="26" bordercolor="#999999"><font size="2" face="Verdana, Arial, Helvetica, sans-serif">Servidor SMTP </font></td>
+                <td height="26" align="center" bordercolor="#999999"><font size="2" face="Verdana, Arial, Helvetica, sans-serif"><?z print($config.wsmtpsrvr)?>&nbsp;</font></td>
+                <td bordercolor="#CCCCCC" bgcolor="#CCCCCC">&nbsp;</td>
+                <td height="26" bordercolor="#999999"><font size="2" face="Verdana, Arial, Helvetica, sans-serif">Trap Dest 2 </font></td>
+                <td height="26" bordercolor="#999999"><div align="center"><font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+                  <?z print($config.snmpIPtrap2)?>
+                </font></div></td>
+              </tr>
+              <tr>
+                <td height="28" bordercolor="#999999"><font size="2" face="Verdana, Arial, Helvetica, sans-serif">Mail From </font></td>
+                <td height="28" align="center" bordercolor="#999999"><font size="2" face="Verdana, Arial, Helvetica, sans-serif"><?z print($config.wsmtpmailfrom)?>&nbsp;</font></td>
+                <td bordercolor="#CCCCCC" bgcolor="#CCCCCC">&nbsp;</td>
+                <td height="28" bordercolor="#999999"><font size="2" face="Verdana, Arial, Helvetica, sans-serif">Trap Dest 3 </font></td>
+                <td height="28" bordercolor="#999999"><div align="center"><font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+                  <?z print($config.snmpIPtrap3)?>
+                </font></div></td>
+              </tr>
+            </table>
+            <p><font size="2" face="Arial, Helvetica, sans-serif" color="#000000">
+              <INPUT name="button1" type="button" onClick="location.href='/linklogin.cgi'" value="    Login    ">
+            </font></p>
+            <p>&nbsp;</p>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,17 @@
+<?xml version="1.0" standalone="yes"?>
+
+<RabbitWeb>
+	<LectTemp><?z printf("%5.1f",$vintLectTemp)?></LectTemp>
+	<LectHum><?z printf("%5.1f",$vintLectHum)?></LectHum>
+	<EstEq1><?z echo($wEstEq1)?></EstEq1>
+	<EstEq2><?z echo($wEstEq2)?></EstEq2>
+	<EstTemp><?z echo($wEstTemp)?></EstTemp>
+	<Est220><?z echo($wEstLinea)?></Est220>
+	<EstSec><?z echo($wEstSec)?></EstSec>
+	<EstModo><?z echo($wEstModo)?></EstModo>
+	<EstDelayMed><?z echo($wEstDelayMed)?></EstDelayMed>
+	<ProxConm><?z echo($vHoras)?> : <?z echo($vMinutos)?> : <?z echo($vSegundos)?>
+	<?z?></ProxConm>
+	<DivCr1><?z echo($config.vintDivCr2)?></DivCr1>
+<DivCr2><?z?></DivCr2>
+</RabbitWeb>

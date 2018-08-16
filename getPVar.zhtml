@@ -1,0 +1,44 @@
+<pv>
+	<sa700-response>
+		<!-- Tipos de variables : int=integer, flo=float, str=string, --> 
+        <!-- ======================================================== -->
+		<!-- Tipos de variables : int=integer, flo=float, str=string, --> 		
+		
+		<!-- Seteo variables password -->
+		 <strPassLogin value="<?z print($wPassInput)?>"/>
+		 <strOldPassLogin value="<?z print($wOldPass)?>"/>		
+		 <strNewPassLogin value="<?z print($wNewPass)?>"/>		
+		 <strRetPassLogin value="<?z print($wRetNewPass)?>"/>				
+		<!-- Seteo Variables Red -->
+		 <strDirIP value="<?z print($config.wdirip)?>"/>		
+		 <strIPMask value="<?z print($config.wmask)?>"/>		
+		 <strGateWay value="<?z print($config.wrouter)?>"/>				
+		 <strDns value="<?z print($config.wdnssrvr)?>"/>				
+
+		<!-- Seteo Variables Correo -->
+
+		 <strSmtp value="<?z print($config.wsmtpsrvr)?>"/>		
+		 <strMailFrom value="<?z print($config.wsmtpmailfrom)?>"/>		
+		 <strMailUser value="<?z print($config.wsmtpcuentaval)?>"/>				
+		 <strMailPassword value="<?z print($config.wsmtppass)?>"/>				
+		 <strCritReceiptMail value="<?z print($config.wDestMensCrit)?>"/>				
+		 <strNotifReceiptMail value="<?z print($config.wDestMensNotif)?>"/>						 		 
+		 <strSubjectMail value="<?z print($config.wAsunto)?>"/>						
+
+		<!-- Seteo Variables repeticion mensajes intRepiteCritMail[minutos] intRepiteNotifMail[Horas] --> 
+		 <intRepiteCritMail value="<?z print($config.vintTimRepStat)?>"/>						 		  		 		
+		 <intRepiteNotifMail value="<?z print($config.vintTimRepTemp)?>"/>						 		  		 				 
+
+		 <intMailsEnable value="<?z print($config.wdnssrvr)?>"/>						 		  		 				 
+
+		<!-- Umbrales de temperatura  -->	
+		 <intNormal_temp value="<?z print($config.vintTempNormal)?>"/>
+		 <intHigh_temp value="<?z print($config.vintTempAlta)?>"/>
+		 <intDelayMed value="<?z print($config.vintTHEsperaTemp)?>"/>
+		 		
+		<!-- Tiempos de Conmutación [ 00-99 (horas)] -->				
+		 <intFirsTimeConmut value="<?z print($config.vintTimPriConm)?>"/>
+		 <intTimeConmut value="<?z print($config.vintTimConmut1)?>"/>
+
+	</sa700-response>
+</pv>

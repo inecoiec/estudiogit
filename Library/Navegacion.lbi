@@ -1,0 +1,56 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"><table width="156" border="1" cellpadding="0" height="304" cellspacing="0">
+        <tr bgcolor="#333399" valign="middle" align="center"> 
+          <td width="152" height="25"> 
+            <p><font face="Times New Roman, Times, serif" color="#FFFFFF"><b><a href="/linklogout.cgi">Ver Par&aacute;metros</a></b></font></p>
+          </td>
+        </tr>
+        <tr bgcolor="#669999" valign="middle"> 
+          <td width="152" height="25"><font face="Times New Roman, Times, serif" color="#FFFFFF"><b>Configuraci&oacute;n</b></font></td>
+        </tr>
+        <tr bgcolor="#333399" valign="middle" align="center"> 
+          <td width="152" height="25"> 
+            <p><font color="#FFFFFF" face="Times New Roman, Times, serif"><b><a href="/ftiempos.zhtml">Tiempos</a></b></font></p>
+          </td>
+        </tr>
+        <tr bgcolor="#333399" valign="middle" align="center"> 
+          <td width="152" height="25"> 
+            <p><font color="#FFFFFF" face="Times New Roman, Times, serif"><b><a href="/ftemp.zhtml">Temperatura</a></b></font></p>
+          </td>
+        </tr>
+        <tr bgcolor="#333399" valign="middle" align="center"> 
+          <td width="152" height="25"> 
+            <p><font color="#FFFFFF" face="Times New Roman, Times, serif"><b><a href="/frmred.zhtml">Red</a></b></font></p>
+          </td>
+        </tr>
+        <tr bgcolor="#333399" valign="middle" align="center"> 
+          <td width="152" height="25"><font color="#FFFFFF" face="Times New Roman, Times, serif"><b><a href="/frmmens.zhtml">Mensajes</a></b></font></td>
+        </tr>
+        <tr bgcolor="#333399" valign="middle" align="center">
+          <td height="25"><font color="#FFFFFF" face="Times New Roman, Times, serif"><b><a href="/frmsnmp.zhtml">Parametros SNMP </a></b></font></td>
+        </tr>
+        <tr bgcolor="#333399" valign="middle" align="center">
+          <td height="25"><font color="#FFFFFF" face="Times New Roman, Times, serif"><b><a href="/fcomirojo.zhtml">Comandos Infrarojos</a></b></font></td>
+        </tr>
+        <tr bgcolor="#669999" valign="middle" align="left"> 
+          <td width="152" height="24"><font color="#FFFFFF" face="Times New Roman, Times, serif"><b>Administraci&oacute;n</b></font></td>
+        </tr>
+        <tr bgcolor="#333399" valign="middle" align="center"> 
+          <td width="152" height="24"> 
+            <p><font color="#FFFFFF" face="Times New Roman, Times, serif"><b><a href="/frmcontrol.zhtml">Control 
+              del SA-712W</a></b></font></p>
+          </td>
+        </tr>
+        <tr bgcolor="#333399" valign="middle" align="center"> 
+          <td width="152" height="23"> 
+            <p>
+          </td>
+        </tr>
+        <tr valign="top"> 
+          <td width="152" height="31">
+            <p align="center">&nbsp;</p>
+            <p align="center"><font size="2" face="Arial, Helvetica, sans-serif" color="#000000">
+              <INPUT name="button1" type="button" onClick="location.href='/linklogout.cgi'" value="     Logout   ">
+            </font></p>
+            <p align="center">&nbsp;</p>          </td>
+        </tr>
+      </table>

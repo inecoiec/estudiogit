@@ -1,0 +1,8 @@
+<mv>
+	<sa700-response>
+		<!-- Tipos de variables : int=integer, flo=float, str=string, --> 
+        <!-- ======================================================== -->
+		<floTemperature Value="<?z printf("%5.1f",$vintLectTemp) ?>"/>
+		<floHumidity value="<?z printf("%5.1f",$vintLectHum) ?>"/>
+	</sa700-response>
+</mv>

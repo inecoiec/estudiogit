@@ -1,0 +1,140 @@
+<html>
+<head>
+<?z if ($bitPassOK==0) { ?>
+         <!--  <META HTTP-EQUIV="REFRESH" CONTENT="0;URL=/"> -->
+<?z } ?> 
+<title><?z print($TituloPags) ?></title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<script src="/func.js" language="JavaScript"> <!-- Todo el contenido va aqui--></script>    
+<link rel="stylesheet" href="/estilos.css">
+</head>
+<body onLoad="Read_XML_File()" bgcolor="#F2FFE6" text="#333333" link="#FFFFFF" vlink="#FFFFFF" alink="#FFFFFF">
+
+
+
+<table width="60%" height="536" border="0" align="center" bgcolor="#FFFFFF">
+  <tr> 
+    <td width="16%" height="1147" valign="top"><p>&nbsp;</p>    </td><td width="84%" height="1147" valign="top"> 
+      <table width="727" border="1" cellspacing="0" cellpadding="0" height="493" bordercolor="#333399">
+        <tr align="center" bgcolor="#333399"> 
+          <td width="723" height="22" bgcolor="#333399"><p><b><font color="#FFFFFF" size="4" face="Arial"><a name="aprendi"></a>Ayuda: Aprendizaje de Comandos Infrarrojos </font></b></p>          </td>
+        </tr>
+        <tr align="center" valign="top"> 
+          <td width="723" height="463" bordercolor="#FFFFFF">              <table width="100%" height="346" border="2">
+            <tr>
+              <td height="312" align="left"><font size="2" face="Arial" align="left"><strong>Importante: Esta descripci&oacute;n es un resumen de la incluida en el manual del equipo.</strong></font>                <ul>
+                <li><strong>1. Reconocimiento del tipo de control remoto.
+                  </strong>                
+                    </li>
+              </ul>
+                <blockquote>
+                  <p>Previamente a seleccionar las opciones disponibles en &eacute;sta pantalla, se deber&aacute; determinar el tipo de control remoto que utilizan sus equipos de aire acondicionado. </p>
+                  <p>A los tipos de control los denominaremos: “On-Off”y “Tipo TV”. </p>
+                  <p>Si al pulsarse el bot&oacute;n de encendido/Apagado del control remoto, el display indica la temperatura y dem&aacute;s estados seteados y al presionarse nuevamente el bot&oacute;n ON-OFF el control remoto deja de mostrar alguna de la informaci&oacute;n anterior (aunque sea m&iacute;nima), es porque el control es de dos estados . Es decir del tipo “On-Off”. </p>
+                  <p>Si luego de presionar el bot&oacute;n ON-OFF el control remoto muestra exactamente la misma informaci&oacute;n, es porque el control remoto es de un solo estado o “Tipo&nbsp;TV”. </p>
+                </blockquote>                
+                <ul>
+                  <li><strong>2. Reestablecimiento de Alimentaci&oacute;n el&eacute;ctrica</strong></li>
+                  </ul>                
+                <blockquote>
+                  <p>Es muy importante determinar si los equipos de aire acondicionado, se reencienden autom&aacute;ticamente luego de un corte de energ&iacute;a, fundamentalmente en el caso de los que funcionan con controles remoto “Tipo TV”. <br>
+                      Consulte el manual de usuario de sus equipos de aire acondicionado, o bien realice la prueba de cortar la energ&iacute;a el&eacute;ctrica y luego restituirla para tomar nota de c&oacute;mo se comporta el equipo de aire en dicha circunstancia. </p>
+                </blockquote>                <ul>
+                  <li><strong>3. Configuraci&oacute;n inicial de la secci&oacute;n de comandos infrarrojos.</strong></li>
+                </ul>                <blockquote>
+                    <p>Una vez determinados el tipo de control remoto y que acci&oacute;n realiza el equipo de aire luego de un corte de energ&iacute;a, se configurar&aacute;n los par&aacute;metros correspondientes para cada equipo de aire. </p>
+                    <p>Los botones en la secci&oacute;n Registro de comandos se habilitar&aacute;n en funci&oacute;n de lo seleccionado en las mencionadas opciones. </p>
+                    <p>El modo compatibilidad se utiliza exclusivamente en el caso de que los comandos grabados en el controlador no puedan ser detectados por el aire acondicionado. </p>
+                    <p>Consulte a nuestro soporte en el caso que se presente la situaci&oacute;n mencionada. </p>
+                    </blockquote>                
+                <ul>
+                  <li><strong>4. Procedimiento de registro de mandos del control remoto<br>
+                  </strong>
+                    <ol>
+                        <li> Presione el bot&oacute;n de encendido/apagado del control remoto como para que &eacute;ste quede en el estado encendido y, sin apuntar el control remoto al equipo de aire , ajuste la temperatura y los dem&aacute;s par&aacute;metros de acuerdo a sus requerimientos (Posici&oacute;n de flaps, velocidad del ventilador, etc) para el equipo de Aire acondicionado 1. <br>
+                        </li>
+                        <li>Presione nuevamente el bot&oacute;n de encendido del control remoto como para que &eacute;ste pase al estado de Apagado. Esto no producir&aacute; ning&uacute;n cambio para los controles remotos “Tipo TV”. <br>
+                        </li>
+                        <li> Presione el bot&oacute;n Registrar Encendido del cuadro correspondiente a Equipo AA1. Se encender&aacute;n los indicadores Alta Temperatura y el de Equipo 1.<br> 
+                        </li>
+                        <li>Apunte el control remoto al receptor que se encuentra dentro del controlador, cerca del borde superior de la placa principal. <br>
+                          <br>
+                          Presione y Suelte el bot&oacute;n sin dejar de apuntar el control remoto al receptor. <br>
+                          <br>
+                          No aleje el control remoto del receptor hasta que los indicadores de Alta Temperatura y Equipo 1 se apaguen. <br>
+                          <br>
+                          Tenga presente que muchos controles remotos, emiten el comando cuando se suelta el bot&oacute;n y no cuando se presiona, por lo que no debe alejar el control remoto hasta que los indicadores mencionados se apaguen. <br>
+                        </li>
+                        <li>Verificar que el control remoto est&eacute; en el estado de encendido. (No aplica para controles remotos “Tipo TV”. <br>
+                        </li>
+                        <li>Presione el bot&oacute;n Registrar Apagado del Equipo AA1. <br>
+                          Se encender&aacute;n los indicadores de Falla de l&iacute;nea y el de Equipo 1.<br>
+                        </li>
+                        <li> A punte el control remoto al receptor que se encuentra dentro del controlador, cerca del borde superior de la placa principal. Presione y Suelte el bot&oacute;n sin dejar de apuntar el control remoto al receptor. <br>
+                            <br>
+                          No aleje el control remoto del receptor hasta que los indicadores de Falla de L&iacute;nea y Equipo 1 se apaguen. <br>
+                          <br>
+                          Tenga presente que muchos controles remotos, emiten el comando cuando se suelta el bot&oacute;n y no cuando se presiona, por lo que no debe alejar el control remoto hasta que los indicadores mencionados se apaguen. <br>
+                                                                                                                                    </li>
+                        <li> Para registrar el comando de “ <em>Reestablecimiento” </em>de temperatura, proceda de la siguiente manera: 
+                          <ol>
+                            <li> Presione el bot&oacute;n de encendido/apagado del control remoto, para que el control muestre su estado de encendido. En el caso de control remoto “Tipo TV”no notar&aacute; ning&uacute;n cambio al presionar ese bot&oacute;n. </li>
+                            <li> Modifique la temperatura de ajuste en 1 (un) grado por encima o 1(un) grado por debajo de la temperatura que registr&oacute; para el encendido (punto 3). Por ejemplo, si ajust&oacute; la temperatura del aire a 22 grados, ajuste ahora la temperatura a 23 o a 21 grados.                            </li>
+                            <li> Presione el bot&oacute;n “Reestablecimiento”. Se encender&aacute; el led de <em>Equipo 1 </em> y el de <em>Fijo. </em></li>
+                            <li>Apunte el control remoto al receptor que se encuentra dentro del controlador, cerca del borde superior de la placa principal. Presione y Suelte el bot&oacute;n sin dejar de apuntar el control remoto al receptor. <br>
+                              <br>
+        No aleje el control remoto del receptor hasta que los indicadores de <em>Fijo y Equipo 1 </em> se apaguen. <br>
+                                                      </li>
+                          </ol>
+                        </li>
+                        <li> Presione los botones Probar correspondientes al encendido, reenvio comando y apagado del equipo Equipo 1. <br>
+                        </li>
+                        <li>De no producirse el efecto deseado con alguno de los comandos, repita el procedimiento de grabado del comando que no funciona. <br>
+                        </li>
+                        <li>Repita los pasos 1 a 10 para el aprendizaje de los c&oacute;digos para el Equipo&nbsp;2. <strong><br>
+                        </strong></li>
+                        <li> Si luego de varios intentos de grabaci&oacute;n los equipos de aire no detectan NUNGUNO de los comandos, realice los pasos indicados en el apartado Calibraci&oacute;n de Emisi&oacute;n Infrarroja. </li>
+                    </ol>
+                    </li>
+                  </ul>
+                <p>&nbsp;</p>                </td>
+            </tr>
+          </table>            
+            <div align="left"><br>
+            </div>
+            <table width="100%" height="218" border="2">
+              <tr>
+                <td height="24" bgcolor="#333399"><div align="center"><font color="#FFFFFF" size="4" face="Arial"><strong><a name="calibra"></a>Ayuda: Calibraci&oacute;n de emisi&oacute;n infrarroja </strong></font></div></td>
+              </tr>
+              <tr>
+                <td height="183" align="left"><p align="left"><font size="3" face="Arial"><strong>Muy Importante: <br>
+                </strong></font><font size="2" face="Arial">Esta opci&oacute;n debe ser utilizada <strong>Exclusivamente</strong> en caso de que no haya funcionado la <em><strong>prueba</strong></em> de aprendizaje de alguno de los c&oacute;digos de control remoto.<br>
+                <br>
+                </font><font size="2" face="Arial">Cada equipo de aire puede requerir una calibraci&oacute;n diferente. el n&uacute;mero preestablecido es<strong> 137. </strong></font></p>
+                  <p align="left"><font size="2" face="Arial" align="left"><strong>Procedimiento: </strong></font></p>
+                  <ol>
+                    <li>
+                      <div align="left">
+                        <p><font size="2" face="Arial" align="left">                        </font><font size="2" face="Arial">Presionar el bot&oacute;n <em><strong>&quot;Calibrar</strong></em>&quot; del equipo de aire correspondiente. la constante de calibraci&oacute;n comenzar&aacute; a incrementarse cada 4 segundos aporximadamente. </font></p>
+                      </div>
+                    </li>
+                    <li>
+                      <div align="left">
+                        <p><font size="2" face="Arial">Presione el bot&oacute;n <strong><em>&quot;Registar Calibraci&oacute;n&quot;</em></strong> correspondiente cuando el equipo de aire reconozca el comando<br>
+                          ( lo advertir&aacute; porque el equipo de aire emitir&aacute; un beep corto).</font></p>
+                      </div>
+                    </li>
+                    <li>
+                      <p><font size="2" face="Arial">Presione nuevamente el bot&oacute;n <em><strong>prueba</strong></em> correspondiente para verificar la calibraci&oacute;n. </font></p>
+                    </li>
+                  </ol>                  <div align="center"></div>                  </td>
+              </tr>
+            </table>
+          <p>&nbsp;</p></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

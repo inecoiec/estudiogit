@@ -1,0 +1,38 @@
+<sv>
+	<sa700-response>
+		<!-- Tipos de variables : int=integer, flo=float, str=string, --> 
+        <!-- ======================================================== -->
+		
+		<!-- Encendido de equipos [ 0-1-2-12 ] -->
+		 <intEstEquipo value="<?z print($EstVariables.EqOn)?>"/>
+		<!-- Estado variable falla de linea[ 100 <= X <= 109 ] -->
+		 <intbitAcFail value="<?z print($EstVariables.bitAcFail)?>"/>
+		<!-- Estado variable alta temperatura[ 500 <= X <= 509 ] -->	
+		 <intbitTmpAlta value="<?z print($EstVariables.bitTmpAlta)?>"/>
+		<!-- Estado variable Secuenciador Fijo[ 800 - 801 ] -->	
+		 <intbitSecFijo value="<?z print($EstVariables.wFijo)?>"/>
+		<!-- Estado Codigo de e-mail[ 2000 <= X <= 9999 ] -->	
+		 <intCodEmail value="<?z print($EstVariables.CodEmail)?>"/>
+		<!-- Estado Indicador baja bateria[ 0-1 ] -->	
+		 <intLowBattery value="<?z print($EstVariables.pfiLowBattery)?>"/>
+		<!-- Estado Activacion corte por baja bateria[ 0-1 ] -->	
+		 <intCorteBaja value="<?z print($EstVariables.pfoCorteBaja)?>"/>		
+		<!-- Horas Min y Seg para proxima conmutacion: [00 a 99, 00 a 59 , 00 a 59] -->
+		 <intNextConmHH value="<?z print($vHoras)?>"/>
+		 <intNextConmMM value="<?z print($vMinutos)?>"/>
+		 <intNextConmSS value="<?z print($vSegundos)?>"/>
+		<!-- Estado de linea: [ OK- MAL ] -->
+		 <strEstLinea value="<?z print($wEstLinea)?>"/>
+		<!-- Estado de temperatura: [ OK- MAL ] -->		
+		 <strEstTemp value="<?z print($wEstTemp)?>"/> 
+		<!-- Estado de Equipos: [ On - Off - EqMal] -->		
+ 	 	 <strEstEq1 value="<?z print($wEstEq1)?>"/> 
+ 	 	 <strEstEq2 value="<?z print($wEstEq2)?>"/> 
+		<!-- Estado del Secuenciador: [ Activo -Fijo - Wait] -->		
+ 	 	 <strEstSec value="<?z print($wEstSec)?>"/> 
+
+		<!-- Estado de Delay de medicion temp: [ Delay - Nada] -->		
+ 	 	 <strEstDelayMed value="<?z print($wEstDelayMed)?>"/> 
+	
+	</sa700-response>
+</sv>

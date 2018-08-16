@@ -1,0 +1,5 @@
+f3:ef91[  4] -> d9 cd 00 00 f3:ef95[  4] -> ef 21 00 00 f3:ef99[  1] -> ef f3:ef9a[  6] -> 00 ef cd 00 00 00 f3:efa0[  1] -> ef f3:efa1[  5] -> 00 ef 21 00 00 f3:efa6[  4] -> ef 21 00 00 f3:efaa[  1] -> ef f3:efab[  5] -> 00 ef 21 00 00 f3:efb0[  4] -> ef 21 00 00 f3:efb4[  1] -> ef f3:efb5[  a] -> 00 ef c4 02 e5 cd 91 1f 27 02 f3:efbf[  4] -> ef 21 00 00 f3:efc3[  7] -> ef cd 00 00 00 27 02 f3:efca[  4] -> ef 21 ff ff f3:efce[  6] -> ef d9 cd 00 00 c9 f3:efae[  1] -> e5 f3:efaf[  1] -> 01 *0000ivec_base
+*1F7Dscod_base
+*0000roms
+*0000version=dcw
+*0000library=dcw

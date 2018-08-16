@@ -1,0 +1,130 @@
+.Negro{
+	color: #000000;
+	font-family: Arial;
+	font-weight: bold;
+	font-size: 11px;
+}
+.OK{
+	color: #000000;
+	font-family: Arial;
+	font-weight: normal;
+	font-size: 18px;
+	background-color: #33FF66;
+	text-decoration: none;
+}
+
+.Mal{
+	color: #FFFFFF;
+	font-family: Arial;
+	font-weight: bold;
+	font-size: 18px;
+	background-color: #FF0000;
+	text-decoration: blink;
+}
+.EqMal{
+	color: #FFFFFF;
+	font-family: Arial;
+	font-weight: bold;
+	font-size: 18px;
+	background-color: #FF0000;
+	text-decoration: blink;
+}
+
+.Off{
+	color: #CCCCCC;
+	font-family: Arial;
+	font-weight: bold;
+	font-size: 24px;
+	background-color: #666666;
+	text-decoration: none;
+}
+.On{
+	color: #000000;
+	font-family: Arial;
+	font-weight: bold;
+	font-size: 24px;
+	background-color: #FFECC4;
+}
+.Bold1 {
+	color: #000000;
+	font-family: Arial;
+	font-weight: bold;
+	font-size: 22px;
+}
+.DivMediciones {
+	background-color: #00FF99;
+	border-top-color: #00FF33;
+	border-top-width: thin;
+	display: marker;
+	width: auto;
+}
+
+.Fijo{
+	color: #000000;
+	font-family: Arial;
+	font-weight: bold;
+	font-size: 16px;
+	background-color: #FFFF00;
+	text-decoration: none;
+}
+.Espera{
+	color: #FFFFFF;
+	font-family: Arial;
+	font-weight: bold;
+	font-size: 16px;
+	background-color: #0033CC;
+	text-decoration: none;
+}
+.Activo{
+	color: #000000;
+	font-family: Arial;
+	font-weight: bold;
+	font-size: 16px;
+	background-color: #CCFFCC;
+	text-decoration: none;
+}
+.Servicio{
+	color: #000000;
+	font-family: Arial;
+	font-weight: bold;
+	font-size: 16px;
+	background-color: #CCFFCC;
+	text-decoration: none;
+}
+.Detenido{
+	color: #000000;
+	font-family: Arial;
+	font-weight: bold;
+	font-size: 16px;
+	background-color: #FFCC66;
+	text-decoration: none;
+}
+.Delay{
+	color: #000000;
+	font-family: Arial;
+	font-weight: bold;
+	font-size: 18px;
+	background-color: #99FFCC;
+	text-decoration: none;
+}
+.Delay{
+	color: #000000;
+	font-family: Arial;
+	font-weight: bold;
+	font-size: 18px;
+	background-color: #99FFCC;
+	text-decoration: none;
+}
+.X{
+	color: #99FFCC;
+	font-family: Arial;
+	font-weight: bold;
+	font-size: 18px;
+	background-color: #99FFCC;
+	text-decoration: none;
+	font-style: normal;
+}
+
+body {
+	background-color: #E5E5E5;
+}

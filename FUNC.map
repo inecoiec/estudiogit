@@ -1,0 +1,163 @@
+// Compilers view of MMU. Note these values are determined by the origin statements in the BIOS.
+//Segment           Origin     Size
+Root Code           00:0000    001fd4
+Root Data           00:c832    0055ed
+Xmem Code           00:e40c    000000
+
+
+
+// Function mapping and source reference.
+// * The size of labels is indeterminate and so is denoted with an asterisk.
+//  Addr     Size   Function                        File                         Line Num
+    1f91       67   catch                           \FUNC.JS                           25
+
+
+// Global/static data symbol mapping and source reference.
+//  Addr     Size   Symbol                          File                         Line Num  Type
+
+// Parameter and local auto symbol mapping and source reference.
+//Offset Rel. to     Size   Symbol                          File                         Line Num  Type
+       2      SP        2   catch:err                       \FUNC.JS                           26  int             
+
+
+// Macro listing and source reference.
+//  Name                           File                         Line Num
+   _RESTRICT_WATCHCODE_            
+   USE_PORTA_AUX_IO                \DEFAULT.H                        239
+   ADC_ONBOARD                     \DEFAULT.H                        240
+   ZWORLD_RESERVED_SIZE            \DEFAULT.H                        241
+   __RCM37XX_LIB                   \RCM37XX.LIB                        2
+   LCDCSREGISTER                   \RCM37XX.LIB                       39
+   LCDCSSHADOW                     \RCM37XX.LIB                       40
+   LCDCSCONFIG                     \RCM37XX.LIB                       41
+   LCDSTROBE                       \RCM37XX.LIB                       42
+   KEYCSREGISTER                   \RCM37XX.LIB                       44
+   KEYCSSHADOW                     \RCM37XX.LIB                       45
+   KEYCSCONFIG                     \RCM37XX.LIB                       46
+   KEYSTROBE                       \RCM37XX.LIB                       47
+   LCDBASEADDR                     \RCM37XX.LIB                       52
+   KEYBASEADDR                     \RCM37XX.LIB                       53
+   ADC_SCLKBAUD                    \RCM37XX.LIB                       63
+   AD_OSC_ENABLE                   \RCM37XX.LIB                       66
+   AD_OSC_DISABLE                  \RCM37XX.LIB                       70
+   ADDIRECT                        \RCM37XX.LIB                       75
+   ADREADINS                       \RCM37XX.LIB                       76
+   ADWRITEINS                      \RCM37XX.LIB                       77
+   ADLEN8                          \RCM37XX.LIB                       78
+   ADLEN16                         \RCM37XX.LIB                       79
+   ADMODE0                         \RCM37XX.LIB                       80
+   ADMODE1                         \RCM37XX.LIB                       81
+   ADMODE2                         \RCM37XX.LIB                       82
+   ADMODE3                         \RCM37XX.LIB                       83
+   ADLSBYTE                        \RCM37XX.LIB                       86
+   ADMSBYTE                        \RCM37XX.LIB                       87
+   ADPGAREG                        \RCM37XX.LIB                       88
+   ADCNTLREG                       \RCM37XX.LIB                       89
+   ADGAINMUXREG                    \RCM37XX.LIB                       90
+   ADDIOSTATEREG                   \RCM37XX.LIB                       91
+   ADDIOCNTLREG                    \RCM37XX.LIB                       92
+   ADREFOSCREG                     \RCM37XX.LIB                       93
+   ADSICREG                        \RCM37XX.LIB                       94
+   ADIDREG                         \RCM37XX.LIB                       95
+   ADSINGLE                        \RCM37XX.LIB                       98
+   ADDIFFNL                        \RCM37XX.LIB                       99
+   GAIN_1                          \RCM37XX.LIB                      101
+   GAIN_2                          \RCM37XX.LIB                      102
+   GAIN_4                          \RCM37XX.LIB                      103
+   GAIN_5                          \RCM37XX.LIB                      104
+   GAIN_8                          \RCM37XX.LIB                      105
+   GAIN_10                         \RCM37XX.LIB                      106
+   GAIN_16                         \RCM37XX.LIB                      107
+   GAIN_20                         \RCM37XX.LIB                      108
+   ADOVERFLOW                      \RCM37XX.LIB                      829
+   SE_DEVCHAN                      \RCM37XX.LIB                      830
+   ADC_CALIB_ADDRS                 \RCM37XX.LIB                      981
+   ADC_CALIB_ADDRD                 \RCM37XX.LIB                      982
+   ADC_CALIB_ADDRM                 \RCM37XX.LIB                      983
+   CALIB_START                     \RCM37XX.LIB                      985
+   CALIB_END                       \RCM37XX.LIB                      986
+   MAXAIN                          \RCM37XX.LIB                      988
+   ADCHANNELS                      \RCM37XX.LIB                      989
+   ADCHANNELD                      \RCM37XX.LIB                      990
+   ADCHANNELM                      \RCM37XX.LIB                      991
+   ADCHANNELALL                    \RCM37XX.LIB                      992
+   SINGLE                          \RCM37XX.LIB                      994
+   DIFF                            \RCM37XX.LIB                      995
+   mAMP                            \RCM37XX.LIB                      996
+   ALLCHAN                         \RCM37XX.LIB                     1425
+   __LCD122KEY7_LIB                \LCD122KEY7.LIB                     2
+   LCDMREADSTATUS                  \LCD122KEY7.LIB                    90
+   LCDMWRITEINSTR                  \LCD122KEY7.LIB                    91
+   LCDSREADSTATUS                  \LCD122KEY7.LIB                    92
+   LCDSWRITEINSTR                  \LCD122KEY7.LIB                    93
+   LCDMREADDATA                    \LCD122KEY7.LIB                    94
+   LCDMWRITEDATA                   \LCD122KEY7.LIB                    95
+   LCDSREADDATA                    \LCD122KEY7.LIB                    96
+   LCDSWRITEDATA                   \LCD122KEY7.LIB                    97
+   LCDBACKLIGHT                    \LCD122KEY7.LIB                    99
+   LCDLEDREG                       \LCD122KEY7.LIB                   102
+   LCDLED0ADDR                     \LCD122KEY7.LIB                   103
+   LCDLEDADDR                      \LCD122KEY7.LIB                   104
+   KEYADDR                         \LCD122KEY7.LIB                   107
+   __KEYPAD7_LIB                   \KEYPAD7.LIB                        2
+   SET_EXTBUFFER_RD                \KEYPAD7.LIB                       11
+   SET_EXTBUFFER_WR                \KEYPAD7.LIB                       15
+   __MSCG12232_LIB                 \MSCG12232.LIB                      2
+   LCD_XS                          \MSCG12232.LIB                     27
+   LCD_YS                          \MSCG12232.LIB                     28
+   PIXEL_XS                        \MSCG12232.LIB                     34
+   PIXEL_YS                        \MSCG12232.LIB                     35
+   PIXGROUP                        \MSCG12232.LIB                     36
+   XMEM_BUF_SIZE                   \MSCG12232.LIB                     37
+   LCDON                           \MSCG12232.LIB                    123
+   LCDOFF                          \MSCG12232.LIB                    124
+   LCDSETLINE                      \MSCG12232.LIB                    126
+   LCDSETPAGE                      \MSCG12232.LIB                    127
+   LCDSETCOLUMN                    \MSCG12232.LIB                    128
+   LCDLEFTWARD                     \MSCG12232.LIB                    130
+   LCDRIGHTWARD                    \MSCG12232.LIB                    131
+   LCDSTATICDRIVEON                \MSCG12232.LIB                    133
+   LCDSTATICDRIVEOFF               \MSCG12232.LIB                    134
+   LCDDUTYCYCLE1_16                \MSCG12232.LIB                    136
+   LCDDUTYCYCLE1_32                \MSCG12232.LIB                    137
+   LCDRMWBEGIN                     \MSCG12232.LIB                    139
+   LCDRMWEND                       \MSCG12232.LIB                    140
+   LCDRESET                        \MSCG12232.LIB                    142
+   LCDBUSY                         \MSCG12232.LIB                    145
+   LCDDISPDIR                      \MSCG12232.LIB                    146
+   LCDISON                         \MSCG12232.LIB                    147
+   LCDRESETING                     \MSCG12232.LIB                    148
+   BACKLIGHTOFF                    \MSCG12232.LIB                    151
+   BACKLIGHTON                     \MSCG12232.LIB                    152
+   LCDDISPLAYOFF                   \MSCG12232.LIB                    155
+   LCDDISPLAYON                    \MSCG12232.LIB                    156
+   LCDMASTER                       \MSCG12232.LIB                    159
+   LCDSLAVE                        \MSCG12232.LIB                    160
+   MAXTIMEOUT                      \MSCG12232.LIB                    163
+   LCDMASK                         \MSCG12232.LIB                    167
+   GLBUFMASK                       \MSCG12232.LIB                    168
+   GLMASKCNT                       \MSCG12232.LIB                    169
+   __GRAPHIC_LIB                   \GRAPHIC.LIB                       51
+   FONTOFFSET                      \GRAPHIC.LIB                       57
+   NO_BORDER                       \GRAPHIC.LIB                      119
+   SINGLE_LINE                     \GRAPHIC.LIB                      123
+   DOUBLE_LINE                     \GRAPHIC.LIB                      127
+   PIXBLACK                        \GRAPHIC.LIB                      372
+   PIXWHITE                        \GRAPHIC.LIB                      373
+   PIXXOR                          \GRAPHIC.LIB                      374
+   __6X8L_LIB                      \6X8L.LIB                           2
+   __8X10L_LIB                     \8X10L.LIB                          2
+   __12X16_LIB                     \12X16L.LIB                         2
+   __COURIER12_LIB                 \COURIER12.LIB                      2
+   __R3000_LIB__                   \R3000.LIB                         18
+   QD_DIVISOR                      \R3000.LIB                         21
+   QD_OVERFLOW                     \R3000.LIB                         23
+   QD_UNDERFLOW                    \R3000.LIB                         24
+   PWM_FREQ_FACTOR                 \R3000.LIB                        288
+   PWM_SPREAD                      \R3000.LIB                        340
+   PWM_OPENDRAIN                   \R3000.LIB                        341
+   __PROGRAM_LIB                   \PROGRAM.LIB                        2
+
+
+// Function call graph.
+No call graph information available.

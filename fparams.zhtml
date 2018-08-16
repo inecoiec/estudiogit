@@ -1,0 +1,543 @@
+<html>
+<head>
+
+
+<title><?z print($TituloPags) ?></title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<script src="/func.js" language="JavaScript"> <!-- Todo el contenido va aqui--></script>    
+<link rel="stylesheet" href="/estilos.css">
+<style type="text/css">
+<!--
+.Estilo1 {color: #FFFFFF}
+.Estilo3 {color: #FFFFFF; font-weight: bold; }
+.Estilo4 {font-family: Arial}
+-->
+</style></head>
+<body onLoad="Read_XML_File('PARAMS')" bgcolor="#F2FFE6" text="#333333" link="#FFFFFF" vlink="#FFFFFF" alink="#FFFFFF">
+
+
+
+<table width="60%" height="536" border="0" align="center" bgcolor="#FFFFFF">
+  <tr valign="top" align="left"> 
+    <td height="60" colspan="2"> <a href="/frmmens.zhtml"><font color="#333399" face="Times New Roman, Times, serif" size="4"><b> 
+      </b></font></a><!-- #BeginLibraryItem "/Library/panel.lbi" -->
+<style type="text/css">
+<!--
+.Estilo1 {color: #FFFFFF}
+.Estilo2 {
+	font-family: Arial, Helvetica, sans-serif;
+	font-weight: bold;
+}
+-->
+</style>
+<div id="Panel">
+  <table width="99%" border="0" align="center">
+    <tr>
+      <td width="822" bgcolor="#333333"><div align="center"><span class="Estilo1"><?z print($config.wAsunto)?></span></div></td>
+    </tr>
+  </table>
+</div>
+<table width="99%" border="1">
+  <tr>
+    <td width="30%" height="44" ><table width="104%"  border="0" cellspacing="0" cellpadding="1">
+        <tr>
+          <td width="42%" height="37"><span class="Bold1">Temp:</span></td>
+          <td width="31%"><span class="Bold1"><div id="idLectTemp" ></div></span></td>
+          
+		  <td width="27%"><span class="Bold1">C</span></td>
+        </tr>
+    </table></td>
+    <td width="30%" ><table width="100%"  border="0" cellspacing="0" cellpadding="1">
+        <tr class="Bold1">
+          <td width="45%" height="37">Hum:</td>
+          <td width="35%"><div id="idLectHum" ></div></td>
+          <td width="20%" class="Bold1">%</td>
+        </tr>
+    </table></td>
+	<td width="21%" valign="middle"><div align="center" class="Estilo4"><b>
+        <span class="Estilo3">
+        <?z print($wModelo)?>
+        </span></b><span class="Estilo3"></span></div></td>
+    <td width="19%" valign="middle"><font size="3" color="#333399" face="Times New Roman, Times, serif"><b><a href="/iec/fparams.zhtml"><img src="/Encabe2.jpg" alt="" name="refresh1" width="190" height="41" border="0" align="middle" id="refresh1"></a></b></font></td>
+  </tr>
+</table>
+<div align="center"></div>
+<table border="1" width="99%" height="75" name="VisEstados" bordercolor="#666600" cellspacing="0" align="center">
+  <tr>
+    <td width="158" align="center" height="35" bgcolor="#FFFFCC">
+      <p align="center"><font color="#000000" face="Times New Roman, Times, serif"><b><font size="4">AA1</font></b> </font> </td>
+    <td width="152" align="center" height="35" bgcolor="#FFFFCC"><font color="#000000" face="Times New Roman, Times, serif"><b><font size="4">&nbsp;AA2</font></b></font></td>
+    <td width="79" align="center" height="35" bgcolor="#CC6633">
+      <p align="center"><font color="#FFFFFF" face="Times New Roman, Times, serif"><b>Temp.</b></font> </td>
+    <td width="75" align="center" height="35" bgcolor="#CC6633">
+      <p align="center"><font color="#FFFFFF" face="Times New Roman, Times, serif"><b> 220 V</b></font> </td>
+    <td width="163" align="center" height="35" bgcolor="#CC6633"><font color="#FFFFFF" face="Times New Roman, Times, serif"><b>Secuenciador</b></font></td>
+    <td bgcolor="#006666" align="center" height="35" width="209"> <font size="3" color="#333333" face="Times New Roman, Times, serif"><b><font size="4" color="#FFFFFF">Conmutaci&oacute;n en:</font></b></font><font color="#FFFFFF" face="Times New Roman, Times, serif" size="4"><b>&nbsp;</b> </font></td>
+            <td height="35" colspan="3" align="center" bgcolor="#006666"><font color="#FFFFFF" face="Times New Roman, Times, serif" size="4"><b><div id="idProxConm"><font size="3" color="#333333" face="Times New Roman, Times, serif"><b><font size="4" color="#FFFFFF"></font></b></font><font color="#FFFFFF" face="Times New Roman, Times, serif" size="4"><b>&nbsp;</b></font></div>
+            </b></font></td>
+  </tr>
+    <tr>
+    <!-- <img src="./hang<?z echo($currentGIF) ?>.gif" height="145" width="120"> -->
+    <td id="CeldaEq1" width="158" align="center" height="38">
+      <div id="idEstEq1"></div></td>
+    <td id="CeldaEq2" width="152" align="center" height="38">
+      <div id="idEstEq2"></div></td>
+    <td id="CeldaTemp" width="79" align="center" height="38"><div id="idEstTemp"></div></td>
+    <td id="Celda220" width="75" align="center" height="38"><div id="idEst220"></div></td>
+    <td id="CeldaSec" width="163" align="center" height="38"><div id="idEstSec"></div></td>
+    <td id="CeldaModo" width="209" align ="center" height="38"><div id="idEstModo"></div></td>
+    <td id="CeldaDelay" width="166" align ="center" height="38"><div id="idEstDelay"></div></td>
+  </tr>
+  <center>
+  </center>
+</table><!-- #EndLibraryItem --></tr>
+  <tr> 
+    <td width="16%" height="1147" valign="top"><!-- #BeginLibraryItem "/Library/Navegacion.lbi" --><table width="156" border="1" cellpadding="0" height="304" cellspacing="0">
+        <tr bgcolor="#333399" valign="middle" align="center"> 
+          <td width="152" height="25"> 
+            <p><font face="Times New Roman, Times, serif" color="#FFFFFF"><b><a href="/linklogout.cgi">Ver Par&aacute;metros</a></b></font></p>
+          </td>
+        </tr>
+        <tr bgcolor="#669999" valign="middle"> 
+          <td width="152" height="25"><font face="Times New Roman, Times, serif" color="#FFFFFF"><b>Configuraci&oacute;n</b></font></td>
+        </tr>
+        <tr bgcolor="#333399" valign="middle" align="center"> 
+          <td width="152" height="25"> 
+            <p><font color="#FFFFFF" face="Times New Roman, Times, serif"><b><a href="/ftiempos.zhtml">Tiempos</a></b></font></p>
+          </td>
+        </tr>
+        <tr bgcolor="#333399" valign="middle" align="center"> 
+          <td width="152" height="25"> 
+            <p><font color="#FFFFFF" face="Times New Roman, Times, serif"><b><a href="/ftemp.zhtml">Temperatura</a></b></font></p>
+          </td>
+        </tr>
+        <tr bgcolor="#333399" valign="middle" align="center"> 
+          <td width="152" height="25"> 
+            <p><font color="#FFFFFF" face="Times New Roman, Times, serif"><b><a href="/frmred.zhtml">Red</a></b></font></p>
+          </td>
+        </tr>
+        <tr bgcolor="#333399" valign="middle" align="center"> 
+          <td width="152" height="25"><font color="#FFFFFF" face="Times New Roman, Times, serif"><b><a href="/frmmens.zhtml">Mensajes</a></b></font></td>
+        </tr>
+        <tr bgcolor="#333399" valign="middle" align="center">
+          <td height="25"><font color="#FFFFFF" face="Times New Roman, Times, serif"><b><a href="/frmsnmp.zhtml">Parametros SNMP </a></b></font></td>
+        </tr>
+        <tr bgcolor="#333399" valign="middle" align="center">
+          <td height="25"><font color="#FFFFFF" face="Times New Roman, Times, serif"><b><a href="/fcomirojo.zhtml">Comandos Infrarojos</a></b></font></td>
+        </tr>
+        <tr bgcolor="#669999" valign="middle" align="left"> 
+          <td width="152" height="24"><font color="#FFFFFF" face="Times New Roman, Times, serif"><b>Administraci&oacute;n</b></font></td>
+        </tr>
+        <tr bgcolor="#333399" valign="middle" align="center"> 
+          <td width="152" height="24"> 
+            <p><font color="#FFFFFF" face="Times New Roman, Times, serif"><b><a href="/frmcontrol.zhtml">Control 
+              del SA-712W</a></b></font></p>
+          </td>
+        </tr>
+        <tr bgcolor="#333399" valign="middle" align="center"> 
+          <td width="152" height="23"> 
+            <p>
+          </td>
+        </tr>
+        <tr valign="top"> 
+          <td width="152" height="31">
+            <p align="center">&nbsp;</p>
+            <p align="center"><font size="2" face="Arial, Helvetica, sans-serif" color="#000000">
+              <INPUT name="button1" type="button" onClick="location.href='/linklogout.cgi'" value="     Logout   ">
+            </font></p>
+            <p align="center">&nbsp;</p>          </td>
+        </tr>
+      </table>
+<!-- #EndLibraryItem --><p>&nbsp;</p>    </td><td width="84%" height="1147" valign="top"> 
+      <table width="727" border="1" cellspacing="0" cellpadding="0" height="244" bordercolor="#333399">
+        <tr align="center" bgcolor="#333399"> 
+          <td width="723" height="21"> 
+            <p><b><font color="#FFFFFF" face="Times New Roman, Times, serif" size="4">Par&aacute;metros 
+              : USO INTERNO </font></b></p>
+          </td>
+        </tr>
+        <tr align="center" valign="top" bgcolor="#FF0033"> 
+          <td width="723" height="109" bordercolor="#FFFFFF"> 
+            <p><b><font color="#FFFFFF" size="4">ATENCION :</font></b></p>
+            <p><font color="#FFFFFF" size="4">La modificaci&oacute;n incorrecta 
+              de &eacute;stos par&aacute;metros puede traer como consecuencia 
+              el mal funcionamiento de la unidad. </font></p>
+            <p><font color="#FFFFFF" size="4"><br>
+              <b>Cont&aacute;ctese con Soporte t&eacute;cnico antes de realizar 
+              alg&uacute;n cambio</b></font><font color="#FFFFFF"><b>.</b></font></p>
+            <p><b><font color="#FFFFFF">4586-2166</font></b></p>
+          </td>
+        </tr>
+        <tr align="center" valign="top"> 
+          <td width="723" height="465" bordercolor="#FFFFFF"><p>&nbsp;</p>
+            <table width="90%" border="2" cellspacing="0" cellpadding="0" height="82" bordercolor="#CCCCCC">
+              <tr bgcolor="#006666"> 
+                <td colspan="4" height="22"><b><font color="#FFFFFF">Simulaciones</font></b></td>
+              </tr>
+              <tr> 
+                <td width="34%" height="31"> 
+                  <div align="center"><font color="#000066" face="Times New Roman, Times, serif" size="3"><a href="/iec/btsimulht.cgi"><font color="#990066">&gt; 
+                    Alta temperatura</font></a></font></div>
+                </td>
+                <td width="31%" height="31"> 
+                  <div align="center"><font face="Times New Roman, Times, serif" color="#003399"><a href="/iec/btsimulcom.cgi"><font color="#990033">&gt; 
+                    Compensaci&oacute;na</font></a></font></div>
+                </td>
+                <td colspan="2" width="35%" height="31" align="center"><font face="Times New Roman, Times, serif" color="#003399"><a href="/iec/btsimultn.cgi"><font color="#990033">&lt; 
+                  Temperatura normal</font></a></font></td>
+              </tr>
+              <tr> 
+                <td width="34%" height="32"> 
+                  <div align="center"><font face="Times New Roman, Times, serif" color="#003399"><a href="/iec/btbajacomp.cgi"><font color="#990033">&lt; 
+                    Compensaci&oacute;n</font></a> </font></div>
+                </td>
+                <td width="31%" height="32">&nbsp; </td>
+                <td colspan="2" width="35%" height="32" align="center">&nbsp;</td>
+              </tr>
+              <tr> 
+                <td colspan="4" height="39"> 
+                  <div align="center"><font face="Times New Roman, Times, serif" color="#003399"><a href="/iec/btrstltemp.cgi"><b><font color="#990033">Restaurar 
+                    Lectura </font></b></a></font></div>
+                </td>
+              </tr>
+              <tr> 
+                <td colspan="4" height="39"> 
+                  <div align="center"><font color="#330066"><a href="/iec/btsilbuzz.cgi">Buzzer</a></font></div>
+                </td>
+              </tr>
+            </table>
+            <table width="90%" border="1" cellspacing="0" cellpadding="0" height="82">
+              <tr bgcolor="#006666"> 
+                <td colspan="4" height="22"><b><font color="#FFFFFF">Carga de 
+                  par&aacute;metros</font></b></td>
+              </tr>
+              <tr> 
+                <td width="32%" height="51"> 
+                  <div align="center"><a href="/iec/btdefault.cgi"><font color="#003399">Par&aacute;metros 
+                    de f&aacute;brica</font></a></div>
+                </td>
+                <td width="36%" height="51"> 
+                  <div align="center"><a href="/iec/btdemo.cgi"><font color="#003399"> 
+                    Valores Demo</font></a></div>
+                </td>
+                <td colspan="2" width="32%" height="51" align="center"><font face="Times New Roman, Times, serif" color="#003399"><a href="/iec/btwork.cgi"><font color="#990033">Valores 
+                  Work</font></a></font></td>
+              </tr>
+            </table>
+            <br>
+            <table width="90%" border="1" cellspacing="0" cellpadding="0" height="82">
+              <tr bgcolor="#006666"> 
+                <td colspan="4" height="22"><b><font color="#FFFFFF">Comados especiales 
+                  </font></b></td>
+              </tr>
+              <tr> 
+                <td width="32%" height="51"> 
+                  <div align="center"><a href="/iec/bthreset.cgi"><font color="#6666FF"><b>Resetear 
+                    Controlador</b></font></a> </div>
+                </td>
+                <td width="36%" height="51"> 
+                  <div align="center"><a href="/iec/btdemo.cgi"><font color="#0000FF"> 
+                    </font></a><a href="/btpruebamail.cgi"><font color="#333399"> 
+                    e-mail de prueba</font></a> </div>
+                </td>
+                <td colspan="2" width="32%" height="51" align="center">&nbsp;</td>
+              </tr>
+            </table>
+            <br>            <table width="75%" height="169"  border="1" cellpadding="0" cellspacing="0">
+              <tr bgcolor="#006666">
+                <td colspan="4"><span class="Estilo3">Visualizacion Registros Infrarrojos </span></td>
+              </tr>
+              <tr>
+                <td colspan="2"><div align="center"><strong>AA1</strong></div></td>
+                <td colspan="2"><div align="center"><strong>AA2</strong></div></td>
+              </tr>
+              <tr>
+                <td width="23%"><div align="center">Registro</div></td>
+                <td width="26%"><div align="center">Valor= j</div></td>
+                <td width="24%"><div align="center">Registro</div></td>
+                <td width="27%"><div align="center">Valor=j</div></td>
+              </tr>
+              <tr>
+                <td><div align="center">
+                  <?z print($config.vintIrReg1Ai)?>
+                </div></td>
+                <td><div align="center">
+                  <?z print($wIr_reg1A)?>
+                </div></td>
+                <td><div align="center">
+                    <?z print($config.vintIrReg2Ai)?>
+                </div></td>
+                <td><div align="center">
+                    <?z print($wIr_reg2A)?>
+                </div></td>
+              </tr>
+              <tr>
+                <td><div align="center">
+                  <?z print($config.vintIrReg1Bi)?>
+                </div></td>
+                <td><div align="center">
+                  <?z print($wIr_reg1B)?>
+                </div></td>
+                <td><div align="center">
+                    <?z print($config.vintIrReg2Bi)?>
+                </div></td>
+                <td><div align="center">
+                    <?z print($wIr_reg2B)?>
+                </div></td>
+              </tr>
+              <tr>
+                <td><div align="center">
+                  <?z print($config.vintIrReg1Ci)?>
+                </div></td>
+                <td><div align="center">
+                  <?z print($wIr_reg1C)?>
+                </div></td>
+                <td><div align="center">
+                    <?z print($config.vintIrReg2Ci)?>
+                </div></td>
+                <td><div align="center">
+                    <?z print($wIr_reg2C)?>
+                </div></td>
+              </tr>
+              <tr>
+                <td><div align="center">
+                  <?z print($config.vintIrReg1Di)?>
+                </div></td>
+                <td><div align="center">
+                  <?z print($wIr_reg1D)?>
+                </div></td>
+                <td><div align="center">
+                    <?z print($config.vintIrReg2Di)?>
+                </div></td>
+                <td><div align="center">
+                    <?z print($wIr_reg2D)?>
+                </div></td>
+              </tr>
+            </table>            <p>&nbsp;</p>            
+            <form method="post" action="/iec/fparams.zhtml">
+              <table width="75%" height="218"  border="1" cellpadding="0" cellspacing="0">
+                <tr bgcolor="#006666">
+                  <td colspan="4"><span class="Estilo3">Modificaci&oacute;n Registros IR ( i ) y Valores ( j ) </span></td>
+                </tr>
+                <tr>
+                  <td colspan="2"><div align="center"><strong>AA1</strong></div></td>
+                  <td colspan="2"><div align="center"><strong>AA2</strong></div></td>
+                </tr>
+                <tr>
+                  <td width="23%" height="33"><div align="center" class="Estilo4"><strong>Registro#</strong></div></td>
+                  <td width="26%"><div align="center" class="Estilo4"><strong>Valor= j</strong></div></td>
+                  <td width="24%"><div align="center" class="Estilo4"><strong>Registro#</strong></div></td>
+                  <td width="27%"><div align="center" class="Estilo4"><strong>Valor=j</strong></div></td>
+                </tr>
+                <tr>
+                  <td><div align="center"><font face="Times New Roman, Times, serif">
+                      <input name="config.vintIrReg1Ai" type="text" id="config.vintIrReg1Ai" value="<?z print($config.vintIrReg1Ai)?>" size="15">
+                  </font></div></td>
+                  <td><div align="center">
+                    <input name="config.vintIrReg1Aj" type="text" id="config.vintIrReg1Aj" value="<?z print($config.vintIrReg1Aj)?>" size="15">
+                  </div></td>
+                  <td><div align="center"><font face="Times New Roman, Times, serif">
+                      <input name="config.vintIrReg2Ai" type="text" id="config.vintIrReg2Ai" value="<?z print($config.vintIrReg2Ai)?>" size="15">
+                  </font></div></td>
+                  <td><div align="center">
+                      <input name="config.vintIrReg2Aj" type="text" id="config.vintIrReg2Aj" value="<?z print($config.vintIrReg2Aj)?>" size="15">
+                  </div></td>
+                </tr>
+                <tr>
+                  <td><div align="center"><font face="Times New Roman, Times, serif">
+                      <input name="config.vintIrReg1Bi" type="text" id="config.vintIrReg1Bi" value="<?z print($config.vintIrReg1Bi)?>" size="15">
+                  </font> </div></td>
+                  <td><div align="center">
+                    <input name="config.vintIrReg1Bj" type="text" id="config.vintIrReg1Bj" value="<?z print($config.vintIrReg1Bj)?>" size="15">
+                  </div></td>
+                  <td><div align="center"><font face="Times New Roman, Times, serif">
+                      <input name="config.vintIrReg2Bi" type="text" id="config.vintIrReg2Bi" value="<?z print($config.vintIrReg2Bi)?>" size="15">
+                  </font> </div></td>
+                  <td><div align="center">
+                      <input name="config.vintIrReg2Bj" type="text" id="config.vintIrReg2Bj" value="<?z print($config.vintIrReg2Bj)?>" size="15">
+                  </div></td>
+                </tr>
+                <tr>
+                  <td><div align="center">
+                      <input name="config.vintIrReg1Ci" type="text" id="config.vintIrReg1Ci" value="<?z print($config.vintIrReg1Ci)?>" size="15">
+                  </div></td>
+                  <td><div align="center">
+                    <input name="config.vintIrReg1Cj" type="text" id="config.vintIrReg1Cj" value="<?z print($config.vintIrReg1Cj)?>" size="15">
+                  </div></td>
+                  <td><div align="center">
+                      <input name="config.vintIrReg2Ci" type="text" id="config.vintIrReg2Ci" value="<?z print($config.vintIrReg2Ci)?>" size="15">
+                  </div></td>
+                  <td><div align="center">
+                      <input name="config.vintIrReg2Cj" type="text" id="config.vintIrReg2Cj" value="<?z print($config.vintIrReg2Cj)?>" size="15">
+                  </div></td>
+                </tr>
+                <tr>
+                  <td><div align="center">
+                      <input name="config.vintIrReg1Di" type="text" id="config.vintIrReg1Di" value="<?z print($config.vintIrReg1Di)?>" size="15">
+                  </div></td>
+                  <td><div align="center">
+                    <input name="config.vintIrReg1Dj" type="text" id="config.vintIrReg1Dj" value="<?z print($config.vintIrReg1Dj)?>" size="15">
+                  </div></td>
+                  <td><div align="center">
+                      <input name="config.vintIrReg2Di" type="text" id="config.vintIrReg2Di" value="<?z print($config.vintIrReg2Di)?>" size="15">
+                  </div></td>
+                  <td><div align="center">
+                      <input name="config.vintIrReg2Dj" type="text" id="config.vintIrReg2Dj" value="<?z print($config.vintIrReg2Dj)?>" size="15">
+                  </div></td>
+                </tr>
+                <tr>
+                  <td>&nbsp;</td>
+                  <td>&nbsp;</td>
+                  <td>&nbsp;</td>
+                  <td>&nbsp;</td>
+                </tr>
+                <tr>
+                  <td><div align="center">Div IR </div></td>
+                  <td><div align="center">
+                    <input name="config.vintDivCr1" type="text" id="config.vintDivCr1" value="<?z print($config.vintDivCr1)?>" size="15">
+                  </div></td>
+                  <td> <div align="center">Div IR </div></td>
+                  <td><div align="center">
+                    <input name="config.vintDivCr2" type="text" id="config.vintDivCr2" value="<?z print($config.vintDivCr2)?>" size="15">
+                  </div></td>
+                </tr>
+              </table>
+              <p>
+                <input type="submit" value="Grabar Nuevos Valores" name="B1">
+                <input type="reset" value="Restablecer" name="B2">
+              </p>
+            </form>            <p>&nbsp;</p>
+            <form method="POST" action="/iec/fparams.zhtml">
+              <p><font face="Times New Roman, Times, serif" color="#000000"><?z print($wMailStatus)?></font></p>
+              <table width="89%" border="1" bordercolor="#FFCC99">
+                <tr bgcolor="#006666"> 
+                  <td colspan="6"><b><font color="#FFFFFF">Lectura de Par&aacute;metros 
+                    de trabajo</font></b></td>
+                </tr>
+                <tr bgcolor="#FFFFCC"> 
+                  <td width="24%" height="33">cVerifyTempAlta</td>
+                  <td width="12%" height="33" align="center"><?z print($EstVariables.cVerifyTempAlta)?></td>
+                  <td width="21%" height="33">bitAcFail</td>
+                  <td width="11%" height="33" align="center"><?z print($EstVariables.bitAcFail)?></td>
+                  <td width="27%" height="33">cMensStatus</td>
+                  <td width="5%" height="33" align="center"><?z print($EstVariables.cMensStatus)?></td>
+                </tr>
+                <tr bgcolor="#FFFFCC"> 
+                  <td width="24%" height="33">cVeryfyTempComp</td>
+                  <td width="12%" height="33" align="center"><?z print($EstVariables.cVerifyTempCompen)?></td>
+                  <td width="21%" height="33">bitTmpAlta</td>
+                  <td width="11%" height="33" align="center"><?z print($EstVariables.bitTmpAlta)?></td>
+                  <td width="27%" height="33">cRepRepoTemp</td>
+                  <td width="5%" height="33" align="center"><?z print($EstVariables.cRepiteRepoTemp)?></td>
+                </tr>
+                <tr bgcolor="#FFFFCC"> 
+                  <td width="24%" height="33">cFallaLinea</td>
+                  <td width="12%" height="33" align="center"><?z print($EstVariables.cFallaLinea)?></td>
+                  <td width="21%" height="33">wFijo</td>
+                  <td width="11%" height="33" align="center"><?z print($EstVariables.wFijo)?></td>
+                  <td width="27%" height="33">cSendMail</td>
+                  <td width="5%" height="33" align="center"><?z print($EstVariables.cSendMail)?></td>
+                </tr>
+                <tr bgcolor="#FFFFCC"> 
+                  <td width="24%" height="33">cEsperaTemp</td>
+                  <td width="12%" height="33" align="center"><?z print($EstVariables.cEsperaTemp)?></td>
+                  <td width="21%" height="33">bitCompen</td>
+                  <td width="11%" height="33" align="center"><?z print($EstVariables.bitCompen)?></td>
+                  <td width="27%" height="33">&nbsp;</td>
+                  <td width="5%" height="33" align="center">&nbsp;</td>
+                </tr>
+                <tr bgcolor="#FFFFCC"> 
+                  <td width="24%" height="33">cEsperaComp</td>
+                  <td width="12%" height="33" align="center"><?z print($EstVariables.cEsperaComp)?></td>
+                  <td width="21%" height="33">bitEsperaTemp</td>
+                  <td width="11%" height="33" align="center"><?z print($EstVariables.bitEsperaTemp)?></td>
+                  <td width="27%" height="33">cTestAlarmas2Eq</td>
+                  <td width="5%" height="33" align="center"><?z print($EstVariables.cTestAlarmas2Eq)?></td>
+                </tr>
+                <tr bgcolor="#FFFFCC"> 
+                  <td width="24%" height="33">&nbsp;</td>
+                  <td width="12%" height="33" align="center">&nbsp;</td>
+                  <td width="21%" height="33">bitEsperaCompen</td>
+                  <td width="11%" height="33" align="center"><?z print($EstVariables.bitEsperaCompen)?></td>
+                  <td width="27%" height="33">cTestAlarmasFijoHT</td>
+                  <td width="5%" height="33" align="center"><?z print($EstVariables.cTestAlarmasFijoHT)?></td>
+                </tr>
+                <tr bgcolor="#FFFFCC"> 
+                  <td width="24%" height="33">&nbsp;</td>
+                  <td width="12%" height="33" align="center">&nbsp; </td>
+                  <td width="21%" height="33">bitMinConmut</td>
+                  <td width="11%" height="33" align="center"><?z print($EstVariables.bitMinConmut)?></td>
+                  <td width="27%" height="33">cTestAlarmasCompen</td>
+                  <td width="5%" height="33" align="center"><?z print($EstVariables.cTestAlarmasCompen)?></td>
+                </tr>
+                <tr bgcolor="#FFFFCC"> 
+                  <td width="24%">EqOn</td>
+                  <td width="12%" align="center"><?z print($EstVariables.EqOn)?></td>
+                  <td width="21%" height="33">&nbsp;</td>
+                  <td width="11%" height="33" align="center">&nbsp;</td>
+                  <td width="27%" height="33">&nbsp;</td>
+                  <td width="5%" height="33" align="center">&nbsp;</td>
+                </tr>
+                <tr bgcolor="#FFFFCC"> 
+                  <td width="24%">EnaRutAcFail</td>
+                  <td width="12%" align="center"><?z print($EstVariables.EnaRutAcFail)?></td>
+                  <td width="21%">CodEmail</td>
+                  <td width="11%" align="center"><?z print($EstVariables.CodEmail)?></td>
+                  <td width="27%">vintLectTemp</td>
+                  <td width="5%" align="center"><?z printf("%5.1f",$vintLectTemp) ?></td>
+                </tr>
+                <tr bgcolor="#FFFFCC"> 
+                  <td width="24%">EnaRutTmp</td>
+                  <td width="12%" align="center"><?z print($EstVariables.EnaRutTmp)?></td>
+                  <td width="21%">wMalTemp</td>
+                  <td width="11%" align="center"><?z print($EstVariables.wMalTemp)?></td>
+                  <td width="27%">vintTempPura</td>
+                  <td width="5%" align="center"><?z printf("%5.1f",$vintTempPura) ?></td>
+                </tr>
+                <tr bgcolor="#FFFFCC"> 
+                  <td width="24%">&nbsp;</td>
+                  <td width="12%" align="center">&nbsp;</td>
+                  <td width="21%">&nbsp;</td>
+                  <td width="11%" align="center">&nbsp;</td>
+                  <td width="27%">vintTempAnt</td>
+                  <td width="5%" align="center"><?z printf("%5.1f",$vinttempAnt) ?></td>
+                </tr>
+                <tr bgcolor="#FFFFCC"> 
+                  <td width="24%">&nbsp;</td>
+                  <td width="12%" align="center">&nbsp;</td>
+                  <td width="21%">fiLowBattery</td>
+                  <td width="11%" align="center"><?z print($EstVariables.pfiLowBattery)?></td>
+                  <td width="27%">&nbsp;</td>
+                  <td width="5%" align="center">&nbsp;</td>
+                </tr>
+                <tr bgcolor="#FFFFCC"> 
+                  <td width="24%">&nbsp;</td>
+                  <td width="12%" align="center">&nbsp;</td>
+                  <td width="21%">foCorteBaja</td>
+                  <td width="11%" align="center"><?z print($EstVariables.pfoCorteBaja)?></td>
+                  <td width="27%">&nbsp;</td>
+                  <td width="5%" align="center">&nbsp;</td>
+                </tr>
+                <tr bgcolor="#FFFFCC"> 
+                  <td width="24%" height="17">&nbsp;</td>
+                  <td width="12%" align="center" height="17">&nbsp;</td>
+                  <td width="21%" height="17">vintTempSense</td>
+                  <td width="11%" align="center" height="17"> 
+                    <input type="text" name="config.vintTempSense" size="2" maxlength="2" value="<?z print($config.vintTempSense)?>">
+                  </td>
+                  <td width="27%" height="17"> 
+                    <input type="submit" name="Submit" value="Enviar">
+                  </td>
+                  <td width="5%" align="center" height="17">&nbsp;</td>
+                </tr>
+              </table>
+              <p>&nbsp; </p>
+              <p>&nbsp;</p>
+          </form>          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>
